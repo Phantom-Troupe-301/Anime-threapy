@@ -1,0 +1,204 @@
+'use strict';
+
+require('dotenv').config();
+
+const express = require('express');
+
+const superagent = require('superagent');
+
+const cors = require('cors');
+
+
+const app = express();
+
+const PORT = process.env.PORT || 3030;
+
+app.set('view engine', 'ejs');
+
+app.use(cors());
+
+app.use(express.static('./public'));
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+let days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+let date = new Date();
+let today = date.getDay()
+var search = days[today - 1];
+var newsArray = [];
+
+app.get('/', (req, res) => {
+    let animeTop = [];
+    let url = `https://api.jikan.moe/v3/top/anime`;
+    let url2 = `https://api.jikan.moe/v3/schedule`;
+    superagent.get(url2).then((news) => {
+        if (search == 'friday') {
+            news.body.friday.map((topList) => {
+                let animeNews = new Genre(topList);
+                newsArray.push(animeNews);
+            });
+        } else if (search == 'saturday') {
+            news.body.saturday.map((topList) => {
+                let animeNews = new Genre(topList);
+                newsArray.push(animeNews);
+            });
+        } else if (search == 'sunday') {
+            news.body.sunday.map((topList) => {
+                let animeNews = new Genre(topList);
+                newsArray.push(animeNews);
+            });
+        } else if (search == 'monday') {
+            news.body.monday.map((topList) => {
+                let animeNews = new Genre(topList);
+                newsArray.push(animeNews);
+            });
+        } else if (search == 'tuesday') {
+            news.body.tuesday.map((topList) => {
+                let animeNews = new Genre(topList);
+                newsArray.push(animeNews);
+            });
+        } else if (search == 'wednesday') {
+            news.body.wednesday.map((topList) => {
+                let animeNews = new Genre(topList);
+                newsArray.push(animeNews);
+            });
+        } else if (search == 'thursday') {
+            news.body.thursday.map((topList) => {
+                let animeNews = new Genre(topList);
+                newsArray.push(animeNews);
+            });
+        }
+    });
+    superagent.get(url).then((topAnime) => {
+        topAnime.body.top.map((topList) => {
+            let TopAnimeData = new Top(topList);
+            animeTop.push(TopAnimeData);
+        });
+        res.render('./home', { top: animeTop });
+    });
+})
+
+function Top(topRank) {
+    this.rank = topRank.rank;
+    this.title = topRank.title;
+    this.image_url = topRank.image_url;
+    this.episodesOrVolumes = topRank.episodes || topRank.volumes || 'sitll';
+    this.type = topRank.type;
+    this.score = topRank.score;
+    this.start_date = topRank.start_date;
+    this.end_date = topRank.end_date || 'ongoing';
+}
+app.post('/anime', animeSaver);
+app.post('/genre', byGenre)
+
+function animeSaver(req, res) {
+    let animeSumarry = [];
+    let search_input = req.body.search;
+    console.log('asdasdasdasdasdasdasdasdasd', search_input)
+    let url = `https://kitsu.io/api/edge/anime?filter[text]=${search_input}`;
+    //     console.log('knknlnlknlknlnlkn', url)
+    superagent.get(url).then((dataOfAnime) => {
+        dataOfAnime.body.data.map((val) => {
+            var animeData = new Anime(val);
+            animeSumarry.push(animeData);
+            console.log(animeSumarry, 'asdkpasjdkhasdshdj');
+        });
+        res.render('./anime', { animeSearch: animeSumarry });
+    });
+}
+
+function Anime(data) {
+    this.title = data.attributes.canonicalTitle;
+    this.title_Japan = data.attributes.titles.ja_jp;
+    this.averageRating = data.attributes.averageRating;
+    this.date = data.attributes.createdAt;
+    this.image = data.attributes.posterImage.large;
+    this.gener_old = data.attributes.ageRatingGuide;
+    this.subtype = data.attributes.subtype;
+    this.status = data.attributes.status;
+    this.episodeCount = data.attributes.episodeCount;
+    this.episodeLength = data.attributes.episodeLength;
+    this.youtubeVideoId = data.attributes.youtubeVideoId;
+    this.synopsis = data.attributes.synopsis;
+}
+
+
+
+function byGenre(req, res) {
+    let genreSumarry = [];
+    let search_input = req.body.search;
+    console.log('fafafafafafa', req.body);
+    let url = `https://api.jikan.moe/v3/genre/anime/${search_input}`;
+
+    superagent.get(url).then((animeSearch) => {
+        animeSearch.body.anime.map((theAnime) => {
+            let geneerData = new Genre(theAnime);
+            genreSumarry.push(geneerData);
+            //   console.log('lkmsclkmaslkmxlkasmxlkm', theAnime.genres)
+        });
+        res.render("./genre", { genreAnemi: genreSumarry });
+    });
+}
+
+
+// function sewsServer(req, res) {
+//     let newsArray = [];
+//     let url = `https://api.jikan.moe/v3/schedule`
+//     superagent.get(url).then((news) => {
+//         if (search == 'friday') {
+//             news.body.friday.map((topList) => {
+//                 let TopAnimeData = new Genre(topList);
+//                 newsArray.push(TopAnimeData);
+//             });
+//         } else if (search == 'saturday') {
+//             news.body.friday.map((topList) => {
+//                 let TopAnimeData = new Genre(topList);
+//                 newsArray.push(TopAnimeData);
+//             });
+//         } else if (search == 'sunday') {
+//             news.body.friday.map((topList) => {
+//                 let TopAnimeData = new Genre(topList);
+//                 newsArray.push(TopAnimeData);
+//             });
+//         } else if (search == 'monday') {
+//             news.body.friday.map((topList) => {
+//                 let TopAnimeData = new Genre(topList);
+//                 newsArray.push(TopAnimeData);
+//             });
+//         } else if (search == 'tuesday') {
+//             news.body.friday.map((topList) => {
+//                 let TopAnimeData = new Genre(topList);
+//                 newsArray.push(TopAnimeData);
+//             });
+//         } else if (search == 'wednesday') {
+//             news.body.friday.map((topList) => {
+//                 let TopAnimeData = new Genre(topList);
+//                 newsArray.push(TopAnimeData);
+//             });
+//         } else if (search == 'thursday') {
+//             news.body.friday.map((topList) => {
+//                 let TopAnimeData = new Genre(topList);
+//                 newsArray.push(TopAnimeData);
+//             });
+//         }
+//         res.send(newsArray);
+//     });
+// }
+
+function Genre(data) {
+    this.title = data.title;
+    this.image_url = data.image_url;
+    this.synopsis = data.synopsis;
+    this.airing_start = data.airing_start;
+    this.type = data.type;
+    this.source = data.source;
+    this.episodes = data.episodes;
+    this.score = data.score;
+    this.producers = data.producers.name;
+    this.genres = data.genres;
+}
+
+app.listen(PORT, () => {
+    console.log(`this is our port ${PORT}`);
+})

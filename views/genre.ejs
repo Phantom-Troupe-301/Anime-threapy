@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- this.title = data.title;
+    this.image_url = data.image_url;
+    this.synopsis = data.synopsis;
+    this.airing_start = data.airing_start;
+    this.type = data.type;
+    this.source = data.source;
+    this.episodes = data.episodes;
+    this.score = data.score;
+    this.producers = data.producers.name;
+    //     if (data.genres.name === req.body.search) {
+    this.genres = data.genres.name; -->
+
+<body>
+    <%genreAnemi.forEach(val=>{%>
+        <h3>
+            <%=val.title%>
+        </h3>
+        <img src="<%=val.image_url%>" alt="<%=val.title%>">
+        <p> <span><b>description</b></span>
+            <%=val.synopsis%>
+        </p>
+        <h4>
+            <%=val.type%>
+        </h4>
+        <h6>
+            <%=val.airing_start%>
+        </h6>
+        <h6>
+            <%=val.source%>
+        </h6>
+        <h6>
+            <%=val.episodes%>
+        </h6>
+        <h6>
+            <%val.genres.forEach((data,i)=>{%>
+                <span><%=data.name%></span>
+                <%})%>
+        </h6>
+        <a href="/"><button>Details</button></a>
+        <%})%>
+</body>
+
+</html>
