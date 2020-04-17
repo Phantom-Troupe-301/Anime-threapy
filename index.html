@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime website for Otaku and film lovers">
+    <meta name="keywords" content="HTML,CSS,JavaScript,jquery,node js,ejs">
+    <meta name="author" content="Alaa almasri muna jebril ammar Al Hariri">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/lightslider.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <link rel="shortcut icon" type="images/png" href="images/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <title>Anime Threapy</title>
+</head>
+
+<body>
+    <div id="preloader">
+        <img src="images/anime-slides/giphy.gif">
+        <div class="website-intro">
+            <div class="intro-logo">
+                <img src="images/logo.png">
+            </div>
+            <div class="website-header-header">
+                <h1>Welcome to Anime Threapy</h1>
+
+            </div>
+        </div>
+        <div id="status"></div>
+    </div>
+    <section id="header-background">
+        <header>
+
+            <div id="logo">
+                <img src="images/logo.png" alt="anime-threapy-logo">
+            </div>
+            <div id="main-navbar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Faviourite List</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <div id="cart">
+                        <a href="#">
+                            <ion-icon name="cart-outline"></ion-icon>
+                        </a>
+                    </div>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div id="slider">
+                <figure>
+                    <div>
+
+                        <img src="images/anime-slides/attackontitan.jpg" class="sliderimage" alt="">
+                        <img src="images/anime-slides/death.jpg" class="sliderimage" alt="">
+                    </div>
+                    <div>
+                        <img src="images/anime-slides/heroacdemia2.jpg" class="sliderimage" alt="">
+                        <img src="images/anime-slides/tokyo.jpg" class="sliderimage" alt="">
+                    </div>
+                    <div>
+                        <img src="images/anime-slides/hell.jpg" class="sliderimage" alt="">
+                        <img src="images/anime-slides/stains.png" class="sliderimage" alt="">
+                    </div>
+                    <div>
+                        <img src="images/anime-slides/one puch.jpg" class="sliderimage" alt="">
+                        <img src="images/anime-slides/black.jpg" class="sliderimage" alt="">
+                    </div>
+                </figure>
+            </div>
+    </section>
+    <section id="anime-search">
+        <div class="search-header">
+            <h1>See Your Faviourite Anime</h1>
+            <div class="border-line"></div>
+            <h5>Search By title or Catagory</h5>
+            <div id="anime-user-choosing">
+                <button id="title-btn">Tittle</button>
+                <button id="catagory-btn">Catagory</button>
+            </div>
+        </div>
+        <form id="search-by-title" action="" method="POST">
+
+            <input type="text" id="anime-title" name="anime-title" placeholder="Search for your anime">
+            <ion-icon id="search" name="search-outline"></ion-icon>
+            <div id="search-btn">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+        <form id="search-by-catagory" action="" method="POST">
+            <select id="catagory-dropdown">
+                <option value="select your catagory">select your catagory</option>
+                <option value="Action" name="Action">Action</option>
+                <option value="Advanture" name="Advanture">Advanture</option>
+                <option value="life" name="life">slice of life</option>
+                <option value="romance" name="romance">romance</option>
+                <option value="horror" name="horror">horror</option>
+                <option value="history" name="history">history</option>
+                <option value="psychological" name="psychological">psychological</option>
+                <option value="drama" name="drama">drama</option>
+                <option value="supernatural" name="supernatural">supernatural</option>
+                <option value="magic" name="magic">magic</option>
+            </select>
+            <div id="second-search-btn">
+                <button type="submit">Search</button>
+            </div>
+        </form>
+
+    </section>
+    <section>
+        <div id="outer-box">
+            <h1>Top 10 Anime</h1>
+            <div id="control-btns">
+                <ion-icon id="arrow-right" name="arrow-forward-circle-outline"></ion-icon>
+                <ion-icon id="arrow-left" name="arrow-back-circle-outline"></ion-icon>
+                <div id="inner-box">
+                    <div id="slider1">
+                        <div id="vcards">
+                            <div class="vcard">
+                                <div class="anime-box">
+                                    <div class="anime-img">
+                                        <img src="images/anime-slides/death-note.jpg" alt="death-note">
+                                    </div>
+                                    <div class="anime-title">
+                                        <h1>Alaa</h1>
+                                    </div>
+                                    <div class="anime-details">
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem
+                                            temporibus ipsa voluptas nobis inventore non dolorum placeat omnis
+                                            voluptatum ipsum ratione ea reprehenderit, modi aliquam repudiandae
+                                            sit sed maiores quaerat.</p>
+                                    </div>
+                                    <a href="#" class="like">
+                                        <i class="fas fa-heart" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="vcard">
+                                <div class="anime-box">
+                                    <div class="anime-img">
+                                        <img src="images/anime-slides/death-note.jpg" alt="death-note">
+                                    </div>
+                                    <div class="anime-title">
+                                        <h1>Alaa</h1>
+                                    </div>
+                                    <div class="anime-details">
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem
+                                            temporibus ipsa voluptas nobis inventore non dolorum placeat omnis
+                                            voluptatum ipsum ratione ea reprehenderit, modi aliquam repudiandae
+                                            sit sed maiores quaerat.</p>
+                                        <a href="#" class="like">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="vcard">
+                                <div class="anime-box">
+                                    <div class="anime-img">
+                                        <img src="images/anime-slides/death-note.jpg" alt="death-note">
+                                    </div>
+                                    <div class="anime-title">
+                                        <h1>Alaa</h1>
+                                    </div>
+                                    <div class="anime-details">
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem
+                                            temporibus ipsa voluptas nobis inventore non dolorum placeat omnis
+                                            voluptatum ipsum ratione ea reprehenderit, modi aliquam repudiandae
+                                            sit sed maiores quaerat.</p>
+                                        <a href="#" class="like">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="vcard">
+                                <div class="anime-box">
+                                    <div class="anime-img">
+                                        <img src="images/anime-slides/death-note.jpg" alt="death-note">
+                                    </div>
+                                    <div class="anime-title">
+                                        <h1>Alaa</h1>
+                                    </div>
+                                    <div class="anime-details">
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem
+                                            temporibus ipsa voluptas nobis inventore non dolorum placeat omnis
+                                            voluptatum ipsum ratione ea reprehenderit, modi aliquam repudiandae
+                                            sit sed maiores quaerat.</p>
+                                        <a href="#" class="like">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="vcard">
+                                <div class="anime-box">
+                                    <div class="anime-img">
+                                        <img src="images/anime-slides/death-note.jpg" alt="death-note">
+                                    </div>
+                                    <div class="anime-title">
+                                        <h1>Alaa</h1>
+                                    </div>
+                                    <div class="anime-details">
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem
+                                            temporibus ipsa voluptas nobis inventore non dolorum placeat omnis
+                                            voluptatum ipsum ratione ea reprehenderit, modi aliquam repudiandae
+                                            sit sed maiores quaerat.</p>
+                                        <a href="#" class="like">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section id="News-letter">
+        <div class="slider">
+            <img src="images/anime-slides/anime-group.jpg">
+
+            <div class="slider-text">
+                <h2>NEWSLETTER</h2>
+            </div>
+            <div class="slider-content">
+                <p>Enter your email address to receive all news, updates on new arrivals, special offers and
+                    other discount information.</p>
+                <div id="email-feild">
+                    <input id="email" type="email" placeholder="Your-Email..." name="email">
+                    <button class="Subscribe">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="News">
+        <h1>News</h1>
+        <div class="border-bottom"></div>
+        <div id="news-content">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/uMeR2W19wT0" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            <div class="news-article-content-box">
+                <h1>Tokyo Ghoul</h1>
+                <span class="durition">1h 59min</span> <span class="catagory">Action ,Advanture,
+                    horror</span><span class="realese"> May 18, 2018 (USA)</span>
+                <p class="article-des-pargraph">askadjkasldjklaj Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Nemo rerum sapiente laboriosam excepturi dolore molestiae in quasi nihil
+                    modi labore. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus
+                    deserunt similique velit quas, quisquam enim laborum aliquam dignissimos atque aliquid. Vel,
+                    reiciendis! Nihil laudantium explicabo illum possimus culpa. Sunt, modi! Et alias harum
+                    cumque suscipit dolores eligendi debitis beatae asperiores?</p>
+            </div>
+        </div>
+    </section>
+    </main>
+
+    <footer>
+        <div class="footer-logo">
+            <img src="images/logo.png" alt="logo-footer">
+            <div id="navbar">
+                <ul>
+                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://www.pinterest.com/"   target="_blank"><i class="fab fa-pinterest-p"></i></a></li>
+                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"
+                                target="_blank"></i></a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                <p> &copy;2020 All Right Reserved by the Phantom troupe</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://kit.fontawesome.com/2ebd6f0149.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/lightslider.js"></script>
+    <script src="js/app.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+</body>
+
+</html>

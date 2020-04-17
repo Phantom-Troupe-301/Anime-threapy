@@ -1,0 +1,769 @@
+body
+{
+    font-family: 'Indie Flower', cursive;
+    overflow-y: scroll;
+    overflow-style: none
+}
+
+header {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#header-background {
+    background: linear-gradient(#00000091,#00000062),url(../images/red-blue-background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 650px;
+    background-size: 100%;
+}
+#logo img {
+    width: 32%;
+    margin: 8% 8%;
+}
+#main-navbar {
+    margin-top: 4%;
+    margin-right: 10%;
+    display: inline-block;
+}
+#main-navbar ul
+{
+
+list-style-type: none;
+}
+#main-navbar ul li {
+    display: inline-block;
+    font-size: 22px;
+    padding: 10px;
+}
+#main-navbar ul li a{
+  text-decoration: none;
+  color: #ffffff;
+}
+#main-navbar ul li a:hover
+{
+    text-shadow: 5px 10px 8px #888888;
+}
+
+#main-navbar ul li {
+    /* font-size: large; */
+    -webkit-animation: glowa 2s ease-in-out infinite alternate;
+    -moz-animation: glowa 2s ease-in-out infinite alternate;
+    animation: glowa 2s ease-in-out infinite alternate;
+}
+#cart
+{
+    display: inline-block;
+}
+ion-icon
+{
+    padding-top: 5px;
+    font-size: 35px;
+    color: #ffffff;
+    position: relative;
+    top: 9px;
+    transition: 0.3s ease;
+}
+ion-icon:hover
+{
+    color: #4b92f4;
+}
+
+.slides {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.anime-image {
+    width: 40%;
+    margin-top: 3%;
+    filter: brightness(0.5);
+    transition: 0.5s ease-in-out;
+}
+#slider {
+    width: 1330px;
+    height: 500px;
+    padding-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+#slider figure {
+    position: relative;
+    width: 500%;
+    height: 850px;
+    text-align: center;
+    margin: 0px;
+    left: 0px;
+    animation: 15s slider infinite;
+}
+#slider figure div {
+    width: 20%;
+    height: 100%;
+    float: left;
+}
+#slider figure div img {
+    width: 40%;
+    height: 350px;
+    margin-top: 3%;
+    margin-left: 5%;
+    filter: brightness(0.5);
+    transition: 1s ease-in-out;
+}
+#slider figure div img:hover
+{
+    filter: brightness(1);
+}
+.search-header
+{
+    margin-top: 3%;
+}
+.search-header h1
+{
+    text-align: center;
+    font-size: 40px;
+    font-family: "Roboto Slab", serif;      
+  font-weight: bolder;
+}
+.border-line {
+    display: block;
+    width: 20%;
+    margin: 1% auto;
+    border: 1px solid #c1c1c1;
+}
+.search-header h5
+{
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+}
+#anime-user-choosing {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#anime-user-choosing button {
+    margin-left: 4%;
+    padding: 26px;
+    border: none;
+    width: 10%;
+}
+#title-btn
+{
+border: 1px solid gray;
+transition: 0.3s ease-in;
+font-weight: 500;
+font-size: 15px;
+color: darkgray;
+font-weight: bold;
+border-radius: 10px;
+cursor: pointer;
+}
+#title-btn:hover
+{
+    background-color: #0059ff;
+}
+#catagory-btn:hover
+{
+    background-color: #e43f7a;
+}
+#catagory-btn
+{
+    cursor: pointer;
+    border-radius: 10px;
+    color: darkgray;
+    border: 1px solid gray;
+transition: 0.3s ease-in;
+font-weight: 500;
+font-size: 15px;
+font-weight: bold;
+
+}
+#anime-title {
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    margin: 2% 32%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+#search {
+    position: relative;
+    right: 64%;
+    color: #000;
+    font-size: 27px;
+}
+#search-btn
+{
+    text-align: center;
+}
+#search-btn button
+{
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+#search-btn button {
+    border: none;
+    padding: 20px;
+    width: 12%;
+    border-radius: 9px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #4b92f4;
+    transition: 0.5s ease-in-out;
+}
+.active1
+{
+    background-color: #4b92f4;
+    color: #fff !important;
+}
+#catagory-dropdown
+{
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+    margin: 2% 32%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+.active2
+{
+    background-color: #e43f7a;
+    color: #fff !important;
+}
+#second-search-btn
+{
+    text-align: center;
+}
+#second-search-btn button
+{
+    border: none;
+    padding: 20px;
+    width: 12%;
+    border-radius: 9px;
+    cursor: pointer;
+    background-color: #e43f7a;
+    transition: 0.5s ease-in-out;
+    color: #fff;
+}
+#outer-box
+{
+    border: 1px solid gray ;
+    border-radius: 25px;
+    height: 550px;
+    margin:5%;
+    background-color: gray;
+}
+#control-btns {
+    margin: 9% 0px;
+}
+
+
+#arrow-left {
+    font-size: 65px;
+    cursor: pointer;
+    z-index: 1;
+}
+#arrow-right {
+    float: right;
+    font-size: 65px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.container {
+    width: 100%;
+    position: relative;
+    bottom: 150px;
+    right: 0%;
+    justify-content: center;
+    align-items: center;
+}
+.anime-img
+{
+    text-align: center;
+    margin-top: 12px;
+}
+.anime-img img
+{
+    width: 50%;
+}
+.anime-box {
+    width: 200px;
+    height: 370px;
+    background-color: #1e1e2e;
+    border-radius: 2px;
+    margin-right: 7px;
+    box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    display: flex;
+    padding-bottom: 40px;
+    flex-direction: column;
+    margin-left: 5%;
+    align-items: center;
+    justify-content: space-between;
+}
+.anime-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    font-size: 14px;
+}
+.anime-details p {
+    font-family: 'calibiri';
+    font-weight: bold;
+    padding: 6px;
+    text-align: center;
+}
+.anime-title
+{
+    padding: 5%;
+}
+.anime-title h1
+{
+color: #323233;
+font-weight: bold;
+letter-spacing: 2px;
+font-family: bebas kai;
+font-size: 25px;
+}
+
+
+
+#slider1 {
+    overflow: hidden;
+    position: relative;
+    height: 500px;
+    width: 100%;
+    bottom: 150px;
+    left: 0.5%;
+    justify-content: center;
+    align-items: center;
+} 
+    
+    .vcard {
+        width: 200px;
+        margin: 0 10px;
+        height: 100px;
+        float: left;
+    } 
+          #prev
+          {
+              display: inline-block;
+          }
+    #vcards{
+    position:absolute;
+    top:0;
+    left:40px;
+    }      
+      
+#outer-box h1
+{
+    font-size: 25px;
+    padding-top: 5%;
+text-align: center;
+}
+.like {
+    border: none;
+    color: aliceblue;
+    left: 36%;
+    position: relative;
+    font-size: 2em;
+   
+}
+.heart i
+{
+    color: #f44336;
+}
+.heart
+{
+    animation: heart 0.5s linear;
+}
+
+#News
+{
+    width: 100%;
+    height: 300px;
+    box-sizing: border-box;
+    background-color: #BB789B;
+}
+.slider
+{
+    position: relative;
+   
+}
+.slider img {
+    width: 100%;
+    max-height: 400px;
+}
+.slider-text
+{
+    background: rgb(0,0,0,0.8);
+    position: absolute;
+    width: 100%;    
+    height: 100%;
+    top: 0;
+    right: 0;
+    text-transform: uppercase;
+    font-family: "Roboto Slab", serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    letter-spacing: 3px
+}
+.slider-text h2
+{
+    font-size: 40px;
+    padding-top: 70px;
+    color: #fff;
+    text-align: center;   
+}
+
+.slider-content {
+    position: absolute;
+    width: 60%;
+    top: 150px;
+    left: 20%;
+    text-align: center;
+    color: #fff;
+    padding-top: 3%;
+    
+}
+.slider-content p {
+    font-weight: 300;
+    font-size: 22px;
+    margin-top: 0;
+    line-height: 26px;
+    margin-bottom: 0;
+    letter-spacing: 3px;
+}
+#email-feild
+{
+    margin-top: 8%;
+}
+#email {
+    display: inline-block;
+    width: 35%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 2.5;
+    color: #fff;
+    opacity: 0.9;
+    background-color: #56525b;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+input::placeholder{
+    color: #fff;
+  }
+.Subscribe
+  {
+border: none;
+padding: 20px;
+border-radius: 5px;
+width: 20%;
+text-transform:uppercase;
+color: #ffffff;
+cursor: pointer;
+background-color: #0059ff;
+border: 2px solid #0059ff;
+box-sizing: border-box;
+transition: 0.3s ease-in-out;
+  }
+  .Subscribe:hover
+  {
+    background-color: rgb(0,0,0,0.9);
+
+
+  }
+   body {
+	overflow: hidden;
+       
+ }  
+ 
+ #preloader {
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background-color:#fff; /* change if the mask should be a color other than white */
+	 z-index:99;
+} 
+
+#preloader img
+{
+    width: 100%;
+}
+#status {
+	width:800px;
+	height:800px;
+	position:absolute;
+} */
+
+.website-intro img
+{
+    width: 40% !important;
+    
+}
+.intro-logo {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+}
+.website-header-header
+{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+}
+.website-header-header h1
+{
+font-size: 40px;
+font-weight: bolder;
+color: #ffffff;
+font-family: PT Sans,Helvetica,Arial,sans-serif;
+letter-spacing: normal;
+word-spacing: 15px;
+opacity: 0;
+animation: intro 5s ease-in-out;
+}
+
+#News h1
+{
+    text-align: center;
+    color: #fff;
+    letter-spacing: 3px;
+    margin-bottom: 5px;
+}
+#News
+{
+    background-color: #151515;
+    font-size: 40px;
+    padding-top: 25px;
+    font-weight: 600;
+    height: 600px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#news-content
+{
+    margin-top: 5%;
+display: flex;
+flex-flow: row;
+flex-wrap: wrap;
+}
+iframe {
+    margin: 2%;
+    display: inline-block;
+}
+.news-article-content-box {
+    padding-top: 3%;
+    width: 50%;
+}
+.news-article-content-box h1
+{
+    text-align: left  !important;
+}
+.durition , .catagory, .realese
+{
+font-size: 15px;
+color: #515151;
+padding-left: 10px;
+}
+.article-des {
+    padding-top: 11px;
+    line-height: 30px;
+    width: 53%;
+    font-size: 14px;
+    color: #fff;
+    box-sizing: border-box;
+}
+.news-article-content-box
+{
+    box-sizing: border-box;
+}
+.article-des-pargraph {
+    font-size: 15px;
+    padding-top: 10px;
+    padding-left: 12px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    color: #fff;
+    text-align: justify;
+}
+.border-bottom
+{
+    border-top: 2px solid gray;
+    width: 15%;
+    margin: 0 auto;
+}
+footer
+{
+    background: linear-gradient(#00000091,#00000062),url(../images/red-blue-background.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height:250px;
+}
+.footer-logo {
+    text-align: center;
+    padding-top: 3%;
+}
+.footer-logo img
+{
+    width:9%;
+    margin-top:5px;
+}
+#navbar
+{
+    padding-top: 4px;
+}
+#navbar ul li
+{
+    transition: 0.5s ease;
+display: inline-block;
+padding: 5px;
+}
+#navbar ul li a:hover
+{
+color: #fff;
+}
+.copyright p
+{
+    color: #fff;
+    padding-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+@keyframes intro 
+{
+    0%
+    {
+        opacity: 0;
+    }
+    20%
+    {
+        opacity: 1;
+    }
+    40%
+    {
+        opacity: 1;
+    }
+    50%
+    {
+        opacity: 1;
+    }
+    70%
+    {
+        opacity: 1;
+    }
+    80%
+    {
+        opacity: 1;
+    }
+    85%
+    {
+        opacity: 1;
+    }
+    90%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+    }
+
+    
+   
+}
+
+@keyframes heart
+{
+    0%
+    {
+        transform:rotate(0deg) scale(1.7);
+    }
+    40%
+    {
+        transform:rotate(0deg) scale(1);
+    }
+    41%
+    {
+        transform:rotate(360deg) scale(1);
+    }
+    100%
+    {
+        transform:rotate(0deg) scale(1);
+    }
+
+}
+@keyframes slider {
+    0% {
+        left: 0;
+
+    }
+    20% {
+        left: 0;
+
+    }
+    25% {
+        left: -100%;
+
+    }
+    45% {
+        left: -100%;
+
+    }
+    50% {
+        left: -200%;
+
+    }
+    70% {
+        left: -200%;
+
+    }
+    75% {
+        left: -300%;
+
+    }
+    90% {
+        left: -300%;
+
+    }
+    100% {
+        left: -300%;
+
+    }
+}
+@-webkit-keyframes glowa {
+    from {
+        color: #fff;
+        text-shadow: 0 0 10px #ff0800, 0 0 10px #d9ff00, 0 0 10px#ff0800, 0 0 10px#000b6e;
+    }
+    to {
+        text-shadow: 0 0 10px #1100ff, 0 0 10px #ff00b3, 0 0 20px#0059ff, 0 0 50px red;
+    }
+}
+
