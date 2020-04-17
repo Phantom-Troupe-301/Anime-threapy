@@ -41,4 +41,14 @@ $(document).ready(function() {
         e.preventDefault();
         $(this).toggleClass("heart");
     });
+    $('#news-vcards').width(function(){
+        var width = 0;                
+        $('.news-vcard').each(function(){
+            width += $(this).outerWidth(true);
+        });
+        return width;
+    }());
+    $('#next').on('click',function(){
+        $('#news-vcards').animate({left : "-=122"});
+        });
 });

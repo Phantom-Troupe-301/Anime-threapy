@@ -69,13 +69,14 @@ app.get('/', (req, res) => {
                 newsArray.push(animeNews);
             });
         }
+        res.render('./home', {top: animeTop, news:newsArray});
+        // res.render('./home', { top:animeTop},{news:newsArray});
     });
     superagent.get(url).then((topAnime) => {
         topAnime.body.top.map((topList) => {
             let TopAnimeData = new Top(topList);
             animeTop.push(TopAnimeData);
         });
-        res.render('./home', { top: animeTop });
     });
 })
 
