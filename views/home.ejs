@@ -155,32 +155,17 @@
             </div>
         </div>
     </section>
-    <section id="News-letter">
-        <div class="slider">
-            <img src="images/anime-slides/anime-group.jpg">
-
-            <div class="slider-text">
-                <h2>NEWSLETTER</h2>
-            </div>
-            <div class="slider-content">
-                <p>Enter your email address to receive all news, updates on new arrivals, special offers and other discount information.</p>
-                <div id="email-feild">
-                    <input id="email" type="email" placeholder="Your-Email..." name="email">
-                    <button class="Subscribe">Subscribe</button>
-                </div>
-            </div>
-        </div>
-    </section>
     <section id="News">
         <h1>News</h1>
         <div class="border-bottom"></div>
-        <div id="control-btns">
+        <!-- <div id="control-btns">
             <ion-icon id="arrow-right" name="arrow-forward-circle-outline"></ion-icon>
             <ion-icon id="arrow-left" name="arrow-back-circle-outline"></ion-icon>
-            <div id="inner-box">
-                <div id="slider1">
-                    <div id="vcards">
-                        <%top.forEach(val=>{%>
+            <div id="inner-box-news">
+                <div id="slider2">
+                    <div id="vcards-news">
+                        <div class="vcard-news">
+                        <%news.forEach(val=>{%>
                             <div id="news-content">
                                 <img src="<%= val.image_url%>" alt="">
                                 <div class="news-article-content-box">
@@ -196,11 +181,54 @@
                                     </p>
                                 </div>
                             </div>
+                            </div>
                             <%})%>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+        <style>
+            #news-slider{
+width:200px;
+overflow:hidden;
+position:relative;
+border:1px solid black;
+height:100px;
+}  
+
+.news-vcard{
+width:100px;
+margin: 0 10px;
+height:100px;
+float:left;
+}  
+      
+#news-vcards{
+position:absolute;
+top:0;
+left:40px;
+}        
+
+        </style>
+        <div id="news-slider">
+            <div id="news-vcards">
+                <%news.forEach(val=>{%>
+                <div class="news-vcard">
+                    <img src="<%= val.image_url%>" alt="">
+                    <h1>
+                        <%= val.title%>
+                    </h1>
+                    <span class="durition"><%= val.producers%></span>
+                    <span class="catagory"><%=val.name%></span>
+                    <span class="realese"> <%= val.airing_start%></span>
+                    <p class="article-des-pargraph">
+                        <%= val.synopsis%>
+                    </p>
+                </div>
+                <%})%>
+            </div>
+            </div>
+            <div id="next">Next</div>
 
     </section>
     </main>
