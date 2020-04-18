@@ -194,12 +194,11 @@ ion-icon:hover {
     font-size: 15px;
     font-weight: bold;
 }
-
 #anime-title {
     display: inline-block;
     width: 30%;
     text-align: center;
-    margin: 2% 32%;
+    margin: 2% 33.7%;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -209,10 +208,9 @@ ion-icon:hover {
     border: 1px solid #ced4da;
     border-radius: .25rem;
 }
-
 #search {
     position: relative;
-    right: 64%;
+    right: 63.5%;
     color: #000;
     font-size: 27px;
 }
@@ -412,11 +410,11 @@ ion-icon:hover {
 .like {
     border: none;
     color: aliceblue;
+    background-color: #1e1e2e;
     left: 36%;
     position: relative;
     font-size: 2em;
 }
-
 .heart i {
     color: #f44336;
 }
@@ -514,10 +512,6 @@ input::placeholder {
 
 .Subscribe:hover {
     background-color: rgb(0, 0, 0, 0.9);
-}
-
-body {
-    overflow: hidden;
 }
 
 #preloader {
@@ -703,18 +697,25 @@ footer {
     cursor: pointer;
     border: 1px solid;
     border-radius: 50%;
+    transition: 0.5s ease-in-out;
 }
 
-.right-btn
-{display: inline-block;
+.right-btn {
+    display: inline-block;
     margin-right: 40px;
     position: relative;
     padding: 10px;
     color: skyblue;
+    left: 18px;
     bottom: 370px;
     cursor: pointer;
     border: 1px solid;
     border-radius: 50%;
+    transition: 0.5s ease;
+}
+.right-btn:hover
+{
+    background-color:#000b6e;
 }
 #news-slider {
     width: 1263px;
@@ -777,6 +778,10 @@ footer {
     text-decoration: none;
     cursor: pointer;
   }
+  .left-button:hover {
+background-color:#000b6e;
+  }
+
 @keyframes intro {
     0% {
         opacity: 0;
