@@ -32,6 +32,9 @@ app.get('/index', function (req, res) {
 app.get('/Contact', function (req, res) {
     res.render('Contact');
 })
+app.get('/aboutUs',function (req,res){
+    res.render('aboutUs');
+})
 app.get('/', (req, res) => {
     let animeTop = [];
     let url = `https://api.jikan.moe/v3/top/anime`;

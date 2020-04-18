@@ -1,0 +1,58 @@
+#AboutUs{
+    text-align: center;
+    color: #f3f3f3;
+    font-size: 39px;
+    margin-top: 33px;
+}
+  
+
+h3{
+    text-align: center;
+    color: #000069;
+    margin-top: 44px;
+    font-size: 32px;
+    font-weight: bold;
+}
+hr{
+    width:143px;
+    color:white;
+}
+.member {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 268px;
+        height: 326px;
+   
+    background:url('../images/red-blue-background.jpg');
+    border: 1px solid black;
+    color:#f3f3f3;
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+img {
+    width:150px;
+    height: 150px;
+}
+.member-data{
+    text-align: center;
+    margin-top: 74px;
+}
+#members-box{
+   
+    display: flex;
+    justify-content: space-evenly;
+align-items: center;
+margin-top: 4%;
+margin-bottom: 4%;
+}
+.member-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 4%;
+}
