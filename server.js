@@ -7,7 +7,7 @@ const express = require('express');
 const superagent = require('superagent');
 
 const cors = require('cors');
-var request=require('request');
+var request = require('request');
 const app = express();
 
 const PORT = process.env.PORT || 3030;
@@ -26,7 +26,12 @@ let date = new Date();
 let today = date.getDay()
 var search = days[today - 1];
 var newsArray = [];
-
+app.get('/index', function (req, res) {
+    res.redirect('/');
+})
+app.get('/Contact', function (req, res) {
+    res.render('Contact');
+})
 app.get('/', (req, res) => {
     let animeTop = [];
     let url = `https://api.jikan.moe/v3/top/anime`;
@@ -68,8 +73,7 @@ app.get('/', (req, res) => {
                 newsArray.push(animeNews);
             });
         }
-        res.render('./home', {top: animeTop, news:newsArray});
-        // res.render('./home', { top:animeTop},{news:newsArray});
+        res.render('./home', { top: animeTop, news: newsArray });
     });
     superagent.get(url).then((topAnime) => {
         topAnime.body.top.map((topList) => {
@@ -141,38 +145,84 @@ function byGenre(req, res) {
     });
 }
 
-app.post('/',(req,res)=>{
-  
-    var email=req.body.email;
-    var data={
-        "members":[
-           {
+app.post('/', (req, res) => {
 
-               email_address:email,
-               status:'subscribed',
-           } 
+    var email = req.body.email;
+    var data = {
+        "members": [
+            {
+
+                email_address: email,
+                status: 'subscribed',
+            }
         ],
-      
-    }
-    var JSONdata=JSON.stringify(data);
 
-    var options={
-        url:'https://us19.api.mailchimp.com/3.0/lists/cae09b63f7',
-        method:'POST',
-        headers:{
-            "Authorization":"alaa c2022d468ec18180c4be2692c07ad7e9-us19"
-        
+    }
+    var JSONdata = JSON.stringify(data);
+
+    var options = {
+        url: 'https://us19.api.mailchimp.com/3.0/lists/cae09b63f7',
+        method: 'POST',
+        headers: {
+            "Authorization": "alaa c2022d468ec18180c4be2692c07ad7e9-us19"
+
         },
-         body:JSONdata
-    
-        }
-    
-    request(options,(error,response,body)=>{
-        if(response.statusCode === 200)
-        {
+        body: JSONdata
+
+    }
+
+    request(options, (error, response, body) => {
+        if (response.statusCode === 200) {
             alert("We will Contact u soon");
-    
+
         }
+    })
+
+})
+app.post('/contact', (req, res) => {
+    var firstname = req.body.firstname;
+    var lastname = req.body.lastname;
+    var email = req.body.email;
+    var Phone = req.body.phone;
+    var msg = req.body.message;
+   
+    var data = {
+        "members": [
+            {
+
+                email_address: email,
+                status: 'subscribed',
+                merge_fields:
+                {
+
+                    FNAME: firstname,
+                    LNAME: lastname,
+                    PHONE: Phone,
+                    MMERGE5: msg
+                }
+
+
+
+            }
+        ],
+
+    }
+    var JSONdata = JSON.stringify(data);
+
+    var options = {
+        url: 'https://us19.api.mailchimp.com/3.0/lists/cae09b63f7',
+        method: 'POST',
+        headers: {
+            "Authorization": "alaa c2022d468ec18180c4be2692c07ad7e9-us19"
+
+        },
+        body: JSONdata
+
+    }
+
+    request(options, (error, response, body) => {
+        console.log("message has been sent");
+        response.redirect("/");
     })
 
 })
