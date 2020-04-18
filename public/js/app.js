@@ -49,6 +49,9 @@ $(document).ready(function() {
         return width;
     }());
     $('#next').on('click',function(){
-        $('#news-vcards').animate({left : "-=122"});
+        $('#news-vcards').animate({left : "-=1310"});
         });
+        $('#right').on('click',function(){
+            $('#news-vcards').animate({left : "+=1310"});
+            });
 });
