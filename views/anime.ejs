@@ -8,43 +8,67 @@
 </head>
 
 <body>
-    <% animeSearch.forEach(data=>{%>
+    <header>
+        <ul>
+            <a href="#manga">
+                <li>
+                    Manga
+                </li>
+            </a>
+        </ul>
+    </header>
+    <section id="Anime">
+        <h2>Anime</h2>
+        <% animeSearch.forEach(data=>{%>
+
+            <h2>
+                <%= data.title %>
+            </h2>
+
+            <h6>
+                <%= data.averageRating%>
+            </h6>
+            <img src="<%= data.image%>" alt="  <%= data.title %>">
+            <h6>
+                <%= data.gener_old%>
+            </h6>
+            <form action="/details" method="POST">
+                <input type="text" name="search" value="<%= data.id%>" style="visibility: hidden ">
+                <br><button id="btnDetails" type="submit">more details</button></form>
+            <%}) %>
+    </section>
+    <section id="manga"></section>
+    <hr>
+    <h2>Manga</h2>
+    <ul>
+        <a href="#Anime">
+            <li>
+                Anime
+            </li>
+        </a>
+    </ul>
+
+    <%manga.forEach(data=>{%>
 
         <h2>
+            Title:
             <%= data.title %>
         </h2>
-        <h3>
-            <%= data.title_Japan%>
-        </h3>
+
         <h6>
+            Rating:
             <%= data.averageRating%>
         </h6>
-        <h6>
-            <%= data.date%>
-        </h6>
-        <img src="<%= data.image%>" alt="  <%= data.title %>">
+
+        <img src="<%= data.cover_image%>" alt="  <%= data.title %>">
         <h6>
             <%= data.gener_old%>
         </h6>
-        <h6>
-            <%= data.subtype%>
-        </h6>
-        <h6>
-            <%= data.status%>
-        </h6>
-        <h6>
-            <%= data.episodeCount%>
-        </h6>
-        <h6>
-            <%= data.episodeLength%>
-        </h6>
-        <p>
-            <%= data.synopsis%>
-        </p>
-        <iframe width="420" height="315" src="https://www.youtube.com/embed/<%= data.youtubeVideoId%>">
-</iframe>
 
-        <%}) %>
+        <form action="/details" method="POST">
+            <input type="text" name="search2" value="<%= data.id%>" style="visibility: hidden ">
+            <button id="btnDetails " type="submit ">more details</button></form>
+        <%})%>
 </body>
 
 </html>

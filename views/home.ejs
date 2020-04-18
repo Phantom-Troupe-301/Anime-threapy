@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    
+
     <!-- <div id="preloader">
         <div class="intro-logo">
             <img src="images/logo.png" style="width: 30%;">
@@ -128,30 +128,32 @@
                     <div id="slider1">
                         <div id="vcards">
                             <% for(let i=0;i<10;i++){%>
-                            <div class="vcard">
-                                <div class="anime-box">
-                                    <div class="anime-img">
-                                        <img src="<%= top[i].image_url%>" alt="death-note">
+                                <div class="vcard">
+                                    <div class="anime-box">
+                                        <div class="anime-img">
+                                            <img src="<%= top[i].image_url%>" alt="death-note">
+                                        </div>
+                                        <div class="anime-title">
+                                            <h1>
+                                                <%= top[i].title%>
+                                            </h1>
+                                        </div>
+                                        <div class="anime-details">
+                                            <p>
+                                                | <span class="rate"> score: <%= top[i].score%> </span> |
+                                                <br>
+                                                <br>
+                                                <span><%= top[i].episodesOrVolumes%> episodes</span>
+                                            </p>
+                                        </div>
+
+                                        <a href="#" class="like">
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
+                                        </a>
+
                                     </div>
-                                    <div class="anime-title">
-                                        <h1>
-                                            <%= top[i].title%>
-                                        </h1>
-                                    </div>
-                                    <div class="anime-details">
-                                        <p>
-                                            | <span class="rate"> score: <%= top[i].score%> </span> |
-                                            <br>
-                                            <br>
-                                            <span><%= top[i].episodesOrVolumes%> episodes</span>
-                                        </p>
-                                    </div>
-                                    <a href="#" class="like">
-                                        <i class="fas fa-heart" aria-hidden="true"></i>
-                                    </a>
                                 </div>
-                            </div>
-                            <%} %>
+                                <%} %>
                         </div>
                     </div>
                 </div>
@@ -162,11 +164,11 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-          <span class="close">&times;</span>
-          <p>We will Contact You Soon</p>
+            <span class="close">&times;</span>
+            <p>We will Contact You Soon</p>
         </div>
-      
-      </div>
+
+    </div>
     <section id="News-letter">
         <div class="slider">
             <img src="images/anime-slides/anime-group.jpg">
@@ -175,14 +177,13 @@
                 <h2>NEWSLETTER</h2>
             </div>
             <div class="slider-content">
-                <p>Enter your email address to receive all news, updates on new arrivals, special offers and
-                    other discount information.</p>
+                <p>Enter your email address to receive all news, updates on new arrivals, special offers and other discount information.</p>
                 <div id="email-feild">
                     <form action="/" method="POST">
                         <input id="email" type="email" placeholder="Your-Email..." name="email">
                         <button id="btn" class="Subscribe">Subscribe</button>
                     </form>
-                
+
                 </div>
             </div>
         </div>
@@ -192,28 +193,39 @@
         <div class="border-bottom"></div>
 
         <style>
-        
+
         </style>
         <div id="news-slider">
             <div id="news-vcards">
                 <%news.forEach(val=>{%>
-                <div class="news-vcard">
-                    <div class="image">
-                        <img src="<%= val.image_url%>" alt="">
+                    <div class="news-vcard">
+                        <div class="image-news">
+                            <img src="<%= val.image_url%>" alt="">
+                        </div>
+                        <div class="content">
+                            <h1>
+                                <%= val.title%>
+                            </h1>
+                            <span class="catagory"> <br><%val.genres.forEach((data,i)=>{%>
+			<span>Genre: <%=data.name%>,</span>
+                            <%})%>
+                                <br><span class="durition"> Source: <%= val.source%></span>
+                                <br>
+                                <span class="durition">
+			Producers: <%val.producers.forEach((data,i)=>{%>
+				<span><%=data.name%></span>
+                                <%})%>
+                                    </span>
+                                    <br> <span class="realese"> <%= val.airing_start%></span>
+
+                                    </span>
+
+                                    <p class="article-des-pargraph">
+                                        <%=  val.synopsis;%>
+                                    </p>
+                        </div>
                     </div>
-                    <div class="content">
-                        <h1>
-                            <%= val.title%>
-                        </h1>
-                        <span class="durition"><%= val.producers%></span>
-                        <span class="catagory"><%=val.name%></span>
-                        <span class="realese"> <%= val.airing_start%></span>
-                        <p class="article-des-pargraph">
-                            <%=  val.synopsis;%>
-                        </p>
-                    </div>
-                </div>
-                <%})%>
+                    <%})%>
             </div>
         </div>
         <div class="right-btn" style="display: inline-block;">
@@ -222,7 +234,7 @@
         <div class="left-button" style="display: inline-block;">
             <div id="next"><i class="fas fa-arrow-right"></i></div>
         </div>
-       
+
     </section>
     </main>
 

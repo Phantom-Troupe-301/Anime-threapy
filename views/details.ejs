@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Details:</h1>
+    <%details.forEach(data=>{%>
+        <h2>
+            <%= data.title %>
+        </h2>
+        <h3>
+            <%= data.title_Japan%>
+        </h3>
+        <h6>
+            <%= data.averageRating%>
+        </h6>
+        <h6>
+            Start:
+            <%= data.startDate%>
+                <br> End:
+                <%= data.endDate%>
+        </h6>
+        <img src="<%= data.image%>" alt="  <%= data.title %>">
+        <h6>
+            <%= data.gener_old%>
+        </h6>
+        <h6>
+            <%= data.subtype%>
+        </h6>
+        <h6>
+            <%= data.status%>
+        </h6>
+        <h6>
+            <%= data.episodeCount%>
+        </h6>
+        <h6>
+            <%= data.episodeLength%>
+        </h6>
+        <p>
+            <%= data.synopsis%>
+        </p>
+        <iframe width="420" height="315" src="https://www.youtube.com/embed/<%= data.youtubeVideoId%>">
+        </iframe>
+        <%})%>%>
+
+            <%details2.forEach(data=>{%>
+
+                <h2>
+                    Title:
+                    <%= data.title %>
+                </h2>
+                <h3>
+                    Japanese title :
+                    <%= data.title_Japan%>
+                </h3>
+                <h6>
+                    Rating:
+                    <%= data.averageRating%>
+                </h6>
+                <h6>
+                    Start:
+                    <%= data.startDate%>
+                        <br> End:
+                        <%= data.endDate%>
+                </h6>
+                <img src="<%= data.cover_image%>" alt="  <%= data.title %>">
+                <h6>
+                    <%= data.gener_old%>
+                </h6>
+                <h6>
+                    <%= data.subtype%>
+                </h6>
+                <h6>
+                    Status:
+                    <%= data.status%>
+                </h6>
+                <h6>
+                    Volume:
+                    <%= data.volumeCount%>
+                </h6>
+                <h6>
+                    serialization:
+                    <%= data.serialization%>
+                </h6>
+                <h4>
+                    Chapters:
+                    <%= data.chapterCount%>
+                </h4>
+                <h4>
+                    popularityRank:
+                    <%= data.popularityRank%>
+                </h4>
+                <h4>
+                    ratingRank:
+                    <%= data.ratingRank%>
+                </h4>
+                <%})%>%>
+
+</body>
+
+</html>

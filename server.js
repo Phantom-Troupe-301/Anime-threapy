@@ -7,7 +7,7 @@ const express = require('express');
 const superagent = require('superagent');
 
 const cors = require('cors');
-var request=require('request');
+var request = require('request');
 const app = express();
 
 const PORT = process.env.PORT || 3030;
@@ -21,60 +21,31 @@ app.use(express.static('./public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-let days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
-let date = new Date();
-let today = date.getDay()
-var search = days[today - 1];
-var newsArray = [];
+// let days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+// let date = new Date();
+// let today = date.getDay()
+// var search = days[today - 1];
+
 
 app.get('/', (req, res) => {
+    let newsArray = [];
     let animeTop = [];
     let url = `https://api.jikan.moe/v3/top/anime`;
-    let url2 = `https://api.jikan.moe/v3/schedule`;
+    let url2 = `https://api.jikan.moe/v3/season/later`;
     superagent.get(url2).then((news) => {
-        if (search == 'friday') {
-            news.body.friday.map((topList) => {
-                let animeNews = new Genre(topList);
-                newsArray.push(animeNews);
-            });
-        } else if (search == 'saturday') {
-            news.body.saturday.map((topList) => {
-                let animeNews = new Genre(topList);
-                newsArray.push(animeNews);
-            });
-        } else if (search == 'sunday') {
-            news.body.sunday.map((topList) => {
-                let animeNews = new Genre(topList);
-                newsArray.push(animeNews);
-            });
-        } else if (search == 'monday') {
-            news.body.monday.map((topList) => {
-                let animeNews = new Genre(topList);
-                newsArray.push(animeNews);
-            });
-        } else if (search == 'tuesday') {
-            news.body.tuesday.map((topList) => {
-                let animeNews = new Genre(topList);
-                newsArray.push(animeNews);
-            });
-        } else if (search == 'wednesday') {
-            news.body.wednesday.map((topList) => {
-                let animeNews = new Genre(topList);
-                newsArray.push(animeNews);
-            });
-        } else if (search == 'thursday') {
-            news.body.thursday.map((topList) => {
-                let animeNews = new Genre(topList);
-                newsArray.push(animeNews);
-            });
-        }
-        res.render('./home', {top: animeTop, news:newsArray});
-        // res.render('./home', { top:animeTop},{news:newsArray});
+
+        news.body.anime.map((topList) => {
+            let animeNews = new Genre(topList);
+            newsArray.push(animeNews);
+            return newsArray;
+        });
+        res.render('./home', { top: animeTop, news: newsArray });
     });
     superagent.get(url).then((topAnime) => {
         topAnime.body.top.map((topList) => {
             let TopAnimeData = new Top(topList);
             animeTop.push(TopAnimeData);
+            return animeTop;
         });
     });
 })
@@ -91,20 +62,32 @@ function Top(topRank) {
 }
 app.post('/anime', animeSaver);
 app.post('/genre', byGenre)
+app.post('/details', detailsRender);
 
 function animeSaver(req, res) {
     let animeSumarry = [];
+    let mangaSumarry = [];
     let search_input = req.body.search;
-    console.log('asdasdasdasdasdasdasdasdasd', search_input)
+    search_input = search_input.replace(/\s/g, '%20');
+    //     console.log('asdasdasdasdasdasdasdasdasd', search_input)
     let url = `https://kitsu.io/api/edge/anime?filter[text]=${search_input}`;
+    let url2 = `https://kitsu.io/api/edge/manga?filter[text]=${search_input}`;
+    superagent.get(url2).then((mangaSearch) => {
+        mangaSearch.body.data.map((val) => {
+            var mangaData = new Manga(val);
+            mangaSumarry.push(mangaData);
+            return mangaSumarry;
+        });
+    });
     //     console.log('knknlnlknlknlnlkn', url)
     superagent.get(url).then((dataOfAnime) => {
         dataOfAnime.body.data.map((val) => {
             var animeData = new Anime(val);
             animeSumarry.push(animeData);
-            console.log(animeSumarry, 'asdkpasjdkhasdshdj');
+            //   console.log(animeSumarry, 'asdkpasjdkhasdshdj');
+            return animeSumarry;
         });
-        res.render('./anime', { animeSearch: animeSumarry });
+        res.render('./anime', { manga: mangaSumarry, animeSearch: animeSumarry });
     });
 }
 
@@ -112,7 +95,8 @@ function Anime(data) {
     this.title = data.attributes.canonicalTitle;
     this.title_Japan = data.attributes.titles.ja_jp;
     this.averageRating = data.attributes.averageRating;
-    this.date = data.attributes.createdAt;
+    this.startDate = data.attributes.startDate;
+    this.endDate = data.attributes.endDate;
     this.image = data.attributes.posterImage.large;
     this.gener_old = data.attributes.ageRatingGuide;
     this.subtype = data.attributes.subtype;
@@ -121,9 +105,57 @@ function Anime(data) {
     this.episodeLength = data.attributes.episodeLength;
     this.youtubeVideoId = data.attributes.youtubeVideoId;
     this.synopsis = data.attributes.synopsis;
+    this.id = data.id;
 }
 
+function Manga(data) {
+    this.title = data.attributes.canonicalTitle;
+    this.title_Japan = data.attributes.titles.ja_jp;
+    this.averageRating = data.attributes.averageRating;
+    this.datestartDate = data.attributes.startDate;
+    this.endDate = data.attributes.endDate || 'ongoing';
+    this.startDate = data.attributes.startDate;
+    this.gener_old = data.attributes.ageRatingGuide;
+    this.subtype = data.attributes.subtype;
+    this.status = data.attributes.status || 'ongoing';
+    this.ratingRank = data.attributes.ratingRank;
+    this.popularityRank = data.attributes.popularityRank;
+    this.chapterCount = data.attributes.chapterCount;
+    this.volumeCount = data.attributes.volumeCount;
+    this.serialization = data.attributes.serialization;
+    this.cover_image = data.attributes.posterImage.large;
+    this.image_thumbnail = data.attributes.posterImage.small;
+    this.synopsis = data.attributes.synopsis;
+    this.id = data.id;
+}
 
+function detailsRender(req, res) {
+    let animeDetails = [];
+    let mangaDetails = [];
+    let input_search = req.body.search;
+    let input_search2 = req.body.search2;
+    let url = `https://kitsu.io/api/edge/anime/${input_search}`;
+    let url2 = `https://kitsu.io/api/edge/manga/${input_search2}`;
+    superagent.get(url2).then((managd) => {
+        var animeData = new Manga(managd.body.data);
+        mangaDetails.push(animeData);
+        //         console.log('asdasdasda', animeDetails)
+        //         return mangaDetails;
+
+        if (mangaDetails) {
+            res.render('./details', { details2: mangaDetails, details: animeDetails });
+        }
+    })
+    superagent.get(url).then((details) => {
+        var animeData = new Anime(details.body.data);
+        animeDetails.push(animeData);
+        //         return animeDetails;
+        //         console.log('asdasdasda', animeDetails)
+        if (animeDetails) {
+            res.render('./details', { details: animeDetails, details2: mangaDetails });
+        }
+    })
+}
 
 function byGenre(req, res) {
     let genreSumarry = [];
@@ -141,37 +173,34 @@ function byGenre(req, res) {
     });
 }
 
-app.post('/',(req,res)=>{
-  
-    var email=req.body.email;
-    var data={
-        "members":[
-           {
+app.post('/', (req, res) => {
 
-               email_address:email,
-               status:'subscribed',
-           } 
-        ],
-      
+    var email = req.body.email;
+    var data = {
+        "members": [{
+
+            email_address: email,
+            status: 'subscribed',
+        }],
+
     }
-    var JSONdata=JSON.stringify(data);
+    var JSONdata = JSON.stringify(data);
 
-    var options={
-        url:'https://us19.api.mailchimp.com/3.0/lists/cae09b63f7',
-        method:'POST',
-        headers:{
-            "Authorization":"alaa c2022d468ec18180c4be2692c07ad7e9-us19"
-        
+    var options = {
+        url: 'https://us19.api.mailchimp.com/3.0/lists/cae09b63f7',
+        method: 'POST',
+        headers: {
+            "Authorization": "alaa c2022d468ec18180c4be2692c07ad7e9-us19"
+
         },
-         body:JSONdata
-    
-        }
-    
-    request(options,(error,response,body)=>{
-        if(response.statusCode === 200)
-        {
+        body: JSONdata
+
+    }
+
+    request(options, (error, response, body) => {
+        if (response.statusCode === 200) {
             alert("We will Contact u soon");
-    
+
         }
     })
 
@@ -181,12 +210,12 @@ function Genre(data) {
     this.title = data.title;
     this.image_url = data.image_url;
     this.synopsis = data.synopsis;
-    this.airing_start = data.airing_start;
+    this.airing_start = data.airing_start || 'COMING SOON';
     this.type = data.type;
     this.source = data.source;
-    this.episodes = data.episodes;
+    this.episodes = data.episodes || 'Unknown';
     this.score = data.score;
-    this.producers = data.producers.name;
+    this.producers = data.producers;
     this.genres = data.genres;
 }
 
