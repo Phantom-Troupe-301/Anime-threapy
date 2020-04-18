@@ -194,6 +194,7 @@ ion-icon:hover {
     font-size: 15px;
     font-weight: bold;
 }
+
 #anime-title {
     display: inline-block;
     width: 30%;
@@ -208,6 +209,7 @@ ion-icon:hover {
     border: 1px solid #ced4da;
     border-radius: .25rem;
 }
+
 #search {
     position: relative;
     right: 63.5%;
@@ -303,6 +305,7 @@ ion-icon:hover {
     left: 4px;
     color: #000;
 }
+
 .container {
     width: 100%;
     position: relative;
@@ -357,6 +360,7 @@ ion-icon:hover {
     padding: 0px;
     width: 200px;
 }
+
 .anime-title h1 {
     color: #323233;
     font-weight: bold;
@@ -364,10 +368,11 @@ ion-icon:hover {
     font-family: bebas kai;
     font-size: 25px;
 }
-#inner-box
-{
+
+#inner-box {
     text-align: -webkit-center;
 }
+
 #slider1 {
     overflow: hidden;
     position: relative;
@@ -396,17 +401,17 @@ ion-icon:hover {
     left: 40px;
 }
 
-
 #outer-box h1 {
     font-size: 15px;
     padding-top: 5%;
     text-align: center;
     color: white;
 }
-#top
-{
+
+#top {
     font-size: 40px !important;
 }
+
 .like {
     border: none;
     color: aliceblue;
@@ -415,6 +420,7 @@ ion-icon:hover {
     position: relative;
     font-size: 2em;
 }
+
 .heart i {
     color: #f44336;
 }
@@ -422,8 +428,6 @@ ion-icon:hover {
 .heart {
     animation: heart 0.5s linear;
 }
-
-
 
 .slider {
     position: relative;
@@ -565,7 +569,7 @@ input::placeholder {
 #News h1 {
     text-align: center;
     color: #fff;
-    font-size: 30px;
+    font-size: 20px;
     letter-spacing: 3px;
     margin-bottom: 5px;
 }
@@ -622,22 +626,47 @@ iframe {
 
 .article-des-pargraph {
     font-size: 15px;
-    overflow:   scroll;
-    height: 200px;
+    overflow: scroll;
+    height: 80px;
     padding-top: 10px;
     padding-left: 0px;
     line-height: 30px;
     width: 66%;
     letter-spacing: 1px;
-    left: 21%;
+    /* left: -2%; */
+    text-align: left;
     position: relative;
     color: #fff;
+    margin: 13px 0;
+}
+
+.image-news img {
+    width: 300px;
+    height: 380px;
+    margin-bottom: 3%;
+    float: left;
+    margin-left: 5%;
+}
+
+.content span {
+    text-align: left;
+    line-height: 30px;
+    font-size: small;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3%;
 }
 
 ::-webkit-scrollbar {
     width: 0px;
-    background: transparent; /* make scrollbar transparent */
+    background: transparent;
+    /* make scrollbar transparent */
 }
+
 .border-bottom {
     border-top: 2px solid gray;
     width: 15%;
@@ -681,12 +710,12 @@ footer {
     padding-top: 10px;
     font-family: Arial, Helvetica, sans-serif;
 }
-.news-vcard
-{
+
+.news-vcard {
     position: sticky;
 }
-.left-button
-{
+
+.left-button {
     display: inline-block;
     float: right;
     margin-right: 40px;
@@ -713,10 +742,11 @@ footer {
     border-radius: 50%;
     transition: 0.5s ease;
 }
-.right-btn:hover
-{
-    background-color:#000b6e;
+
+.right-btn:hover {
+    background-color: #000b6e;
 }
+
 #news-slider {
     width: 1263px;
     overflow: hidden;
@@ -738,22 +768,34 @@ footer {
     top: 0;
     left: 40px;
 }
+
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content */
-  .modal-content {
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content {
     background-color: #fefefe;
     margin: auto;
     padding: 20px;
@@ -763,24 +805,27 @@ footer {
     text-align: center;
     transition: 0.5s ease;
 }
-  
-  /* The Close Button */
-  .close {
+
+
+/* The Close Button */
+
+.close {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+
+.close:hover,
+.close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
-  .left-button:hover {
-background-color:#000b6e;
-  }
+}
+
+.left-button:hover {
+    background-color: #000b6e;
+}
 
 @keyframes intro {
     0% {
