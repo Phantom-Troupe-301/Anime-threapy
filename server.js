@@ -7,8 +7,7 @@ const express = require('express');
 const superagent = require('superagent');
 
 const cors = require('cors');
-
-
+var request=require('request');
 const app = express();
 
 const PORT = process.env.PORT || 3030;
@@ -142,50 +141,41 @@ function byGenre(req, res) {
     });
 }
 
+app.post('/',(req,res)=>{
+  
+    var email=req.body.email;
+    var data={
+        "members":[
+           {
 
-// function sewsServer(req, res) {
-//     let newsArray = [];
-//     let url = `https://api.jikan.moe/v3/schedule`
-//     superagent.get(url).then((news) => {
-//         if (search == 'friday') {
-//             news.body.friday.map((topList) => {
-//                 let TopAnimeData = new Genre(topList);
-//                 newsArray.push(TopAnimeData);
-//             });
-//         } else if (search == 'saturday') {
-//             news.body.friday.map((topList) => {
-//                 let TopAnimeData = new Genre(topList);
-//                 newsArray.push(TopAnimeData);
-//             });
-//         } else if (search == 'sunday') {
-//             news.body.friday.map((topList) => {
-//                 let TopAnimeData = new Genre(topList);
-//                 newsArray.push(TopAnimeData);
-//             });
-//         } else if (search == 'monday') {
-//             news.body.friday.map((topList) => {
-//                 let TopAnimeData = new Genre(topList);
-//                 newsArray.push(TopAnimeData);
-//             });
-//         } else if (search == 'tuesday') {
-//             news.body.friday.map((topList) => {
-//                 let TopAnimeData = new Genre(topList);
-//                 newsArray.push(TopAnimeData);
-//             });
-//         } else if (search == 'wednesday') {
-//             news.body.friday.map((topList) => {
-//                 let TopAnimeData = new Genre(topList);
-//                 newsArray.push(TopAnimeData);
-//             });
-//         } else if (search == 'thursday') {
-//             news.body.friday.map((topList) => {
-//                 let TopAnimeData = new Genre(topList);
-//                 newsArray.push(TopAnimeData);
-//             });
-//         }
-//         res.send(newsArray);
-//     });
-// }
+               email_address:email,
+               status:'subscribed',
+           } 
+        ],
+      
+    }
+    var JSONdata=JSON.stringify(data);
+
+    var options={
+        url:'https://us19.api.mailchimp.com/3.0/lists/cae09b63f7',
+        method:'POST',
+        headers:{
+            "Authorization":"alaa c2022d468ec18180c4be2692c07ad7e9-us19"
+        
+        },
+         body:JSONdata
+    
+        }
+    
+    request(options,(error,response,body)=>{
+        if(response.statusCode === 200)
+        {
+            alert("We will Contact u soon");
+    
+        }
+    })
+
+})
 
 function Genre(data) {
     this.title = data.title;

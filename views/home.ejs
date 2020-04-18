@@ -17,12 +17,15 @@
 </head>
 
 <body>
+    
     <!-- <div id="preloader">
+        <div class="intro-logo">
+            <img src="images/logo.png" style="width: 30%;">
+        </div>
         <img src="images/anime-slides/giphy.gif">
         <div class="website-intro">
-            <div class="intro-logo">
-                <img src="images/logo.png">
-            </div>
+         
+            
             <div class="website-header-header">
                 <h1>Welcome to Anime Threapy</h1>
 
@@ -94,7 +97,7 @@
         <form id="search-by-catagory" action="/genre" method="POST">
             <!-- <input type="text" id="anime-title" name="search" placeholder="Search for your anime"> -->
             <select id="catagory-dropdown" name="search">
-		  <option value="select your catagory">select your catagory</option>
+                <option value="select your catagory">select your catagory</option>
                 <option value="1" name="search">Action</option>
                 <option value="2" name="search">Advanture</option>
                 <option value="36" name="search">slice of life</option>
@@ -104,10 +107,10 @@
                 <option value="40" name="search">psychological</option>
                 <option value="8" name="search">drama</option>
                 <option value="27" name="search">Shounen</option>
-	      <option value="30" name="search">Sports</option>
-	      <option value="31" name="search">Super Power</option>
-	      <option value="32" name="search">Vampire</option>
-	      <option value="42" name="search">Seinen</option>
+                <option value="30" name="search">Sports</option>
+                <option value="31" name="search">Super Power</option>
+                <option value="32" name="search">Vampire</option>
+                <option value="42" name="search">Seinen</option>
             </select>
             <div id="second-search-btn">
                 <button type="submit">Search</button>
@@ -117,7 +120,7 @@
     </section>
     <section>
         <div id="outer-box">
-            <h1>Top 10 Anime</h1>
+            <h1 id="top">Top 10 Anime</h1>
             <div id="control-btns">
                 <ion-icon id="arrow-right" name="arrow-forward-circle-outline"></ion-icon>
                 <ion-icon id="arrow-left" name="arrow-back-circle-outline"></ion-icon>
@@ -125,32 +128,61 @@
                     <div id="slider1">
                         <div id="vcards">
                             <% for(let i=0;i<10;i++){%>
-                                <div class="vcard">
-                                    <div class="anime-box">
-                                        <div class="anime-img">
-                                            <img src="<%= top[i].image_url%>" alt="death-note">
-                                        </div>
-                                        <div class="anime-title">
-                                            <h1>
-                                                <%= top[i].title%>
-                                            </h1>
-                                        </div>
-                                        <div class="anime-details">
-                                            <p>
-                                                | <span> score: <%= top[i].score%> </span> |
-                                                <br>
-                                                <br>
-                                                <span><%= top[i].episodesOrVolumes%> episodes</span>
-                                            </p>
-                                        </div>
-                                        <a href="#" class="like">
-                                            <i class="fas fa-heart" aria-hidden="true"></i>
-                                        </a>
+                            <div class="vcard">
+                                <div class="anime-box">
+                                    <div class="anime-img">
+                                        <img src="<%= top[i].image_url%>" alt="death-note">
                                     </div>
+                                    <div class="anime-title">
+                                        <h1>
+                                            <%= top[i].title%>
+                                        </h1>
+                                    </div>
+                                    <div class="anime-details">
+                                        <p>
+                                            | <span class="rate"> score: <%= top[i].score%> </span> |
+                                            <br>
+                                            <br>
+                                            <span><%= top[i].episodesOrVolumes%> episodes</span>
+                                        </p>
+                                    </div>
+                                    <a href="#" class="like">
+                                        <i class="fas fa-heart" aria-hidden="true"></i>
+                                    </a>
                                 </div>
-                                <%} %>
+                            </div>
+                            <%} %>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>We will Contact You Soon</p>
+        </div>
+      
+      </div>
+    <section id="News-letter">
+        <div class="slider">
+            <img src="images/anime-slides/anime-group.jpg">
+
+            <div class="slider-text">
+                <h2>NEWSLETTER</h2>
+            </div>
+            <div class="slider-content">
+                <p>Enter your email address to receive all news, updates on new arrivals, special offers and
+                    other discount information.</p>
+                <div id="email-feild">
+                    <form action="/" method="POST">
+                        <input id="email" type="email" placeholder="Your-Email..." name="email">
+                        <button id="btn" class="Subscribe">Subscribe</button>
+                    </form>
+                
                 </div>
             </div>
         </div>
@@ -158,78 +190,39 @@
     <section id="News">
         <h1>News</h1>
         <div class="border-bottom"></div>
-        <!-- <div id="control-btns">
-            <ion-icon id="arrow-right" name="arrow-forward-circle-outline"></ion-icon>
-            <ion-icon id="arrow-left" name="arrow-back-circle-outline"></ion-icon>
-            <div id="inner-box-news">
-                <div id="slider2">
-                    <div id="vcards-news">
-                        <div class="vcard-news">
-                        <%news.forEach(val=>{%>
-                            <div id="news-content">
-                                <img src="<%= val.image_url%>" alt="">
-                                <div class="news-article-content-box">
-                                    <h1>
-                                        <%= val.title%>
-                                    </h1>
-                                    <span class="durition"><%= val.producers%></span>
 
-                                    <span class="catagory"><%=val.name%></span>
-                                    <span class="realese"> <%= val.airing_start%></span>
-                                    <p class="article-des-pargraph">
-                                        <%= val.synopsis%>
-                                    </p>
-                                </div>
-                            </div>
-                            </div>
-                            <%})%>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <style>
-            #news-slider{
-width:200px;
-overflow:hidden;
-position:relative;
-border:1px solid black;
-height:100px;
-}  
-
-.news-vcard{
-width:100px;
-margin: 0 10px;
-height:100px;
-float:left;
-}  
-      
-#news-vcards{
-position:absolute;
-top:0;
-left:40px;
-}        
-
+        
         </style>
         <div id="news-slider">
             <div id="news-vcards">
                 <%news.forEach(val=>{%>
                 <div class="news-vcard">
-                    <img src="<%= val.image_url%>" alt="">
-                    <h1>
-                        <%= val.title%>
-                    </h1>
-                    <span class="durition"><%= val.producers%></span>
-                    <span class="catagory"><%=val.name%></span>
-                    <span class="realese"> <%= val.airing_start%></span>
-                    <p class="article-des-pargraph">
-                        <%= val.synopsis%>
-                    </p>
+                    <div class="image">
+                        <img src="<%= val.image_url%>" alt="">
+                    </div>
+                    <div class="content">
+                        <h1>
+                            <%= val.title%>
+                        </h1>
+                        <span class="durition"><%= val.producers%></span>
+                        <span class="catagory"><%=val.name%></span>
+                        <span class="realese"> <%= val.airing_start%></span>
+                        <p class="article-des-pargraph">
+                            <%=  val.synopsis;%>
+                        </p>
+                    </div>
                 </div>
                 <%})%>
             </div>
-            </div>
-            <div id="next">Next</div>
-
+        </div>
+        <div class="right-btn" style="display: inline-block;">
+            <div id="right"><i class="fas fa-arrow-left"></i></div>
+        </div>
+        <div class="left-button" style="display: inline-block;">
+            <div id="next"><i class="fas fa-arrow-right"></i></div>
+        </div>
+       
     </section>
     </main>
 
