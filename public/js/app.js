@@ -1,6 +1,6 @@
 $(document).ready(function() {
     //functions to switch between title and catagory buttons
-    
+  
     $("#search-by-catagory").hide();
     $("#search-by-title").hide();
 
@@ -17,6 +17,17 @@ $(document).ready(function() {
             $("#search-by-catagory").fadeToggle(1000);
             $("#catagory-btn").toggleClass("active2");
         })
+        $("#manga").hide();
+        $("#anime").on("click",function(e){
+            e.preventDefault();
+            $("#manga").hide();
+            $("#Anime").fadeIn(3000);
+        });
+        $("#Manga").on("click",function(e){
+            e.preventDefault();
+            $("#Anime").hide();
+            $("#manga").fadeIn(3000);
+        });
         //function for a the slider
     $('#vcards').width(function() {
         var width = 0;
@@ -50,3 +61,6 @@ $(document).ready(function() {
             $('#news-vcards').animate({left : "+=1310"});
             });
 });
+  $("body").on("click",function(){
+      $("#preloader").remove();
+    });
