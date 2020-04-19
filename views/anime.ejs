@@ -2,88 +2,76 @@
 <html lang="en">
 
 <%- include('layout/head'); -%>
-    <style>
-        #header-background {
-            height: 400px !important;
-        }
-        
-        body {
-            overflow: scroll;
-        }
-    </style>
+<style>
+    #header-background {
+        height: 400px !important;
+    }
 
-    <head>
-        <link rel="stylesheet" href="/css/anime.css">
-    </head>
+    body {
+        overflow: scroll;
+    }
+</style>
 
-    <body>
-        <%- include('./layout/header'); -%>
+<head>
+    <link rel="stylesheet" href="/css/anime.css">
+</head>
 
-            <main>
-                <!-- <div class="section_header">
-                    <ul>
-                        <a href="#manga">
-                            <li>
-                                Manga
-                            </li>
-                        </a>
-                    </ul>
-                </div> -->
-                <!-- <h2>Anime</h2> -->
-                <section id="Anime">
-                    <% animeSearch.forEach(data=>{%>
-                        <div class="data">
-                            <img src="<%= data.image%>" alt="  <%= data.title %>">
-                            <div class="details_content">
-                                <h2>
-                                    <%= data.title %>
-                                </h2>
-                                <hr>
-                                <h6>
-                                    <%= data.averageRating%>
-                                </h6>
+<body>
+    <%- include('./layout/header'); -%>
 
-                                <form action="/details" method="POST">
-                                    <input type="text" name="search" value="<%= data.id%>" style="visibility: hidden ">
-                                    <br><button class="btnDetails" type="submit">more details</button></form>
-                            </div>
-                        </div>
-                        <%}) %>
-                </section>
-                <hr>
+    <main>
+        <div class="section_header">
+            <ul>
+                <li><a  id="Manga"href="#manga">Manga</a> </li>
+                <li><a id="anime" href="#Anime">anime</a> </li>
+            </ul>
 
-                <div class="section_header">
-                    <h2>Manga</h2>
-                    <ul>
-                        <a href="#Anime">
-                            <li>
-                                Manga
-                            </li>
-                        </a>
-                    </ul>
+        </div>
+        <section id="Anime">
+            <% animeSearch.forEach(data=>{%>
+            <div class="data">
+                <img src="<%= data.image%>" alt="  <%= data.title %>">
+                <div class="details_content">
+                    <h2>
+                        <%= data.title %>
+                    </h2>
+                    <hr>
+                    <h6>
+                        <%= data.averageRating%>
+                    </h6>
+
+                    <form action="/details" method="POST">
+                        <input type="text" name="search" value="<%= data.id%>" style="visibility: hidden ">
+                        <br><button class="btnDetails" type="submit">more details</button></form>
                 </div>
-                <section id="manga">
+            </div>
+            <%}) %>
+        </section>
+        <hr>
 
-                    <%manga.forEach(data=>{%>
-                        <div class="data">
-                            <img src="<%= data.cover_image%>" alt="  <%= data.title %>">
-                            <div class="details_content">
-                                <h2>
-                                    <%= data.title %>
-                                </h2>
-                                <hr>
-                                <h6>
-                                    <%= data.averageRating%>
-                                </h6>
-                                <form action="/details" method="POST">
-                                    <input type="text" name="search2" value="<%= data.id%>" style="visibility: hidden ">
-                                    <button class="btnDetails " type="submit ">more details</button></form>
-                            </div>
-                        </div>
-                        <%})%>
-                </section>
-            </main>
-    </body>
-    <%- include('./layout/footer'); -%>
+
+        <section id="manga">
+
+            <%manga.forEach(data=>{%>
+            <div class="data">
+                <img src="<%= data.cover_image%>" alt="  <%= data.title %>">
+                <div class="details_content">
+                    <h2>
+                        <%= data.title %>
+                    </h2>
+                    <hr>
+                    <h6>
+                        <%= data.averageRating%>
+                    </h6>
+                    <form action="/details" method="POST">
+                        <input type="text" name="search2" value="<%= data.id%>" style="visibility: hidden ">
+                        <button class="btnDetails " type="submit ">more details</button></form>
+                </div>
+            </div>
+            <%})%>
+        </section>
+    </main>
+</body>
+<%- include('./layout/footer'); -%>
 
 </html>
