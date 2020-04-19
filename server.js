@@ -5,7 +5,7 @@ require('dotenv').config();
 const express = require('express');
 
 const superagent = require('superagent');
-
+const pg = require('pg');
 const cors = require('cors');
 var request = require('request');
 const app = express();
@@ -13,6 +13,8 @@ const app = express();
 const PORT = process.env.PORT || 3030;
 
 app.set('view engine', 'ejs');
+const client = new pg.Client(process.env.DATABASE_URL);
+
 
 app.use(cors());
 
@@ -274,3 +276,17 @@ function Genre(data) {
 app.listen(PORT, () => {
     console.log(`this is our port ${PORT}`);
 })
+app.post('/favAnime',addAnime);
+
+function addAnime (req,res){
+  
+
+    let {title,image,averageRating,startDate,endDate,gener_old,subtype,status,episodeCount,episodeLength,synopsis,youtubeVideoId
+    }=req.body;
+    let safeValues= [title,image,averageRating,startDate,endDate,gener_old,subtype,status,episodeCount,episodeLength,synopsis,youtubeVideoId];
+    console.log(safeValues, "ddddd");
+    let SQL = `INSERT INTO  studnet (title,image,averageRating,startDate,endDate,gener_old,subtype,status,episodeCount,episodeLength,synopsis,youtubeVideoId) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12);`;
+     return client.query(SQL,safeValues)
+    .then(()=>{res.redirect('./favAnime')})
+    
+  }

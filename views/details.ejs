@@ -14,6 +14,21 @@
     <%details.forEach(data=>{%>
     <div id="anime-info">
         <div class="detail-anime-title">
+          <form action="/favAnime" method="post">
+            <input type="text" name="title"  value="<%=data.title%>">
+            <input type="text" name="image"  value="<%=data.image%>">
+            <input type="text" name="averageRating" value="<%=data.averageRating%>" >
+            <input type="text" name="startDate" value="<%=data.startDate%>">
+            <input type="text" name="endDate" value="<%=data.endDate%>">
+            <input type="text" name="gener_old" value="<%=data.gener_old%>">
+            <input type="text" name="subtype"  value="<%= data.subtype%>">
+            <input type="text" name="status" value="<%=data.status%>" >
+            <input type="text" name="episodeCount" value="<%=data.episodeCount%>">
+            <input type="text" name="episodeLength" value="<%=data.episodeLength%>">
+            <input type="text" name="synopsis" value="<%=data.synopsis.substring(0,300)%>">
+            <input type="text" name="youtubeVideoId" value="<%= data.youtubeVideoId%>" >
+ <button type="submit"> Add to Fav</button>
+          </form>
             <h2>
                 <%=data.title %>
             </h2>
