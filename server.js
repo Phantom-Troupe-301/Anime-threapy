@@ -33,7 +33,7 @@ app.get('/index', function(req, res) {
 app.get('/Contact', function(req, res) {
     res.render('Contact');
 })
-app.get('/aboutUs',function (req,res){
+app.get('/aboutUs', function(req, res) {
     res.render('aboutUs');
 })
 app.get('/', (req, res) => {
@@ -72,6 +72,7 @@ function Top(topRank) {
 app.post('/anime', animeSaver);
 app.post('/genre', byGenre)
 app.post('/details', detailsRender);
+
 
 function animeSaver(req, res) {
     let animeSumarry = [];
