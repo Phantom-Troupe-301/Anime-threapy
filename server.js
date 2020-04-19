@@ -3,12 +3,13 @@
 require('dotenv').config();
 
 const express = require('express');
-
+const app = express();
+const methodOverride = require('method-override');
+app.use(methodOverride('_method'))
 const superagent = require('superagent');
 const pg = require('pg');
 const cors = require('cors');
 var request = require('request');
-const app = express();
 
 const PORT = process.env.PORT || 3030;
 
@@ -22,6 +23,7 @@ app.use(express.static('./public'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 
 // let days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 // let date = new Date();
@@ -313,14 +315,22 @@ function addAnime(req, res) {
         }
     })
 }
-
 function getAnimeDetails(req, res) {
     let SQL = 'SELECT * FROM anime;'
     client.query(SQL)
         .then(results => {
             //   console.log('asdasdasdasdasdasdas', results.rows);
             res.render('./favAnime', { bookResults: results.rows });
-        })
+      })
+}
+app.delete('/delete/:bookResults_id', deletebook);
+
+function  deletebook(req,res)
+{
+    let SQL = "DELETE FROM anime WHERE id=$1;";
+    let safeValue = [req.params.bookResults_id];
+    client.query(SQL, safeValue)
+    .then(res.redirect('/favAnime'));
 }
 
 

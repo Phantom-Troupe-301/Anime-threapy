@@ -11,22 +11,22 @@
                         </h2>
                     </div>
 
-                    <div id="anime-full-info">
-                        <div class="detail-anime-image">
+                    <div id="">
+                        <div class="">
                             <img src="<%= data.image%>" alt="  <%= data.title %>">
                         </div>
-                        <div id="anime-first-detail">
-                            <div class="rating">
+                        <div id="">
+                            <div class="">
                                 <h6>
                                     <%= data.averageRating%>
                                 </h6>
                             </div>
-                            <div class="start-date">
+                            <div class="">
                                 <h6>Start:
                                     <%= data.startDate%>
                                 </h6>
                             </div>
-                            <div class="end-date">
+                            <div class="">
                                 <h6> <br> End:
                                     <%= data.endDate%>
                                 </h6>
@@ -50,20 +50,23 @@
                                 <h6>
                                     <%= data.episodeLength%>
                                 </h6>
-                                <div class="detail-anime-des">
+                                <div class="">
                                     <p>
                                         <%= data.synopsis.substring(0,300)%>
                                     </p>
                                 </div>
                         </div>
 
-                        <div class="anime-detail-video">
+                        <div class="">
                             <iframe width="420" height="315" src="https://www.youtube.com/embed/<%= data.youtubeVideoId%>">
 	</iframe>
                         </div>
-
+                        <%console.log(data.id,'asdsadasdasdsadasdasd')%>
+                        <form action="/delete/<%=data.id%>?_method=delete" method="post">
+                            <button type="submit">Delete</button>
+                            </form>
                         <%})%>%>
-
+                        
 
 
 
