@@ -141,6 +141,8 @@ function Manga(data) {
     this.id = data.id;
 }
 
+
+
 function detailsRender(req, res) {
     let animeDetails = [];
     let mangaDetails = [];
@@ -276,28 +278,40 @@ function Genre(data) {
 app.post('/add', addAnime);
 app.get('/favAnime', getAnimeDetails);
 
-function addAnime(req, res) {
 
-    let {
-        title,
-        image,
-        averageRating,
-        startDate,
-        endDate,
-        gener_old,
-        subtype,
-        status,
-        episodeCount,
-        episodeLength,
-        synopsis,
-        youtubeVideoId
-    } = req.body;
-    let SQL = `INSERT INTO  anime (title,image,averageRating,startDate,endDate,gener_old,subtype,status,episodeCount,episodeLength,synopsis,youtubeVideoId) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12);`;
-    let safeValues = [title, image, averageRating, startDate, endDate, gener_old, subtype, status, episodeCount, episodeLength, synopsis, youtubeVideoId];
-    return client.query(SQL, safeValues)
-        .then(() => {
-            res.redirect(`/`);
-        })
+
+
+function addAnime(req, res) {
+    let Anime = req.body.title;
+    let sql = 'SELECT * FROM anime WHERE title = $1';
+    const safeValue = [Anime];
+    client.query(sql, safeValue).then((dataResult) => {
+        if (dataResult.rowCount > 0) {
+            //to check if the search_query is exist in the databaseor not
+            res.render('./favAnime', { bookResults: dataResult.rows })
+        } else {
+            let {
+                title,
+                image,
+                averageRating,
+                startDate,
+                endDate,
+                gener_old,
+                subtype,
+                status,
+                episodeCount,
+                episodeLength,
+                synopsis,
+                youtubeVideoId
+            } = req.body;
+            let SQL = `INSERT INTO  anime (title,image,averageRating,startDate,endDate,gener_old,subtype,status,episodeCount,episodeLength,synopsis,youtubeVideoId) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12);`;
+            let safeValues = [title, image, averageRating, startDate, endDate, gener_old, subtype, status, episodeCount, episodeLength, synopsis, youtubeVideoId];
+            return client.query(SQL, safeValues)
+                .then(() => {
+                    res.redirect(`/`);
+                })
+        }
+    })
 }
 
 function getAnimeDetails(req, res) {
@@ -316,6 +330,3 @@ client.connect()
             console.log(`listening on PORT ${PORT} `)
         })
     })
-
-
-
