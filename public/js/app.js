@@ -42,10 +42,22 @@ $(document).ready(function() {
     $('#arrow-left').on('click', function() {
         $('#vcards').animate({ left: "+=1160" });
     });
+    // $(".dislike").css("visibility", "hidden");
     //function for heart button
     $('.like').click(function(e) {
         e.preventDefault();
         $(this).toggleClass("heart");
+        // $(".dislike").css("visibility", "visible");
+        // $(".like").css("visibility", "hidden");
+
+    });
+
+    $('.dislike').click(function(e) {
+        e.preventDefault();
+      
+        $(this).toggleClass("dislike-heart");
+        // $(".like").css("visibility", "visible");
+        // $(".dislike").css("visibility", "hidden");
     });
     $('#news-vcards').width(function(){
         var width = 0;                

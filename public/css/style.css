@@ -420,8 +420,8 @@ ion-icon:hover {
     border: none;
     color: aliceblue;
     background-color: #234a81;
-    left: 36%;
     position: relative;
+    right: 36%;
     font-size: 2em;
 }
 
@@ -431,6 +431,27 @@ ion-icon:hover {
 
 .heart {
     animation: heart 0.5s linear;
+}
+.dislike-heart
+{
+    animation: heart 0.5s linear;
+}
+.dislike {
+    border: none;
+    color: aliceblue;
+    background-color: #234a81;
+    position: relative;
+    bottom: 0px;
+    left: 55%;
+    font-size: 2em;
+}
+.dislike-icon 
+{
+    color: #f44336;
+}
+.dislike-heart i
+{
+    color: #ffffff;
 }
 
 .slider {
