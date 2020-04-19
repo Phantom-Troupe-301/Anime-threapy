@@ -586,6 +586,7 @@ input::placeholder {
     height: 550px;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 #news-content {
     margin-top: 5%;
     display: flex;
@@ -664,7 +665,7 @@ iframe {
     padding: 3%;
 }
 
-::-webkit-scrollbar {
+ ::-webkit-scrollbar {
     width: 0px;
     background: transparent;
     /* make scrollbar transparent */
@@ -699,6 +700,7 @@ footer {
     text-align: center;
     width: 93%;
 }
+
 #navbar ul li {
     transition: 0.5s ease;
     display: inline-block;
@@ -708,10 +710,11 @@ footer {
 #navbar ul li a:hover {
     color: #fff;
 }
-.copyright
-{
+
+.copyright {
     padding-right: 5%;
 }
+
 .copyright p {
     color: #fff;
     padding-top: 10px;

@@ -1,4 +1,46 @@
 <%- include('./layout/head'); -%>
+<<<<<<< HEAD
+    <%- include('./layout/header'); -%>
+        <style>
+            #header-background {
+                height: 400px !important;
+            }
+            
+            body {
+                overflow: scroll;
+            }
+        </style>
+
+        <body>
+            <section id="contact-us">
+                <h3>GET IN TOUCH</h3>
+                <div class="main-pargarph">
+                    <h1>CONTACT INFORMATION</h1>
+                </div>
+                <div class="links">
+                    <a href="index">Home</a> |<span>Contact us</span>
+                </div>
+                <div id="contact-form">
+                    <h1>Contact US</h1>
+                    <div class="border-bottom2"></div>
+                    <form action="/contact" method="POST" id="form">
+                        <input class="Fname" type="text" placeholder="your first name" name="firstname">
+                        <input class="Lname" type="text" placeholder="your Last name" name="lastname">
+                        <br>
+                        <input class="email" type="email" placeholder="Your e-mail" name="email">
+                        <input class="phone" type="tel" placeholder="Your Phone" name="phone">
+                        <br>
+                        <textarea class="message" name="message" rows="3" placeholder="Message"></textarea>
+                        <br>
+                        <button type="submit" class="contact-btn">Send Message</button>
+                    </form>
+
+                </div>
+            </section>
+
+        </body>
+        <%- include('./layout/footer'); -%>
+=======
 <%- include('./layout/header'); -%>
 <style>
     #header-background {
@@ -61,3 +103,4 @@ height: 400px !important;
 
 
 
+>>>>>>> 95ec753385d987bfcbfba762d8b2152eb0a75ef1

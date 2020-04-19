@@ -35,7 +35,7 @@ app.get('/index', function(req, res) {
 app.get('/Contact', function(req, res) {
     res.render('Contact');
 })
-app.get('/aboutUs',function (req,res){
+app.get('/aboutUs', function(req, res) {
     res.render('aboutUs');
 })
 app.get('/', (req, res) => {
@@ -74,6 +74,7 @@ function Top(topRank) {
 app.post('/anime', animeSaver);
 app.post('/genre', byGenre)
 app.post('/details', detailsRender);
+
 
 function animeSaver(req, res) {
     let animeSumarry = [];
@@ -257,7 +258,7 @@ app.post('/contact', (req, res) => {
     request(options, (error, response, body) => {
         console.log("message has been sent");
     })
-res.render('Contact');
+    res.render('Contact');
 })
 
 function Genre(data) {
@@ -272,21 +273,49 @@ function Genre(data) {
     this.producers = data.producers;
     this.genres = data.genres;
 }
+app.post('/add', addAnime);
+app.get('/favAnime', getAnimeDetails);
 
-app.listen(PORT, () => {
-    console.log(`this is our port ${PORT}`);
-})
-app.post('/favAnime',addAnime);
+function addAnime(req, res) {
 
-function addAnime (req,res){
-  
+    let {
+        title,
+        image,
+        averageRating,
+        startDate,
+        endDate,
+        gener_old,
+        subtype,
+        status,
+        episodeCount,
+        episodeLength,
+        synopsis,
+        youtubeVideoId
+    } = req.body;
+    let SQL = `INSERT INTO  anime (title,image,averageRating,startDate,endDate,gener_old,subtype,status,episodeCount,episodeLength,synopsis,youtubeVideoId) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12);`;
+    let safeValues = [title, image, averageRating, startDate, endDate, gener_old, subtype, status, episodeCount, episodeLength, synopsis, youtubeVideoId];
+    return client.query(SQL, safeValues)
+        .then(() => {
+            res.redirect(`/`);
+        })
+}
 
-    let {title,image,averageRating,startDate,endDate,gener_old,subtype,status,episodeCount,episodeLength,synopsis,youtubeVideoId
-    }=req.body;
-    let safeValues= [title,image,averageRating,startDate,endDate,gener_old,subtype,status,episodeCount,episodeLength,synopsis,youtubeVideoId];
-    console.log(safeValues, "ddddd");
-    let SQL = `INSERT INTO  studnet (title,image,averageRating,startDate,endDate,gener_old,subtype,status,episodeCount,episodeLength,synopsis,youtubeVideoId) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12);`;
-     return client.query(SQL,safeValues)
-    .then(()=>{res.redirect('./favAnime')})
-    
-  }
+function getAnimeDetails(req, res) {
+    let SQL = 'SELECT * FROM anime;'
+    client.query(SQL)
+        .then(results => {
+            //   console.log('asdasdasdasdasdasdas', results.rows);
+            res.render('./favAnime', { bookResults: results.rows });
+        })
+}
+
+
+client.connect()
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`listening on PORT ${PORT} `)
+        })
+    })
+
+
+

@@ -1,51 +1,52 @@
 <%- include('layout/head'); -%>
     <%- include( 'layout/header'); -%>
-    <%- include('layout/preloader'); -%>
-    <body>
-            <main>
-                <div id="slider">
-                    <figure>
-                        <div>
+        <%- include('layout/preloader'); -%>
 
-                            <img src="images/anime-slides/attackontitan.jpg" class="sliderimage" alt="">
-                            <img src="images/anime-slides/death.jpg" class="sliderimage" alt="">
-                        </div>
-                        <div>
-                            <img src="images/anime-slides/heroacdemia2.jpg" class="sliderimage" alt="">
-                            <img src="images/anime-slides/tokyo.jpg" class="sliderimage" alt="">
-                        </div>
-                        <div>
-                            <img src="images/anime-slides/hell.jpg" class="sliderimage" alt="">
-                            <img src="images/anime-slides/stains.png" class="sliderimage" alt="">
-                        </div>
-                        <div>
-                            <img src="images/anime-slides/one puch.jpg" class="sliderimage" alt="">
-                            <img src="images/anime-slides/black.jpg" class="sliderimage" alt="">
-                        </div>
-                    </figure>
-                </div>
-        </section>
-        <section id="anime-search">
-            <div class="search-header">
-                <h1>See Your Faviourite Anime</h1>
-                <div class="border-line"></div>
-                <h5>Search By title or Catagory</h5>
-                <div id="anime-user-choosing">
-                    <button id="title-btn">Tittle</button>
-                    <button id="catagory-btn">Catagory</button>
-                </div>
-            </div>
-            <form id="search-by-title" action="/anime" method="POST">
+            <body>
+                <main>
+                    <div id="slider">
+                        <figure>
+                            <div>
 
-                <input type="text" id="anime-title" name="search" placeholder="Search for your anime">
-                <ion-icon id="search" name="search-outline"></ion-icon>
-                <div id="search-btn">
-                    <button type="submit">Search</button>
-                </div>
-            </form>
-            <form id="search-by-catagory" action="/genre" method="POST">
-                <!-- <input type="text" id="anime-title" name="search" placeholder="Search for your anime"> -->
-                <select id="catagory-dropdown" name="search">
+                                <img src="images/anime-slides/attackontitan.jpg" class="sliderimage" alt="">
+                                <img src="images/anime-slides/death.jpg" class="sliderimage" alt="">
+                            </div>
+                            <div>
+                                <img src="images/anime-slides/heroacdemia2.jpg" class="sliderimage" alt="">
+                                <img src="images/anime-slides/tokyo.jpg" class="sliderimage" alt="">
+                            </div>
+                            <div>
+                                <img src="images/anime-slides/hell.jpg" class="sliderimage" alt="">
+                                <img src="images/anime-slides/stains.png" class="sliderimage" alt="">
+                            </div>
+                            <div>
+                                <img src="images/anime-slides/one puch.jpg" class="sliderimage" alt="">
+                                <img src="images/anime-slides/black.jpg" class="sliderimage" alt="">
+                            </div>
+                        </figure>
+                    </div>
+                    </section>
+                    <section id="anime-search">
+                        <div class="search-header">
+                            <h1>See Your Faviourite Anime</h1>
+                            <div class="border-line"></div>
+                            <h5>Search By title or Catagory</h5>
+                            <div id="anime-user-choosing">
+                                <button id="title-btn">Tittle</button>
+                                <button id="catagory-btn">Catagory</button>
+                            </div>
+                        </div>
+                        <form id="search-by-title" action="/anime" method="POST">
+
+                            <input type="text" id="anime-title" name="search" placeholder="Search for your anime">
+                            <ion-icon id="search" name="search-outline"></ion-icon>
+                            <div id="search-btn">
+                                <button type="submit">Search</button>
+                            </div>
+                        </form>
+                        <form id="search-by-catagory" action="/genre" method="POST">
+                            <!-- <input type="text" id="anime-title" name="search" placeholder="Search for your anime"> -->
+                            <select id="catagory-dropdown" name="search">
                 <option value="select your catagory">select your catagory</option>
                 <option value="1" name="search">Action</option>
                 <option value="2" name="search">Advanture</option>
@@ -61,131 +62,131 @@
                 <option value="32" name="search">Vampire</option>
                 <option value="42" name="search">Seinen</option>
             </select>
-                <div id="second-search-btn">
-                    <button type="submit">Search</button>
-                </div>
-            </form>
-
-        </section>
-        <section>
-            <div id="outer-box">
-                <h1 id="top">Top 10 Anime</h1>
-                <div id="control-btns">
-                    <ion-icon id="arrow-right" name="arrow-forward-circle-outline"></ion-icon>
-                    <ion-icon id="arrow-left" name="arrow-back-circle-outline"></ion-icon>
-                    <div id="inner-box">
-                        <div id="slider1">
-                            <div id="vcards">
-                                <% for(let i=0;i<10;i++){%>
-                                    <div class="vcard">
-                                        <div class="anime-box">
-                                            <div class="anime-img">
-                                                <img src="<%= top[i].image_url%>" alt="death-note">
-                                            </div>
-                                            <div class="anime-title">
-                                                <h1>
-                                                    <%= top[i].title%>
-                                                </h1>
-                                            </div>
-                                            <div class="anime-details">
-                                                <p>
-                                                    | <span class="rate"> score: <%= top[i].score%> </span> |
-                                                    <br>
-                                                    <br>
-                                                    <span><%= top[i].episodesOrVolumes%> episodes</span>
-                                                </p>
-                                            </div>
-
-                                            <button class="like">
-				    <i class="fas fa-heart" aria-hidden="true"></i>
-                </button>
-                
-                                        </div>
-
-                                    </div>
-                                    <%} %>
+                            <div id="second-search-btn">
+                                <button type="submit">Search</button>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <div id="myModal" class="modal">
-
-            <!-- Modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>We will Contact You Soon</p>
-            </div>
-
-        </div>
-        <section id="News-letter">
-            <div class="slider">
-                <img src="images/anime-slides/anime-group.jpg">
-
-                <div class="slider-text">
-                    <h2>NEWSLETTER</h2>
-                </div>
-                <div class="slider-content">
-                    <p>Enter your email address to receive all news, updates on new arrivals, special offers and other discount information.</p>
-                    <div id="email-feild">
-                        <form action="/" method="POST">
-                            <input id="email" type="email" placeholder="Your-Email..." name="email">
-                            <button id="btn" class="Subscribe">Subscribe</button>
                         </form>
 
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="News">
-            <h1>News</h1>
-            <div class="border-bottom"></div>
+                    </section>
+                    <section>
+                        <div id="outer-box">
+                            <h1 id="top">Top 10 Anime</h1>
+                            <div id="control-btns">
+                                <ion-icon id="arrow-right" name="arrow-forward-circle-outline"></ion-icon>
+                                <ion-icon id="arrow-left" name="arrow-back-circle-outline"></ion-icon>
+                                <div id="inner-box">
+                                    <div id="slider1">
+                                        <div id="vcards">
+                                            <% for(let i=0;i<10;i++){%>
+                                                <div class="vcard">
+                                                    <div class="anime-box">
+                                                        <div class="anime-img">
+                                                            <img src="<%= top[i].image_url%>" alt="death-note">
+                                                        </div>
+                                                        <div class="anime-title">
+                                                            <h1>
+                                                                <%= top[i].title%>
+                                                            </h1>
+                                                        </div>
+                                                        <div class="anime-details">
+                                                            <p>
+                                                                | <span class="rate"> score: <%= top[i].score%> </span> |
+                                                                <br>
+                                                                <br>
+                                                                <span><%= top[i].episodesOrVolumes%> episodes</span>
+                                                            </p>
+                                                        </div>
 
-            <style>
+                                                        <button class="like">
+				    <i class="fas fa-heart" aria-hidden="true"></i>
+                </button>
 
-            </style>
-            <div id="news-slider">
-                <div id="news-vcards">
-                    <%news.forEach(val=>{%>
-                        <div class="news-vcard">
-                            <div class="image-news">
-                                <img src="<%= val.image_url%>" alt="">
-                            </div>
-                            <div class="content">
-                                <h1>
-                                    <%= val.title%>
-                                </h1>
-                                <span class="catagory"> <br><%val.genres.forEach((data,i)=>{%>
-			<span>Genre: <%=data.name%>,</span>
-                                <%})%>
-                                    <br><span class="durition"> Source: <%= val.source%></span>
-                                    <br>
-                                    <span class="durition">
-			Producers: <%val.producers.forEach((data,i)=>{%>
-				<span><%=data.name%></span>
-                                    <%})%>
-                                        </span>
-                                        <br> <span class="realese"> <%= val.airing_start%></span>
+                                                    </div>
 
-                                        </span>
-
-                                        <p class="article-des-pargraph">
-                                            <%=  val.synopsis;%>
-                                        </p>
+                                                </div>
+                                                <%} %>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <%})%>
-                </div>
-            </div>
-            <div class="right-btn" style="display: inline-block;">
-                <div id="right"><i class="fas fa-arrow-left"></i></div>
-            </div>
-            <div class="left-button" style="display: inline-block;">
-                <div id="next"><i class="fas fa-arrow-right"></i></div>
-            </div>
+                    </section>
+                    <div id="myModal" class="modal">
 
-        </section>
-        </main>
-        <%- include('layout/footer'); -%>
-            <script src="js/preloader.js"></script>
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <p>We will Contact You Soon</p>
+                        </div>
+
+                    </div>
+                    <section id="News-letter">
+                        <div class="slider">
+                            <img src="images/anime-slides/anime-group.jpg">
+
+                            <div class="slider-text">
+                                <h2>NEWSLETTER</h2>
+                            </div>
+                            <div class="slider-content">
+                                <p>Enter your email address to receive all news, updates on new arrivals, special offers and other discount information.</p>
+                                <div id="email-feild">
+                                    <form action="/" method="POST">
+                                        <input id="email" type="email" placeholder="Your-Email..." name="email">
+                                        <button id="btn" class="Subscribe">Subscribe</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section id="News">
+                        <h1>News</h1>
+                        <div class="border-bottom"></div>
+
+                        <style>
+
+                        </style>
+                        <div id="news-slider">
+                            <div id="news-vcards">
+                                <%news.forEach(val=>{%>
+                                    <div class="news-vcard">
+                                        <div class="image-news">
+                                            <img src="<%= val.image_url%>" alt="">
+                                        </div>
+                                        <div class="content">
+                                            <h1>
+                                                <%= val.title%>
+                                            </h1>
+                                            <span class="catagory"> <br><%val.genres.forEach((data,i)=>{%>
+			<span>Genre: <%=data.name%>,</span>
+                                            <%})%>
+                                                <br><span class="durition"> Source: <%= val.source%></span>
+                                                <br>
+                                                <span class="durition">
+			Producers: <%val.producers.forEach((data,i)=>{%>
+				<span><%=data.name%></span>
+                                                <%})%>
+                                                    </span>
+                                                    <br> <span class="realese"> <%= val.airing_start%></span>
+
+                                                    </span>
+
+                                                    <p class="article-des-pargraph">
+                                                        <%=  val.synopsis;%>
+                                                    </p>
+                                        </div>
+                                    </div>
+                                    <%})%>
+                            </div>
+                        </div>
+                        <div class="right-btn" style="display: inline-block;">
+                            <div id="right"><i class="fas fa-arrow-left"></i></div>
+                        </div>
+                        <div class="left-button" style="display: inline-block;">
+                            <div id="next"><i class="fas fa-arrow-right"></i></div>
+                        </div>
+
+                    </section>
+                </main>
+                <%- include('layout/footer'); -%>
+                    <script src="js/preloader.js"></script>

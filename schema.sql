@@ -1,6 +1,7 @@
-DROP TABLE IF EXISTS studnet;
 
-CREATE TABLE studnet (
+DROP TABLE IF EXISTS anime;
+
+CREATE TABLE anime (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255),
     image VARCHAR(255),
