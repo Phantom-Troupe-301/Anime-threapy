@@ -1,47 +1,52 @@
 <%- include('layout/head'); -%>
     <%- include( 'layout/header'); -%>
+    <style>
+        #fav-anime-info {
+    height: 500px !important;
+}
+#header-background {
+  
+    height: 500px;
+}
+    </style>
+                            <div class="search-header">
 
+    <h1 style="margin-top:6%">Your Faviourite Anime List</h1>
+    </div>
 
-            <% bookResults.forEach(data=>{%>
-                <div id="anime-info">
-                    <div class="detail-anime-title">
-
-                        <h2>
-                            <%=data.title %>
-                        </h2>
-                    </div>
-
-                    <div id="anime-full-info">
-                        <div class="detail-anime-image">
+    <div class="fav-anime-section">
+        <% bookResults.forEach(data=>{%>
+                <div id="fav-anime-info">
+                    <div id="fav-box">
+                  <div id="fav-anime-content">
+                        <div class="fav-anime-image">
                             <img src="<%= data.image%>" alt="  <%= data.title %>">
                         </div>
-                        <div id="anime-first-detail">
-                            <div class="rating">
-                                <h6>
-                                    <%= data.averageRating%>
-                                </h6>
-                            </div>
-                            <div class="start-date">
-                                <h6>Start:
-                                    <%= data.startDate%>
-                                </h6>
-                            </div>
-                            <div class="end-date">
-                                <h6> <br> End:
-                                    <%= data.endDate%>
-                                </h6>
-                            </div>
+                        <div id="anime-content-info">
+                        <div id="detail-anime-title">
+
                             <h6>
+                                <b>Title:</b><%=data.title %>
+                            </h6>
+                        </div>
+    
+                            <div class="average-rate">
+                                <h6>
+                                    <b>Rate:</b><%=data.averageRating%>
+                                </h6>
+                            </div>
+                            
+                         
 
 
                                 <h6>
-                                    <%= data.gener_old%>
+                                   <b>Catagory:</b> <%= data.gener_old%>
                                 </h6>
                                 <h6>
-                                    <%= data.subtype%>
+                                  <b>Type:</b>  <%= data.subtype%>
                                 </h6>
                                 <h6>
-                                    <%= data.status%>
+                                   <b>Complete:</b> <%= data.status%>
                                 </h6>
                                 <h6>
                                     <%= data.episodeCount%>
@@ -50,26 +55,29 @@
                                 <h6>
                                     <%= data.episodeLength%>
                                 </h6>
-                                <div class="detail-anime-des">
+                                <div class="fav-anime-des">
                                     <p>
                                         <%= data.synopsis.substring(0,300)%>
                                     </p>
                                 </div>
-                        </div>
 
-                        <div class="anime-detail-video">
-                            <iframe width="420" height="315" src="https://www.youtube.com/embed/<%= data.youtubeVideoId%>">
-	</iframe>
+                            </div>
+                        <form action="/delete/<%=data.id%>?_method=delete" method="post">
+                            <div class="delete-btn">
+                                <button id="delete" type="submit">Delete</button>
+                            </div>
+                            </form>
                         </div>
+                    </div>
 
                         <%})%>%>
+                        </div>
+                        
 
 
 
 
 
-
-    <%- include('layout/preloader'); -%>
 
     <%- include('layout/footer'); -%>
 

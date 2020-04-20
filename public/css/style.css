@@ -1,6 +1,7 @@
 body {
-    font-family: 'Indie Flower', cursive;
-    overflow-y: scroll;
+    font-family: PT Sans,Helvetica,Arial,sans-serif !important;
+    color: #fff;
+  
 }
 
 header {
@@ -14,7 +15,7 @@ header {
     background: linear-gradient(#00000091, #00000062), url(../images/red-blue-background.jpg);
     background-position: center;
     background-repeat: no-repeat;
-    height: 650px;
+    height: 620px;
     background-size: 100%;
 }
 
@@ -25,10 +26,9 @@ header {
 
 #main-navbar {
     margin-top: 4%;
-    margin-right: 10%;
+    margin-right: 5%;
     display: inline-block;
 }
-
 #main-navbar ul {
     list-style-type: none;
 }
@@ -130,11 +130,37 @@ ion-icon:hover {
 }
 
 .search-header h1 {
+    font-size: 30px;
+    font-family: PT Sans,Helvetica,Arial,sans-serif !important;
+    word-spacing: normal;
+    letter-spacing: 8px;
+    color: #fff;
+    overflow: hidden;
     text-align: center;
-    font-size: 40px;
-    font-family: "Roboto Slab", serif;
-    font-weight: bolder;
+    text-transform:uppercase;
+    padding-top: 2%;
 }
+.search-header h1:before,
+.search-header h1:after {
+    background-color: #fff;
+    content: "";
+    display: inline-block;
+    height: 3px;
+    position: relative;
+    vertical-align: middle;
+    width: 10%;
+  }
+  
+  .search-header h1:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+  
+.search-header h1:after {
+    left: 0.5em;
+    margin-right: -50%;
+  }
+
 
 .border-line {
     display: block;
@@ -144,13 +170,16 @@ ion-icon:hover {
 }
 
 .search-header h5 {
+    font-family: PT Sans,Helvetica,Arial,sans-serif !important;
+    word-spacing: normal;
+    letter-spacing: 8px;
+    color: #fff;
     text-align: center;
-    padding-top: 10px;
     font-size: 20px;
+    padding: 5% 0;
 }
-
 #anime-user-choosing {
-    margin-top: 20px;
+    margin-top: 0px;
     display: flex;
     flex-direction: row;
     width: 95%;
@@ -181,7 +210,7 @@ ion-icon:hover {
 }
 
 #catagory-btn:hover {
-    background-color: #e43f7a;
+    background-color: #77132f;
 }
 
 #catagory-btn {
@@ -219,6 +248,7 @@ ion-icon:hover {
 
 #search-btn {
     text-align: center;
+    width: 97%;
 }
 
 #search-btn button {
@@ -245,9 +275,9 @@ ion-icon:hover {
 
 #catagory-dropdown {
     display: inline-block;
-    width: 30%;
+    width: 20%;
     text-align: center;
-    margin: 2% 32%;
+    margin: 2% 39%;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -257,14 +287,14 @@ ion-icon:hover {
     border: 1px solid #ced4da;
     border-radius: .25rem;
 }
-
 .active2 {
-    background-color: #e43f7a;
+    background-color: #77132f;
     color: #fff !important;
 }
 
 #second-search-btn {
     text-align: center;
+    width: 97%;
 }
 
 #second-search-btn button {
@@ -273,7 +303,7 @@ ion-icon:hover {
     width: 12%;
     border-radius: 9px;
     cursor: pointer;
-    background-color: #e43f7a;
+    background-color: #77132f;
     transition: 0.5s ease-in-out;
     color: #fff;
 }
@@ -297,7 +327,7 @@ ion-icon:hover {
     font-size: 50px;
     cursor: pointer;
     z-index: 1;
-    color: #000;
+    color: #ffffff;
 }
 
 #arrow-right {
@@ -306,7 +336,7 @@ ion-icon:hover {
     cursor: pointer;
     z-index: 1;
     left: 4px;
-    color: #000;
+    color: #ffffff;
 }
 
 .container {
@@ -331,14 +361,14 @@ ion-icon:hover {
 .anime-box {
     width: 200px;
     height: 370px;
-    background-color: #234a81;
+    background-color: #070c19;
     border-radius: 2px;
     margin-right: 7px;
     box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.5);
-    position: sticky;
     display: flex;
     padding-bottom: 40px;
     flex-direction: column;
+    transition: 0.5s ease-in-out;
     color: #fff;
     align-items: center;
     justify-content: space-between;
@@ -381,13 +411,21 @@ ion-icon:hover {
     overflow: hidden;
     position: relative;
     height: 500px;
-    width: 93%;
+    width: 97%;
     bottom: 150px;
-    left: 0.5%;
+    right: 19px;
     justify-content: center;
     align-items: center;
 }
-
+.vcard:nth-child(5) {
+    margin-left: 40px;
+}
+.vcard:nth-child(6) {
+margin-left: 40px;
+}
+.vcard:nth-child(9) {
+    margin-left: 5px;
+    }
 .vcard {
     width: 200px;
     margin: 0 10px;
@@ -405,9 +443,11 @@ ion-icon:hover {
     left: 40px;
 }
 
+
 #outer-box h1 {
     font-size: 15px;
-    padding-top: 5%;
+    padding-top: 2%;
+    padding-bottom: 20px;
     text-align: center;
     color: white;
 }
@@ -419,8 +459,8 @@ ion-icon:hover {
 .like {
     border: none;
     color: aliceblue;
-    background-color: #234a81;
     left: 36%;
+    background-color: #070c19;
     position: relative;
     font-size: 2em;
 }
@@ -443,7 +483,7 @@ ion-icon:hover {
 }
 
 .slider-text {
-    background: rgb(0, 0, 0, 0.8);
+    background: rgb(0, 0, 0, 0.5);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -453,16 +493,16 @@ ion-icon:hover {
     font-family: "Roboto Slab", serif;
     margin-top: 0;
     margin-bottom: 0;
-    letter-spacing: 3px
+    letter-spacing: 3px;
 }
 
 .slider-text h2 {
     font-size: 40px;
     padding-top: 70px;
     color: #fff;
+    letter-spacing: 12px;
     text-align: center;
 }
-
 .slider-content {
     position: absolute;
     width: 60%;
@@ -579,7 +619,7 @@ input::placeholder {
 }
 
 #News {
-    background-color: #151515;
+    background-color: #070c19;
     font-size: 40px;
     padding-top: 25px;
     font-weight: 600;
@@ -656,8 +696,8 @@ iframe {
     text-align: left;
     line-height: 30px;
     font-size: small;
+    color: #fff;
 }
-
 .content {
     display: flex;
     flex-direction: column;
@@ -698,9 +738,8 @@ footer {
 #navbar {
     padding-top: 13px;
     text-align: center;
-    width: 93%;
+    width: 100%;
 }
-
 #navbar ul li {
     transition: 0.5s ease;
     display: inline-block;
@@ -711,9 +750,7 @@ footer {
     color: #fff;
 }
 
-.copyright {
-    padding-right: 5%;
-}
+
 
 .copyright p {
     color: #fff;
@@ -747,7 +784,6 @@ footer {
     color: skyblue;
     left: 18px;
     bottom: 370px;
-    cursor: pointer;
     border: 1px solid;
     border-radius: 50%;
     transition: 0.5s ease;
@@ -779,63 +815,11 @@ footer {
     left: 40px;
 }
 
-.modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    padding-top: 100px;
-    /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-}
-
-
-/* Modal Content */
-
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    height: 92px;
-    border: 1px solid #888;
-    width: 25%;
-    text-align: center;
-    transition: 0.5s ease;
-}
-
-
-/* The Close Button */
-
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 .left-button:hover {
     background-color: #000b6e;
 }
+
 
 @keyframes intro {
     0% {
