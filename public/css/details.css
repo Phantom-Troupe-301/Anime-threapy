@@ -56,17 +56,7 @@
     margin-left: 5%;
     margin-top: 9%;
 }
-  .detail-anime-title
-  {
-      text-align: center;
-      font-size: 40px;
-      font-family: PT Sans,Helvetica,Arial,sans-serif !important;
-      word-spacing: normal;
-      letter-spacing: 8px;
-      color: #fff;
-      color: #000000;
-      overflow: hidden;
-  }
+  
   .detail-anime-image img
 
   {
@@ -84,6 +74,11 @@
 #anime-first-detail h6
 {
     padding-bottom: 2%;
+    color: #fff;
+}
+#anime-first-detail p 
+{
+    color: #fff;
 }
 
 .detail-anime-title h2
@@ -94,7 +89,6 @@
     word-spacing: normal;
     letter-spacing: 8px;
     color: #fff;
-    color: #000000;
     overflow: hidden;
 }
 .detail-anime-des p {
@@ -103,4 +97,41 @@
 }
 #manga-details{
     margin-top: 6%;
+}
+#anime-first-detail b
+{
+font-weight: bold;
+}
+#add
+{
+    text-align: center;
+}
+#adfav
+{
+    display: inline-block;
+    width: 13%;
+        border: 1px solid #234a81;
+    background-color: #234a81;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    padding: 15px;
+    margin-bottom: 5%;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.5s ease-in;
+    box-sizing: border-box;
+}
+#adfav:hover
+{
+    border: 1px solid #6d233f;
+    background-color: #6d233f;
+}
+.background
+{
+        background-color: #070c19;
 }

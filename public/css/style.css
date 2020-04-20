@@ -1,6 +1,7 @@
 body {
-    font-family: PT Sans, Helvetica, Arial, sans-serif !important;
+  font-family: PT Sans, Helvetica, Arial, sans-serif !important;
     color: #fff;
+
 }
 
 header {
@@ -28,7 +29,6 @@ header {
     margin-right: 5%;
     display: inline-block;
 }
-
 #main-navbar ul {
     list-style-type: none;
 }
@@ -132,6 +132,7 @@ ion-icon:hover {
 .search-header h1 {
     font-size: 30px;
     font-family: PT Sans, Helvetica, Arial, sans-serif !important;
+
     word-spacing: normal;
     letter-spacing: 8px;
     color: #fff;
@@ -160,7 +161,29 @@ ion-icon:hover {
 .search-header h1:after {
     left: 0.5em;
     margin-right: -50%;
+
 }
+.search-header h1:before,
+.search-header h1:after {
+    background-color: #fff;
+    content: "";
+    display: inline-block;
+    height: 3px;
+    position: relative;
+    vertical-align: middle;
+    width: 10%;
+  }
+  
+  .search-header h1:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+  
+.search-header h1:after {
+    left: 0.5em;
+    margin-right: -50%;
+  }
+
 
 .border-line {
     display: block;
@@ -170,11 +193,15 @@ ion-icon:hover {
 }
 
 .search-header h5 {
+    font-family: PT Sans,Helvetica,Arial,sans-serif !important;
+    word-spacing: normal;
+    letter-spacing: 8px;
+    color: #fff;
     text-align: center;
     font-size: 30px;
+
     padding: 5% 0;
 }
-
 #anime-user-choosing {
     margin-top: 0px;
     display: flex;
@@ -207,7 +234,7 @@ ion-icon:hover {
 }
 
 #catagory-btn:hover {
-    background-color: #e43f7a;
+    background-color: #77132f;
 }
 
 #catagory-btn {
@@ -284,9 +311,8 @@ ion-icon:hover {
     border: 1px solid #ced4da;
     border-radius: .25rem;
 }
-
 .active2 {
-    background-color: #e43f7a;
+    background-color: #77132f;
     color: #fff !important;
 }
 
@@ -301,7 +327,7 @@ ion-icon:hover {
     width: 12%;
     border-radius: 9px;
     cursor: pointer;
-    background-color: #e43f7a;
+    background-color: #77132f;
     transition: 0.5s ease-in-out;
     color: #fff;
 }
@@ -363,10 +389,10 @@ ion-icon:hover {
     border-radius: 2px;
     margin-right: 7px;
     box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.5);
-    position: sticky;
     display: flex;
     padding-bottom: 40px;
     flex-direction: column;
+    transition: 0.5s ease-in-out;
     color: #fff;
     align-items: center;
     justify-content: space-between;
@@ -428,6 +454,7 @@ ion-icon:hover {
     margin-left: 5px;
 }
 
+
 .vcard {
     width: 200px;
     margin: 0 10px;
@@ -444,6 +471,7 @@ ion-icon:hover {
     top: 0;
     left: 40px;
 }
+
 
 #outer-box h1 {
     font-size: 15px;
@@ -504,7 +532,6 @@ ion-icon:hover {
     letter-spacing: 12px;
     text-align: center;
 }
-
 .slider-content {
     position: absolute;
     width: 60%;
@@ -700,7 +727,6 @@ iframe {
     font-size: small;
     color: #fff;
 }
-
 .content {
     display: flex;
     flex-direction: column;
@@ -741,9 +767,8 @@ footer {
 #navbar {
     padding-top: 13px;
     text-align: center;
-    width: 93%;
+    width: 100%;
 }
-
 #navbar ul li {
     transition: 0.5s ease;
     display: inline-block;
@@ -754,9 +779,7 @@ footer {
     color: #fff;
 }
 
-.copyright {
-    padding-right: 5%;
-}
+
 
 .copyright p {
     color: #fff;
@@ -790,7 +813,6 @@ footer {
     color: skyblue;
     left: 18px;
     bottom: 370px;
-    cursor: pointer;
     border: 1px solid;
     border-radius: 50%;
     transition: 0.5s ease;
@@ -822,63 +844,11 @@ footer {
     left: 40px;
 }
 
-.modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    padding-top: 100px;
-    /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
-}
-
-
-/* Modal Content */
-
-.modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    height: 92px;
-    border: 1px solid #888;
-    width: 25%;
-    text-align: center;
-    transition: 0.5s ease;
-}
-
-
-/* The Close Button */
-
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 .left-button:hover {
     background-color: #000b6e;
 }
+
 
 @keyframes intro {
     0% {

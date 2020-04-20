@@ -2,10 +2,10 @@
     <%- include( 'layout/header'); -%>
 
 
-        <% bookResults.forEach(data=>{%>
-            <%console.log('sxasxasxasxasxasxasx',bookResults);%>
+            <% bookResults.forEach(data=>{%>
                 <div id="anime-info">
-                    <div class="fav-anime-title">
+                    <div class="detail-anime-title">
+
                         <h2>
                             <%=data.title %>
                         </h2>
@@ -58,18 +58,20 @@
                         </div>
 
                         <div class="">
-                            <iframe width="420" height="315" src="https://www.youtube.com/embed/<%= data.youtubevideoid%>">
+                            <iframe width="420" height="315" src="https://www.youtube.com/embed/<%= data.youtubeVideoId%>">
 	</iframe>
                         </div>
+                        <%console.log(data.id,'asdsadasdasdsadasdasd')%>
                         <form action="/delete/<%=data.id%>?_method=delete" method="post">
                             <button type="submit">Delete</button>
-                        </form>
+                            </form>
                         <%})%>%>
+                        
 
 
 
 
 
 
+    <%- include('layout/footer'); -%>
 
-                            <%- include('layout/footer'); -%>

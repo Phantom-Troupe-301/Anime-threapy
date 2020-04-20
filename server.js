@@ -11,10 +11,12 @@ var request = require('request');
 const PORT = process.env.PORT || 3030;
 app.set('view engine', 'ejs');
 const client = new pg.Client(process.env.DATABASE_URL);
+
 app.use(cors());
 app.use(express.static('./public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 // let days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 // let date = new Date();
 // let today = date.getDay()
@@ -64,6 +66,8 @@ function Top(topRank) {
 app.post('/anime', animeSaver);
 app.post('/genre', byGenre)
 app.post('/details', detailsRender);
+app.post('/detail', detailRender);
+
 
 function animeSaver(req, res) {
     let animeSumarry = [];
@@ -171,6 +175,24 @@ function detailsRender(req, res) {
     })
 }
 
+function detailRender(req, res) {
+    let genreSumarry = [];
+    let search_input = req.body.search;
+    console.log('fafafafafafa', req.body);
+    let url = `https://api.jikan.moe/v3/anime/${search_input}`;
+
+    superagent.get(url).then((animeSearch) => {
+     
+        console.log(animeSearch.body ,"ddddd");
+            let geneerData = new Genre2(animeSearch.body);
+            genreSumarry.push(geneerData);
+              console.log('lkmsclkmaslkmxlkasmxlkm', genreSumarry);
+              res.render("./detail", { genreAnemi: genreSumarry });
+        });
+  
+}
+
+
 function byGenre(req, res) {
     let genreSumarry = [];
     let search_input = req.body.search;
@@ -243,6 +265,46 @@ app.post('/contact', (req, res) => {
     res.render('Contact');
 })
 
+
+
+function Genre(data) {
+    this.title = data.title;
+    this.image_url = data.image_url;
+    this.synopsis = data.synopsis;
+    this.airing_start = data.airing_start || 'COMING SOON';
+    this.type = data.type;
+    this.source = data.source;
+    this.episodes = data.episodes || 'Unknown';
+    this.score = data.score;
+    this.producers = data.producers;
+    this.genres = data.genres;
+    this.id = data.mal_id;
+    
+   
+}
+
+function Genre2(data) {
+    this.title = data.title;
+    this.image_url = data.image_url;
+    this.synopsis = data.synopsis;
+    this.airing_start = data.airing_start || 'COMING SOON';
+    this.type = data.type;
+    this.source = data.source;
+    this.episodes = data.episodes || 'Unknown';
+    this.score = data.score;
+    this.producers = data.producers;
+    this.genres = data.genres;
+    this.id = data.mal_id;
+    
+    this.Jtitle= data.title_japanese;
+    this.from=  data.aired.from ;
+
+    this.to=  data.aired.to ;
+    this.duration= data.duration;
+    this.studioName=data.studios.name;
+    this.trail=data.trailer_url;
+}
+
 app.post('/add', addAnime);
 app.get('/favAnime', getAnimeDetails);
 
@@ -278,14 +340,22 @@ function addAnime(req, res) {
         }
     })
 }
-
 function getAnimeDetails(req, res) {
     let SQL = 'SELECT * FROM anime;'
     client.query(SQL)
         .then(results => {
             //   console.log('asdasdasdasdasdasdas', results.rows);
             res.render('./favAnime', { bookResults: results.rows });
-        })
+      })
+}
+app.delete('/delete/:bookResults_id', deletebook);
+
+function  deletebook(req,res)
+{
+    let SQL = "DELETE FROM anime WHERE id=$1;";
+    let safeValue = [req.params.bookResults_id];
+    client.query(SQL, safeValue)
+    .then(res.redirect('/favAnime'));
 }
 app.delete('/delete/:bookResults_id', deletebook);
 

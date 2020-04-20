@@ -1,13 +1,11 @@
 <%- include('layout/head'); -%>
     <%- include( 'layout/header'); -%>
         <!-- <%- include('layout/preloader'); -%> -->
-
         <body>
             <main>
                 <!-- <div id="slider">
                         <figure>
                             <div>
-
                                 <img src="images/anime-slides/attackontitan.jpg" class="sliderimage" alt="">
                                 <img src="images/anime-slides/death.jpg" class="sliderimage" alt="">
                             </div>
@@ -35,7 +33,6 @@
                         </div>
                     </div>
                     <form id="search-by-title" action="/anime" method="POST">
-
                         <input type="text" id="anime-title" name="search" placeholder="Search for your anime">
                         <!-- <ion-icon id="search" name="search-outline"></ion-icon> -->
                         <div id="search-btn">
@@ -64,10 +61,8 @@
                             <button type="submit">Search</button>
                         </div>
                     </form>
-
                 </section>
                 </section>
-
                 <section>
                     <div id="outer-box">
                         <h1 id="top">Top 10 Anime</h1>
@@ -96,13 +91,10 @@
                                                             <span><%= top[i].episodesOrVolumes%> episodes</span>
                                                         </p>
                                                     </div>
-
                                                     <button class="like">
-				    <i class="fas fa-heart" aria-hidden="true"></i>
+                                            <i class="fas fa-heart" aria-hidden="true"></i>
                 </button>
-
                                                 </div>
-
                                             </div>
                                             <%} %>
                                     </div>
@@ -114,7 +106,6 @@
                 <section id="News-letter">
                     <div class="slider">
                         <img src="images/red-blue-background.jpg">
-
                         <div class="slider-text">
                             <h2>NEWSLETTER</h2>
                         </div>
@@ -125,7 +116,6 @@
                                     <input id="email" type="email" placeholder="Your-Email..." name="email">
                                     <button id="btn" class="Subscribe">Subscribe</button>
                                 </form>
-
                             </div>
                         </div>
                     </div>
@@ -133,9 +123,7 @@
                 <section id="News">
                     <h1 id="news_h1">News</h1>
                     <div class="border-bottom"></div>
-
                     <style>
-
                     </style>
                     <div id="news-slider">
                         <div id="news-vcards">
@@ -155,14 +143,12 @@
                                                 <br><span class="durition"> Source: <%= val.source%></span>
                                                 <br>
                                                 <span class="durition">
-			Producers: <%val.producers.forEach((data,i)=>{%>
-				<span><%=data.name%></span>
+                              Producers: <%val.producers.forEach((data,i)=>{%>
+                                        <span><%=data.name%></span>
                                                 <%})%>
                                                     </span>
                                                     <br> <span class="realese"> <%= val.airing_start%></span>
-
                                                     </span>
-
                                                     <p class="article-des-pargraph">
                                                         <%=  val.synopsis;%>
                                                     </p>
@@ -177,7 +163,6 @@
                     <div class="left-button" style="display: inline-block;">
                         <div id="next"><i class="fas fa-arrow-right"></i></div>
                     </div>
-
                 </section>
             </main>
             <%- include('layout/footer'); -%>
