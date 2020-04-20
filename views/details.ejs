@@ -10,25 +10,13 @@
             <div class="mains-pargarph">
                 <h1>Anime DETAILS</h1>
             </div>
+            <div class="background">
 
             <%details.forEach(data=>{%>
+
                 <div id="anime-info">
                     <div class="detail-anime-title">
-                        <form action="/add" method="post">
-                            <input type="text" name="title" value="<%=data.title%>" style="visibility: hidden ">
-                            <input type="text" name="image" value="<%=data.image%>" style="visibility: hidden ">
-                            <input type="text" name="averageRating" value="<%=data.averageRating%>" style="visibility: hidden ">
-                            <input type="text" name="startDate" value="<%=data.startDate%>" style="visibility: hidden ">
-                            <input type="text" name="endDate" value="<%=data.endDate%>" style="visibility: hidden ">
-                            <input type="text" name="gener_old" value="<%=data.gener_old%>" style="visibility: hidden ">
-                            <input type="text" name="subtype" value="<%= data.subtype%>" style="visibility: hidden ">
-                            <input type="text" name="status" value="<%=data.status%>" style="visibility: hidden ">
-                            <input type="text" name="episodeCount" value="<%=data.episodeCount%>" style="visibility: hidden ">
-                            <input type="text" name="episodeLength" value="<%=data.episodeLength%>" style="visibility: hidden ">
-                            <input type="text" name="synopsis" value="<%=data.synopsis.substring(0,300)%>" style="visibility: hidden ">
-                            <input type="text" name="youtubeVideoId" value="<%= data.youtubeVideoId%>" style="visibility: hidden ">
-                            <button type="submit"> Add to Fav</button>
-                        </form>
+                       
                         <h2>
                             <%=data.title %>
                         </h2>
@@ -41,16 +29,16 @@
                         <div id="anime-first-detail">
                             <div class="rating">
                                 <h6>
-                                    <%= data.averageRating%>
+                                    <b>Rating:</b> <%= data.averageRating%>
                                 </h6>
                             </div>
                             <div class="start-date">
-                                <h6>Start:
+                                <h6><b>Start:</b>
                                     <%= data.startDate%>
                                 </h6>
                             </div>
                             <div class="end-date">
-                                <h6> <br> End:
+                                <h6> <br> <b>End:</b>
                                     <%= data.endDate%>
                                 </h6>
                             </div>
@@ -58,24 +46,22 @@
 
 
                                 <h6>
-                                    <%= data.gener_old%>
+                                    <b>Catagory:</b><%= data.gener_old%>
                                 </h6>
                                 <h6>
-                                    <%= data.subtype%>
+                                   <b>Type of anime:</b> <%= data.subtype%>
                                 </h6>
                                 <h6>
-                                    <%= data.status%>
+                                 <b>Complete:</b>   <%= data.status%>
                                 </h6>
-                                <h6>
-                                    <%= data.episodeCount%>
-                                </h6>
+                              
 
                                 <h6>
-                                    <%= data.episodeLength%>
+                                  <b>Episodes:</b>  <%= data.episodeLength%>
                                 </h6>
                                 <div class="detail-anime-des">
                                     <p>
-                                        <%= data.synopsis.substring(0,300)%>
+                                       <b>Description:</b> <%= data.synopsis.substring(0,300)%>
                                     </p>
                                 </div>
                         </div>
@@ -84,14 +70,33 @@
                             <iframe width="420" height="315" src="https://www.youtube.com/embed/<%= data.youtubeVideoId%>">
                 </iframe>
                         </div>
-
-                        <%})%>%>
-
+                       
+                    </section>
+                    <div class="background">
+                    <form action="/add" id="add" method="post">
+                        <input type="text" name="title" value="<%=data.title%>" style="display: none ">
+                        <input type="text" name="image" value="<%=data.image%>" style="display: none ">
+                        <input type="text" name="averageRating" value="<%=data.averageRating%>" style="display: none ">
+                        <input type="text" name="startDate" value="<%=data.startDate%>" style="display: none ">
+                        <input type="text" name="endDate" value="<%=data.endDate%>" style="display: none ">
+                        <input type="text" name="gener_old" value="<%=data.gener_old%>" style="display: none ">
+                        <input type="text" name="subtype" value="<%= data.subtype%>" style="display: none ">
+                        <input type="text" name="status" value="<%=data.status%>" style="display: none ">
+                        <input type="text" name="episodeCount" value="<%=data.episodeCount%>" style="display: none ">
+                        <input type="text" name="episodeLength" value="<%=data.episodeLength%>" style="display: none ">
+                        <input type="text" name="synopsis" value="<%=data.synopsis.substring(0,300)%>" style="display:none ">
+                        <input type="text" name="youtubeVideoId" value="<%= data.youtubeVideoId%>" style="display: none ">
+                        <br>
+                        <button type="submit" id="adfav"> Add to Fav</button>
+                    </form>
+                </div>
+                </div>
+                    <%})%>%>
                             <%details2.forEach(data=>{%>
                                 <div id="anime-info">
                                     <div class="detail-anime-title">
                                         <h2>
-                                            <%=data.title %>
+                                         <%=data.title %>
                                         </h2>
                                     </div>
 
@@ -102,54 +107,55 @@
                                             <div class="rating">
 
                                                 <h6>
-                                                    Rating:
+                                                   <b>Rating:</b> Rating:
                                                     <%= data.averageRating%>
                                                 </h6>
                                             </div>
                                             <div class="start-date">
 
                                                 <h6>
-                                                    Start:
+                                                    <b>Start:</b>
                                                     <%= data.startDate%>
                                                 </h6>
                                             </div>
                                             <div class="end-date">
-                                                End:
+                                                <b>End:</b>
                                                 <%= data.endDate%>
                                             </div>
                                             <div class="genra">
+                                            
                                                 <h6>
-                                                    <%= data.gener_old%>
+                                                   <b>Catagory:</b> <%= data.gener_old%>
                                                 </h6>
                                             </div>
 
                                             <h6>
-                                                <%= data.subtype%>
+                                              <b>Manga Type:</b>  <%= data.subtype%>
                                             </h6>
                                             <h6>
-                                                Status:
+                                                <b>Status:</b>
                                                 <%= data.status%>
                                             </h6>
                                             <h6>
-                                                Volume:
+                                                <b>Volume:</b>
                                                 <%= data.volumeCount%>
                                             </h6>
                                             <h6>
-                                                serialization:
+                                                <b>serialization:</b>
                                                 <%= data.serialization%>
                                             </h6>
-                                            <h4>
-                                                Chapters:
+                                            <h6>
+                                               <b>Chapters:</b> 
                                                 <%= data.chapterCount%>
-                                            </h4>
-                                            <h4>
-                                                popularityRank:
+                                            </h6>
+                                            <h6>
+                                                <b>popularityRank:</b>
                                                 <%= data.popularityRank%>
-                                            </h4>
-                                            <h4>
-                                                ratingRank:
+                                            </h6>
+                                            <h6>
+                                              <b> ratingRank:</b> 
                                                 <%= data.ratingRank%>
-                                            </h4>
+                                            </h6>
                                             <%})%>%>
                                         </div>
                                     </div>
@@ -157,4 +163,6 @@
                     </div>
                 </div>
                 </div>
-        </section>
+        
+
+        <%- include('./layout/footer'); -%>
