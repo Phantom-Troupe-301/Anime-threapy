@@ -1,0 +1,69 @@
+
+.fav-anime-section {
+    margin-top: 6%;
+}
+#fav-anime-info {
+    background-color: #070c19;
+    height: 500px;
+}
+.fav-anime-image img {
+    width: 20%;
+    margin-right: 5%;
+    float: left;
+}
+#fav-anime-content
+{
+    padding-top: 7%;
+    margin: 5%;
+}
+#fav-anime-content h6
+{
+    padding-bottom: 1%;
+}
+.fav-anime-des 
+{
+padding-bottom: 1%;
+}
+.delete-btn
+{
+    float: right;
+}
+.fav-anime-des {
+    padding-bottom: 1%;
+    word-spacing: 3px;
+    line-height: 31px;
+}
+#delete
+{
+  
+    display: inline-block;
+    width: 100%;
+        border: 1px solid #234a81;
+    background-color: #234a81;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    padding: 15px;
+    margin-bottom: 5%;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.5s ease-in;
+    box-sizing: border-box;
+}
+#delete:hover
+{
+    border: 1px solid #6d233f;
+    background-color: #6d233f;
+}
+#fav-box
+{
+    margin-bottom: 5%;
+}
+#detail-anime-title h6
+{
+    padding-bottom: 3%;
+}
