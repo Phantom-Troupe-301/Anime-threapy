@@ -11,11 +11,9 @@ const pg = require('pg');
 const cors = require('cors');
 var request = require('request');
 
-const PORT = process.env.PORT || 3030;
-
+const PORT = process.env.PORT ;
 app.set('view engine', 'ejs');
 const client = new pg.Client(process.env.DATABASE_URL);
-
 
 app.use(cors());
 
@@ -76,6 +74,8 @@ function Top(topRank) {
 app.post('/anime', animeSaver);
 app.post('/genre', byGenre)
 app.post('/details', detailsRender);
+app.post('/detail', detailRender);
+
 
 
 function animeSaver(req, res) {
@@ -173,6 +173,24 @@ function detailsRender(req, res) {
     })
 }
 
+function detailRender(req, res) {
+    let genreSumarry = [];
+    let search_input = req.body.search;
+    console.log('fafafafafafa', req.body);
+    let url = `https://api.jikan.moe/v3/anime/${search_input}`;
+
+    superagent.get(url).then((animeSearch) => {
+     
+        console.log(animeSearch.body ,"ddddd");
+            let geneerData = new Genre2(animeSearch.body);
+            genreSumarry.push(geneerData);
+              console.log('lkmsclkmaslkmxlkasmxlkm', genreSumarry);
+              res.render("./detail", { genreAnemi: genreSumarry });
+        });
+  
+}
+
+
 function byGenre(req, res) {
     let genreSumarry = [];
     let search_input = req.body.search;
@@ -265,6 +283,7 @@ app.post('/contact', (req, res) => {
     res.render('Contact');
 })
 
+
 function Genre(data) {
     this.title = data.title;
     this.image_url = data.image_url;
@@ -276,6 +295,31 @@ function Genre(data) {
     this.score = data.score;
     this.producers = data.producers;
     this.genres = data.genres;
+    this.id = data.mal_id;
+    
+   
+}
+
+function Genre2(data) {
+    this.title = data.title;
+    this.image_url = data.image_url;
+    this.synopsis = data.synopsis;
+    this.airing_start = data.airing_start || 'COMING SOON';
+    this.type = data.type;
+    this.source = data.source;
+    this.episodes = data.episodes || 'Unknown';
+    this.score = data.score;
+    this.producers = data.producers;
+    this.genres = data.genres;
+    this.id = data.mal_id;
+    
+    this.Jtitle= data.title_japanese;
+    this.from=  data.aired.from ;
+
+    this.to=  data.aired.to ;
+    this.duration= data.duration;
+    this.studioName=data.studios.name;
+    this.trail=data.trailer_url;
 }
 app.post('/add', addAnime);
 app.get('/favAnime', getAnimeDetails);
