@@ -176,7 +176,6 @@ function byGenre(req, res) {
     let search_input = req.body.search;
     console.log('fafafafafafa', req.body);
     let url = `https://api.jikan.moe/v3/genre/anime/${search_input}`;
-
     superagent.get(url).then((animeSearch) => {
         animeSearch.body.anime.map((theAnime) => {
             let geneerData = new Genre(theAnime);
@@ -208,9 +207,7 @@ app.post('/', (req, res) => {
 
         },
         body: JSONdata
-
     }
-
     request(options, (error, response, body) => {
         if (response.statusCode === 200) {
             alert("We will Contact u soon");
@@ -277,9 +274,6 @@ function Genre(data) {
 }
 app.post('/add', addAnime);
 app.get('/favAnime', getAnimeDetails);
-
-
-
 
 function addAnime(req, res) {
     let Anime = req.body.title;
