@@ -22,7 +22,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-top: 0%;
+    margin-top: 5%;
 }
 
 #manga {
@@ -31,12 +31,13 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-top: 5%;
 }
 
 .data {
     display: flex;
     flex-direction: column;
-    clip-path: polygon(50% 0%, 100% 0, 100% 88%, 50% 100%, 0 88%, 1% 0);
+    /* clip-path: polygon(50% 0%, 100% 0, 100% 88%, 50% 100%, 0 88%, 1% 0); */
     align-items: center;
     height: 500px;
     justify-content: center;
@@ -46,13 +47,15 @@
     background-color: #070c19;
     margin-top: 3%;
     margin-bottom: 3%;
+    box-shadow: 3px 4px 8px #000000;
+    transition: 0.5s ease-in-out;
 }
 
 form {
     text-align: center;
 }
 
-.btnDetails {
+.btndetails {
     /* text-align: center;
     border-radius: 33%;
     background-color: #143057;
@@ -64,17 +67,30 @@ form {
     height: 30px;
     margin-bottom: 3%; */
     /* alaa code*/
-    color: #fff;
-    border: none;
-    padding: 15px;
-    background-color: rebeccapurple;
-    width: 150px;
-    border-radius: 30px;
-    margin-bottom: 12%;
+     border: none;
+    width: 200px;
+    margin-left: 1%;
+    font-size: 19px;
+    border-radius: 9px;
+    box-sizing: border-box;
     cursor: pointer;
-    text-transform: uppercase;
+    background-color: #77132f;
+    transition: 0.5s ease-in-out;
+    color: #fff;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    height: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.8s ease-in-out;
+    outline: none;
+    border: 1px solid #fff; 
 }
-
+.btndetails:hover
+{
+    background-color:#77132f ;
+}
 .data img {
     width: 80%;
     margin-top: 4%;
@@ -93,19 +109,26 @@ form {
 }
 
 .section_header li {
-    
     display: inline-block;
-    border: 1px solid #234a81;
-    background-color: #234a81;
-    padding: 15px;
-    font-weight: 400;
-    text-align: center;
-    vertical-align: middle;
-    border: 1px solid transparent;
-    font-size: 1rem;
-    line-height: 1.5;
-    border-radius: .25rem;
-    transition: all 0.5s;
+    border: none;
+    width: 10%;
+    padding-top: 1%;
+    margin-left: 1%;
+    font-size: 19px;
+    border-radius: 9px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #77132f;
+    transition: 0.5s ease-in-out;
+    color: #fff;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    height: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border: 1px solid #fff;
 }
 .section_header li:hover
 {background-color: #6d233f;
@@ -121,4 +144,9 @@ form {
 
 .detail-anime-title p {
     padding-bottom: 5px;
+}
+
+.data:hover
+{
+    transform: scale(1.1);
 }

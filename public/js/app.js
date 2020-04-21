@@ -1,6 +1,6 @@
 $(document).ready(function() {
     //functions to switch between title and catagory buttons
-  
+   
     $("#search-by-catagory").hide();
     $("#search-by-title").hide();
 
@@ -64,3 +64,6 @@ $(document).ready(function() {
   $("body").on("click",function(){
       $("#preloader").remove();
     });
+     var video = document.querySelector('video');
+    video.muted = true;
+    video.play();

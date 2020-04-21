@@ -1,6 +1,11 @@
 <%- include('layout/head'); -%>
     <%- include( 'layout/header'); -%>
         <!-- <%- include('layout/preloader'); -%> -->
+        <style>
+            #navbar {
+    width: 93%  !important;
+}
+        </style>
 
         <body>
             <main>
@@ -26,10 +31,10 @@
                     </div> -->
                 <section id="anime-search">
                     <div class="search-header">
-                        <h1>See Your Faviourite Anime</h1>
+                        <h1>See Your Favorite Anime</h1>
                         <h5>Search By Title or Catagory</h5>
                         <div id="anime-user-choosing">
-                            <button id="title-btn">Tittle</button>
+                            <button id="title-btn">Title</button>
                             <button id="catagory-btn">Catagory</button>
                         </div>
                     </div>
@@ -92,9 +97,7 @@
                                                             <span><%= top[i].episodesOrVolumes%> episodes</span>
                                                         </p>
                                                     </div>
-                                                    <button class="like">
-                                            <i class="fas fa-heart" aria-hidden="true"></i>
-                </button>
+                                          
                                                 </div>
                                             </div>
                                             <%} %>
@@ -103,6 +106,31 @@
                             </div>
                         </div>
                     </div>
+                </section>
+                <section id="promo">
+                    <div class="anime-promo-title">
+                        <h1>Anime Thearpy. Everywhere.</h1>
+                    </div>
+                    <div class="anime-promo-details">
+                        <p>Suref from the comfort of your living room or on the go with our handy mobile apps.</p>
+                    </div>
+
+                    <div class="video-promo">
+                        <img src="images/logo.png" alt="anime-threapy">
+                        <video id="promo" width="620" height="352" autoplay="autoplay" loop>
+                            <source src="videos/trailler.mp4" type="video/mp4">
+                          </video> 
+                         
+                    </div>
+                    <div class="devices">
+                        <img src="images/image-device2.png" alt="device">
+                        <img src="images/IPad_Air.png" alt="device">
+                        <img src="images/image-device1.png" alt="device">
+                        <img src="images/image6.png" alt="device">
+                        <img src="images/xbox.png" alt="device">
+                    </div>
+                  
+                    
                 </section>
                 <section id="News-letter">
                     <div class="slider">
