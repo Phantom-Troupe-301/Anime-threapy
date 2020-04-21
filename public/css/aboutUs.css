@@ -1,22 +1,23 @@
-#AboutUs{
+#AboutUs {
     text-align: center;
     color: #f3f3f3;
     font-size: 39px;
     margin-top: 33px;
 }
-  
 
-h3{
+h3 {
     text-align: center;
     color: #000069;
     margin-top: 44px;
     font-size: 32px;
     font-weight: bold;
 }
-hr{
-    width:143px;
-    color:white;
+
+hr {
+    width: 143px;
+    color: white;
 }
+
 .member {
     display: flex;
     flex-direction: column;
@@ -30,14 +31,17 @@ hr{
     font-weight: bold;
     font-size: 20px;
 }
+
 .img-div img {
-    width:150px;
+    width: 150px;
     height: 150px;
 }
-.member-data{
+
+.member-data {
     text-align: center;
     margin-top: 74px;
 }
+
 #members-box {
     display: flex;
     justify-content: space-evenly;
@@ -45,7 +49,8 @@ hr{
     margin-top: 0%;
     margin-bottom: 4%;
 }
-.member-info{
+
+.member-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -53,13 +58,15 @@ hr{
     text-align: center;
     margin-top: 4%;
 }
+
 #team-intro {
     margin-top: 15%;
 }
-#member-data
-{
+
+#member-data {
     margin: 5% 11%;
 }
+
 #bodycard {
     width: 250px;
     height: 300px;
@@ -67,23 +74,24 @@ hr{
     display: inline-block;
     margin-left: 6%;
 }
-#bodycard #card
-{
-    position:absolute;
+
+#bodycard #card {
+    position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     transform-style: preserve-3d;
 }
-#bodycard #card #frontend
-{
+
+#bodycard #card #frontend {
     width: 100%;
     height: 320px;
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
 }
+
 #bodycard #card #backcard {
     background: url(../images/red-blue-background.jpg);
     width: 100%;
@@ -94,11 +102,11 @@ hr{
     left: 0;
     transform: rotateY(180deg);
 }
-#bodycard:hover #card
-{
-transform: rotateY(180deg);
+
+#bodycard:hover #card {
+    transform: rotateY(180deg);
 }
-#backcard img
-{
+
+#backcard img {
     padding-top: 20%;
 }

@@ -56,12 +56,19 @@ app.get('/', (req, res) => {
 function Top(topRank) {
     this.rank = topRank.rank;
     this.title = topRank.title;
-    this.image_url = topRank.image_url;
-    this.episodesOrVolumes = topRank.episodes || topRank.volumes || 'sitll';
-    this.type = topRank.type;
-    this.score = topRank.score;
+    this.image = topRank.image_url;
+    this.episodeCount = topRank.episodes || topRank.volumes || 'sitll';
+    this.subtype = topRank.type;
+    this.averageRating = topRank.score;
     this.start_date = topRank.start_date;
     this.end_date = topRank.end_date || 'ongoing';
+    this.title_Japan = topRank.ja_jp || 'not available';
+    this.gener_old = topRank.ageRatingGuide || '+ 13';
+    this.status = topRank.status || 'finished';
+    this.episodeLength = topRank.episodeLength || '20 min per ep ';
+    this.youtubeVideoId = topRank.youtubeVideoId || 'not available';
+    this.synopsis = topRank.synopsis || 'not available';
+    this.id = topRank.mal_id;
 }
 app.post('/anime', animeSaver);
 app.post('/genre', byGenre)
@@ -130,7 +137,7 @@ function Genre2(data) {
     this.endDate = data.aired.to;
     this.episodeLength = data.duration;
     this.studioName = data.studios;
-    console.log(data.studios,"ammar");
+    //     console.log(data.studios,"ammar");
     this.youtubeVideoId = data.trailer_url;
     this.gener_old = data.rating
     this.status = data.status;
@@ -152,7 +159,7 @@ function Manga(data) {
     this.chapterCount = data.attributes.chapterCount;
     this.volumeCount = data.attributes.volumeCount;
     this.serialization = data.attributes.serialization;
-    this.cover_image = data.attributes.posterImage.large;
+    this.image = data.attributes.posterImage.large;
     this.image_thumbnail = data.attributes.posterImage.small;
     this.synopsis = data.attributes.synopsis;
     this.id = data.id;

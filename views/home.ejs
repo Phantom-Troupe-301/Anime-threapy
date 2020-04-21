@@ -77,7 +77,7 @@
                                             <div class="vcard">
                                                 <div class="anime-box">
                                                     <div class="anime-img">
-                                                        <img src="<%= top[i].image_url%>" alt="death-note">
+                                                        <img src="<%= top[i].image%>" alt="death-note">
                                                     </div>
                                                     <div class="anime-title">
                                                         <h1>
@@ -86,17 +86,20 @@
                                                     </div>
                                                     <div class="anime-details">
                                                         <p>
-                                                            | <span class="rate"> score: <%= top[i].score%> </span> |
+                                                            | <span class="rate"> score: <%= top[i].averageRating%> </span> |
                                                             <br>
                                                             <br>
-                                                            <span><%= top[i].episodesOrVolumes%> episodes</span>
+                                                            <span><%= top[i].episodeCount%> episodes</span>
                                                         </p>
                                                     </div>
-                                                    <button class="like">
-                                            <i class="fas fa-heart" aria-hidden="true"></i>
-                </button>
+                                                    <div id="true">
+                                                        <form action="/detail" method="POST" id="none">
+                                                            <input type="text" name="search" value="<%= top[i].id%>" style="visibility: hidden ">
+                                                            <br><button type="submit" class="more_details">more details</button></form>
+                                                    </div>
                                                 </div>
                                             </div>
+
                                             <%} %>
                                     </div>
                                 </div>
