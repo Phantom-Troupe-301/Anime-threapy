@@ -113,6 +113,29 @@ function Anime(data) {
     this.id = data.id;
 }
 
+
+function Genre2(data) {
+    this.title = data.title;
+    this.title_Japan = data.title_japanese;
+    this.image = data.image_url;
+    this.synopsis = data.synopsis;
+    this.airing_start = data.airing_start || 'COMING SOON';
+    this.subtype = data.type;
+    this.source = data.source;
+    this.episodeCount = data.episodes || 'Unknown';
+    this.averageRating = data.score;
+    this.producers = data.producers;
+    this.id = data.mal_id;
+    this.startDate = data.aired.from;
+    this.endDate = data.aired.to;
+    this.episodeLength = data.duration;
+    this.studioName = data.studios.name;
+    this.youtubeVideoId = data.trailer_url;
+    this.gener_old = data.rating
+    this.status = data.status;
+    this.genres = data.genres;
+}
+
 function Manga(data) {
     this.title = data.attributes.canonicalTitle;
     this.title_Japan = data.attributes.titles.ja_jp;
@@ -132,6 +155,7 @@ function Manga(data) {
     this.image_thumbnail = data.attributes.posterImage.small;
     this.synopsis = data.attributes.synopsis;
     this.id = data.id;
+
 }
 
 function Genre(data) {
@@ -182,14 +206,13 @@ function detailRender(req, res) {
     let url = `https://api.jikan.moe/v3/anime/${search_input}`;
 
     superagent.get(url).then((animeSearch) => {
-     
-        console.log(animeSearch.body ,"ddddd");
-            let geneerData = new Genre2(animeSearch.body);
-            genreSumarry.push(geneerData);
-              console.log('lkmsclkmaslkmxlkasmxlkm', genreSumarry);
-              res.render("./detail", { genreAnemi: genreSumarry });
-        });
-  
+        //         console.log(animeSearch.body, "ddddd");
+        let geneerData = new Genre2(animeSearch.body);
+        genreSumarry.push(geneerData);
+        console.log('lkmsclkmaslkmxlkasmxlkm', genreSumarry);
+        res.render("./detail", { genreAnemi: genreSumarry });
+    });
+
 }
 
 
@@ -267,43 +290,7 @@ app.post('/contact', (req, res) => {
 
 
 
-function Genre(data) {
-    this.title = data.title;
-    this.image_url = data.image_url;
-    this.synopsis = data.synopsis;
-    this.airing_start = data.airing_start || 'COMING SOON';
-    this.type = data.type;
-    this.source = data.source;
-    this.episodes = data.episodes || 'Unknown';
-    this.score = data.score;
-    this.producers = data.producers;
-    this.genres = data.genres;
-    this.id = data.mal_id;
-    
-   
-}
 
-function Genre2(data) {
-    this.title = data.title;
-    this.image_url = data.image_url;
-    this.synopsis = data.synopsis;
-    this.airing_start = data.airing_start || 'COMING SOON';
-    this.type = data.type;
-    this.source = data.source;
-    this.episodes = data.episodes || 'Unknown';
-    this.score = data.score;
-    this.producers = data.producers;
-    this.genres = data.genres;
-    this.id = data.mal_id;
-    
-    this.Jtitle= data.title_japanese;
-    this.from=  data.aired.from ;
-
-    this.to=  data.aired.to ;
-    this.duration= data.duration;
-    this.studioName=data.studios.name;
-    this.trail=data.trailer_url;
-}
 
 app.post('/add', addAnime);
 app.get('/favAnime', getAnimeDetails);
@@ -340,22 +327,22 @@ function addAnime(req, res) {
         }
     })
 }
+
 function getAnimeDetails(req, res) {
     let SQL = 'SELECT * FROM anime;'
     client.query(SQL)
         .then(results => {
             //   console.log('asdasdasdasdasdasdas', results.rows);
             res.render('./favAnime', { bookResults: results.rows });
-      })
+        })
 }
 app.delete('/delete/:bookResults_id', deletebook);
 
-function  deletebook(req,res)
-{
+function deletebook(req, res) {
     let SQL = "DELETE FROM anime WHERE id=$1;";
     let safeValue = [req.params.bookResults_id];
     client.query(SQL, safeValue)
-    .then(res.redirect('/favAnime'));
+        .then(res.redirect('/favAnime'));
 }
 app.delete('/delete/:bookResults_id', deletebook);
 
