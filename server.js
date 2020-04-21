@@ -1,7 +1,5 @@
 'use strict';
-
 require('dotenv').config();
-
 const express = require('express');
 const app = express();
 const methodOverride = require('method-override');
@@ -10,25 +8,20 @@ const superagent = require('superagent');
 const pg = require('pg');
 const cors = require('cors');
 var request = require('request');
-
-const PORT = process.env.PORT ;
+const PORT = process.env.PORT || 3030;
 app.set('view engine', 'ejs');
 const client = new pg.Client(process.env.DATABASE_URL);
 
 app.use(cors());
-
 app.use(express.static('./public'));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 
 // let days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 // let date = new Date();
 // let today = date.getDay()
 // var search = days[today - 1];
 // var newsArray = [];
-
 app.get('/index', function(req, res) {
     res.redirect('/');
 })
@@ -44,7 +37,6 @@ app.get('/', (req, res) => {
     let url = `https://api.jikan.moe/v3/top/anime`;
     let url2 = `https://api.jikan.moe/v3/season/later`;
     superagent.get(url2).then((news) => {
-
         news.body.anime.map((topList) => {
             let animeNews = new Genre(topList);
             newsArray.push(animeNews);
@@ -75,7 +67,6 @@ app.post('/anime', animeSaver);
 app.post('/genre', byGenre)
 app.post('/details', detailsRender);
 app.post('/detail', detailRender);
-
 
 
 function animeSaver(req, res) {
@@ -122,6 +113,29 @@ function Anime(data) {
     this.id = data.id;
 }
 
+
+function Genre2(data) {
+    this.title = data.title;
+    this.title_Japan = data.title_japanese;
+    this.image = data.image_url;
+    this.synopsis = data.synopsis;
+    this.airing_start = data.airing_start || 'COMING SOON';
+    this.subtype = data.type;
+    this.source = data.source;
+    this.episodeCount = data.episodes || 'Unknown';
+    this.averageRating = data.score;
+    this.producers = data.producers;
+    this.id = data.mal_id;
+    this.startDate = data.aired.from;
+    this.endDate = data.aired.to;
+    this.episodeLength = data.duration;
+    this.studioName = data.studios.name;
+    this.youtubeVideoId = data.trailer_url;
+    this.gener_old = data.rating
+    this.status = data.status;
+    this.genres = data.genres;
+}
+
 function Manga(data) {
     this.title = data.attributes.canonicalTitle;
     this.title_Japan = data.attributes.titles.ja_jp;
@@ -141,9 +155,22 @@ function Manga(data) {
     this.image_thumbnail = data.attributes.posterImage.small;
     this.synopsis = data.attributes.synopsis;
     this.id = data.id;
+
 }
 
-
+function Genre(data) {
+    this.title = data.title;
+    this.image_url = data.image_url;
+    this.synopsis = data.synopsis;
+    this.airing_start = data.airing_start || 'COMING SOON';
+    this.type = data.type;
+    this.source = data.source;
+    this.episodes = data.episodes || 'Unknown';
+    this.score = data.score;
+    this.producers = data.producers;
+    this.genres = data.genres;
+    this.id = data.mal_id;
+}
 
 function detailsRender(req, res) {
     let animeDetails = [];
@@ -157,7 +184,6 @@ function detailsRender(req, res) {
         mangaDetails.push(animeData);
         //         console.log('asdasdasda', animeDetails)
         //         return mangaDetails;
-
         if (mangaDetails) {
             res.render('./details', { details2: mangaDetails, details: animeDetails });
         }
@@ -180,14 +206,13 @@ function detailRender(req, res) {
     let url = `https://api.jikan.moe/v3/anime/${search_input}`;
 
     superagent.get(url).then((animeSearch) => {
-     
-        console.log(animeSearch.body ,"ddddd");
-            let geneerData = new Genre2(animeSearch.body);
-            genreSumarry.push(geneerData);
-              console.log('lkmsclkmaslkmxlkasmxlkm', genreSumarry);
-              res.render("./detail", { genreAnemi: genreSumarry });
-        });
-  
+        //         console.log(animeSearch.body, "ddddd");
+        let geneerData = new Genre2(animeSearch.body);
+        genreSumarry.push(geneerData);
+        console.log('lkmsclkmaslkmxlkasmxlkm', genreSumarry);
+        res.render("./detail", { genreAnemi: genreSumarry });
+    });
+
 }
 
 
@@ -205,75 +230,58 @@ function byGenre(req, res) {
         res.render("./genre", { genreAnemi: genreSumarry });
     });
 }
-
 app.post('/', (req, res) => {
-
     var email = req.body.email;
     var data = {
         "members": [{
-
             email_address: email,
             status: 'subscribed',
         }],
-
     }
     var JSONdata = JSON.stringify(data);
-
     var options = {
         url: 'https://us19.api.mailchimp.com/3.0/lists/cae09b63f7',
         method: 'POST',
         headers: {
             "Authorization": "alaa c2022d468ec18180c4be2692c07ad7e9-us19"
-
         },
         body: JSONdata
     }
     request(options, (error, response, body) => {
         if (response.statusCode === 200) {
             alert("We will Contact u soon");
-
         }
     })
-
 })
+
+
 app.post('/contact', (req, res) => {
     var firstname = req.body.firstname;
     var lastname = req.body.lastname;
     var email = req.body.email;
     var Phone = req.body.phone;
     var msg = req.body.message;
-
     var data = {
         "members": [{
-
             email_address: email,
             status: 'subscribed',
             merge_fields: {
-
                 FNAME: firstname,
                 LNAME: lastname,
                 PHONE: Phone,
                 MMERGE5: msg
             }
-
-
-
         }],
-
     }
     var JSONdata = JSON.stringify(data);
-
     var options = {
         url: 'https://us19.api.mailchimp.com/3.0/lists/b79d94076d',
         method: 'POST',
         headers: {
             "Authorization": "alaa c2022d468ec18180c4be2692c07ad7e9-us19"
-
         },
         body: JSONdata
-
     }
-
     request(options, (error, response, body) => {
         console.log("message has been sent");
     })
@@ -281,43 +289,9 @@ app.post('/contact', (req, res) => {
 })
 
 
-function Genre(data) {
-    this.title = data.title;
-    this.image_url = data.image_url;
-    this.synopsis = data.synopsis;
-    this.airing_start = data.airing_start || 'COMING SOON';
-    this.type = data.type;
-    this.source = data.source;
-    this.episodes = data.episodes || 'Unknown';
-    this.score = data.score;
-    this.producers = data.producers;
-    this.genres = data.genres;
-    this.id = data.mal_id;
-    
-   
-}
 
-function Genre2(data) {
-    this.title = data.title;
-    this.image_url = data.image_url;
-    this.synopsis = data.synopsis;
-    this.airing_start = data.airing_start || 'COMING SOON';
-    this.type = data.type;
-    this.source = data.source;
-    this.episodes = data.episodes || 'Unknown';
-    this.score = data.score;
-    this.producers = data.producers;
-    this.genres = data.genres;
-    this.id = data.mal_id;
-    
-    this.Jtitle= data.title_japanese;
-    this.from=  data.aired.from ;
 
-    this.to=  data.aired.to ;
-    this.duration= data.duration;
-    this.studioName=data.studios.name;
-    this.trail=data.trailer_url;
-}
+
 app.post('/add', addAnime);
 app.get('/favAnime', getAnimeDetails);
 
@@ -353,25 +327,31 @@ function addAnime(req, res) {
         }
     })
 }
+
 function getAnimeDetails(req, res) {
     let SQL = 'SELECT * FROM anime;'
     client.query(SQL)
         .then(results => {
             //   console.log('asdasdasdasdasdasdas', results.rows);
             res.render('./favAnime', { bookResults: results.rows });
-      })
+        })
 }
 app.delete('/delete/:bookResults_id', deletebook);
 
-function  deletebook(req,res)
-{
+function deletebook(req, res) {
     let SQL = "DELETE FROM anime WHERE id=$1;";
     let safeValue = [req.params.bookResults_id];
     client.query(SQL, safeValue)
-    .then(res.redirect('/favAnime'));
+        .then(res.redirect('/favAnime'));
 }
+app.delete('/delete/:bookResults_id', deletebook);
 
-
+function deletebook(req, res) {
+    let SQL = "DELETE FROM anime WHERE id=$1;";
+    let safeValue = [req.params.bookResults_id];
+    client.query(SQL, safeValue)
+        .then(res.redirect('/favAnime'));
+}
 client.connect()
     .then(() => {
         app.listen(PORT, () => {
