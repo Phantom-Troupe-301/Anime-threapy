@@ -15,19 +15,26 @@ header {
     background: linear-gradient(#00000091, #00000062), url(../images/red-blue-background.jpg);
     background-position: center;
     background-repeat: no-repeat;
-    height: 620px;
+    height: 570px;
     background-size: 100%;
+    box-shadow: 3px 4px 8px #000000;
 }
-
+#logo
+{
+    position: fixed;
+    left: 0;
+}
 #logo img {
     width: 32%;
     margin: 8% 8%;
 }
 
 #main-navbar {
-    margin-top: 4%;
+    margin-top: 3.5%;
     margin-right: 5%;
     display: inline-block;
+    position: fixed;
+    right: 0;
 }
 #main-navbar ul {
     list-style-type: none;
@@ -86,6 +93,10 @@ ion-icon:hover {
     transition: 0.5s ease-in-out;
 }
 
+#anime-search
+{
+    margin-top: 15%;
+}
 #slider {
     width: 1330px;
     height: 500px;
@@ -126,7 +137,7 @@ ion-icon:hover {
 }
 
 .search-header {
-    margin-top: 3%;
+    margin-top: 15%;
 }
 
 .search-header h1 {
@@ -176,7 +187,7 @@ ion-icon:hover {
     color: #fff;
     text-align: center;
     font-size: 20px;
-    padding: 5% 0;
+    padding: 3% 0;
 }
 #anime-user-choosing {
     margin-top: 0px;
@@ -189,9 +200,19 @@ ion-icon:hover {
 
 #anime-user-choosing button {
     margin-left: 4%;
-    padding: 26px;
+    padding: 0px;
     border: none;
     width: 10%;
+    height: 50px;
+    font-size: 19px;
+    color: #fff;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    border: 1px solid #fff;
 }
 
 #title-btn {
@@ -206,9 +227,8 @@ ion-icon:hover {
 }
 
 #title-btn:hover {
-    background-color: #0059ff;
+    background-color: #275481;
 }
-
 #catagory-btn:hover {
     background-color: #77132f;
 }
@@ -222,13 +242,14 @@ ion-icon:hover {
     font-weight: 500;
     font-size: 15px;
     font-weight: bold;
+    
 }
 
 #anime-title {
     display: inline-block;
-    width: 30%;
+    width: 19%;
     text-align: center;
-    margin: 2% 33.7%;
+    margin: 2% 39.7%;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
@@ -238,12 +259,12 @@ ion-icon:hover {
     border: 1px solid #ced4da;
     border-radius: .25rem;
 }
-
 #search {
-    position: relative;
-    right: 63.5%;
     color: #000;
     font-size: 27px;
+    top: 0;
+    right: 21%;
+    position: sticky;
 }
 
 #search-btn {
@@ -259,13 +280,26 @@ ion-icon:hover {
 
 #search-btn button {
     border: none;
-    padding: 20px;
-    width: 12%;
+    width: 10%;
+    margin-left: 1%;
+    font-size: 19px;
     border-radius: 9px;
-    color: #fff;
+    box-sizing: border-box;
     cursor: pointer;
-    background-color: #4b92f4;
     transition: 0.5s ease-in-out;
+    color: #fff;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    height: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border: 1px solid #fff;
+}
+#search-btn button:hover
+{
+    background-color: #275481;
 }
 
 .active1 {
@@ -299,13 +333,27 @@ ion-icon:hover {
 
 #second-search-btn button {
     border: none;
-    padding: 20px;
-    width: 12%;
+    width: 10%;
+    margin-left: 1%;
+    font-size: 19px;
     border-radius: 9px;
+    box-sizing: border-box;
     cursor: pointer;
     background-color: #77132f;
     transition: 0.5s ease-in-out;
     color: #fff;
+    background-color: Transparent;
+    background-repeat: no-repeat;
+    border: none;
+    height: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    border: 1px solid #fff;
+}
+#second-search-btn button:hover
+{
+    background-color: #77132f;
 }
 
 #outer-box {
@@ -317,6 +365,8 @@ ion-icon:hover {
     background-size: 100% 100%;
     margin: 5%;
     background-color: gray;
+    box-shadow: 2px 10px 12px rgba(0, 0, 0, 0.5);
+
 }
 
 #control-btns {
@@ -358,6 +408,7 @@ ion-icon:hover {
     height: 220px;
 }
 
+
 .anime-box {
     width: 200px;
     height: 370px;
@@ -372,6 +423,10 @@ ion-icon:hover {
     color: #fff;
     align-items: center;
     justify-content: space-between;
+}
+.anime-box:hover
+{
+    transform: scale(1.1);
 }
 
 .anime-details {
@@ -418,7 +473,8 @@ ion-icon:hover {
     align-items: center;
 }
 .vcard:nth-child(5) {
-    margin-left: 40px;
+    margin-left: 19px;
+    margin-right: 30px;
 }
 .vcard:nth-child(6) {
 margin-left: 40px;
@@ -439,7 +495,7 @@ margin-left: 40px;
 
 #vcards {
     position: absolute;
-    top: 0;
+    top: 27px;
     left: 40px;
 }
 
@@ -541,7 +597,7 @@ margin-left: 40px;
 }
 
 input::placeholder {
-    color: #fff;
+    color: gray;
 }
 
 .Subscribe {
@@ -669,7 +725,7 @@ iframe {
 }
 
 .article-des-pargraph {
-    font-size: 15px;
+    font-size: 19px;
     overflow: scroll;
     height: 80px;
     padding-top: 10px;
@@ -677,7 +733,6 @@ iframe {
     line-height: 30px;
     width: 66%;
     letter-spacing: 1px;
-    /* left: -2%; */
     text-align: left;
     position: relative;
     color: #fff;
@@ -694,8 +749,8 @@ iframe {
 
 .content span {
     text-align: left;
-    line-height: 30px;
-    font-size: small;
+    line-height: 43px;
+    font-size: medium;
     color: #fff;
 }
 .content {
@@ -820,6 +875,75 @@ footer {
     background-color: #000b6e;
 }
 
+.video-promo {
+    background: url(../images/screen2.png);
+    height: 600px;
+    text-align: center;
+    position: relative;
+    margin: 0 12%;
+    background-repeat: no-repeat;
+}
+.video-promo video {
+    top: 11%;
+    left: 20%;
+    position: absolute;
+}
+#promo
+{
+    background-color: #070c19;
+}
+.anime-promo-title h1
+{
+text-align: center;
+padding-top: 3%;
+font-size: 25px;
+}
+.anime-promo-details {
+    text-align: center;
+    padding-top: 3%;
+    margin: 0 30%;
+}
+.anime-promo-details p {
+font-size: 19px;
+line-height: 30px;
+font-weight: 700;
+}
+
+.video-promo img {
+    position: absolute;
+    width: 5%;
+    top: 14%;
+    left: 21%;
+    z-index: 1;
+}
+.devices {
+    position: relative;
+    text-align: center;
+    bottom: 284px;
+    margin: 0 auto;
+}
+
+.devices img
+{
+    width: 9%;
+}
+
+.copyright
+{
+    padding-right: 4%;
+}
+.overlay {
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    height: 20%;
+    /* background: linear-gradient(rgba(119, 19, 47,0.7), rgba(44, 87, 127,0.8)); */
+    background: linear-gradient(rgb(119, 19, 47,0.9), rgb(119, 19, 47,0.3));
+
+    box-shadow: 5px 4px 12px #000000;
+}
 
 @keyframes intro {
     0% {
@@ -848,60 +972,5 @@ footer {
     }
     100% {
         opacity: 0;
-    }
-}
-
-@keyframes heart {
-    0% {
-        transform: rotate(0deg) scale(1.7);
-    }
-    40% {
-        transform: rotate(0deg) scale(1);
-    }
-    41% {
-        transform: rotate(360deg) scale(1);
-    }
-    100% {
-        transform: rotate(0deg) scale(1);
-    }
-}
-
-@keyframes slider {
-    0% {
-        left: 0;
-    }
-    20% {
-        left: 0;
-    }
-    25% {
-        left: -100%;
-    }
-    45% {
-        left: -100%;
-    }
-    50% {
-        left: -200%;
-    }
-    70% {
-        left: -200%;
-    }
-    75% {
-        left: -300%;
-    }
-    90% {
-        left: -300%;
-    }
-    100% {
-        left: -300%;
-    }
-}
-
-@-webkit-keyframes glowa {
-    from {
-        color: #fff;
-        text-shadow: 0 0 10px #ff0800, 0 0 10px #d9ff00, 0 0 10px#ff0800, 0 0 10px#000b6e;
-    }
-    to {
-        text-shadow: 0 0 10px #1100ff, 0 0 10px #ff00b3, 0 0 20px#0059ff, 0 0 50px red;
     }
 }
