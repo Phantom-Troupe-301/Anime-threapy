@@ -129,7 +129,8 @@ function Genre2(data) {
     this.startDate = data.aired.from;
     this.endDate = data.aired.to;
     this.episodeLength = data.duration;
-    this.studioName = data.studios.name;
+    this.studioName = data.studios;
+    console.log(data.studios,"ammar");
     this.youtubeVideoId = data.trailer_url;
     this.gener_old = data.rating
     this.status = data.status;
@@ -202,14 +203,14 @@ function detailsRender(req, res) {
 function detailRender(req, res) {
     let genreSumarry = [];
     let search_input = req.body.search;
-    console.log('fafafafafafa', req.body);
+    // console.log('fafafafafafa', req.body);
     let url = `https://api.jikan.moe/v3/anime/${search_input}`;
 
     superagent.get(url).then((animeSearch) => {
         //         console.log(animeSearch.body, "ddddd");
         let geneerData = new Genre2(animeSearch.body);
         genreSumarry.push(geneerData);
-        console.log('lkmsclkmaslkmxlkasmxlkm', genreSumarry);
+        // console.log('lkmsclkmaslkmxlkasmxlkm', genreSumarry);
         res.render("./detail", { genreAnemi: genreSumarry });
     });
 
