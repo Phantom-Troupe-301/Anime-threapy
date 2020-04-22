@@ -110,7 +110,7 @@ function Anime(data) {
     this.startDate = data.attributes.startDate;
     this.endDate = data.attributes.endDate;
     this.image = data.attributes.posterImage.large;
-    this.gener_old = data.attributes.ageRatingGuide;
+    this.gener_old = data.attributes.ageRatingGuide || '+ 13';
     this.subtype = data.attributes.subtype;
     this.status = data.attributes.status;
     this.episodeCount = data.attributes.episodeCount;
@@ -139,7 +139,7 @@ function Genre2(data) {
     this.studioName = data.studios;
     //     console.log(data.studios,"ammar");
     this.youtubeVideoId = data.trailer_url;
-    this.gener_old = data.rating
+    this.gener_old = data.rating || '+13';
     this.status = data.status;
     this.genres = data.genres;
 }
@@ -147,14 +147,14 @@ function Genre2(data) {
 function Manga(data) {
     this.title = data.attributes.canonicalTitle;
     this.title_Japan = data.attributes.titles.ja_jp;
-    this.averageRating = data.attributes.averageRating;
+    this.averageRating = data.attributes.averageRating || '6.5';
     this.datestartDate = data.attributes.startDate;
     this.endDate = data.attributes.endDate || 'ongoing';
     this.startDate = data.attributes.startDate;
-    this.gener_old = data.attributes.ageRatingGuide;
+    this.gener_old = data.attributes.ageRatingGuide || '+ 13';
     this.subtype = data.attributes.subtype;
     this.status = data.attributes.status || 'ongoing';
-    this.ratingRank = data.attributes.ratingRank;
+    this.ratingRank = data.attributes.ratingRank || '214';
     this.popularityRank = data.attributes.popularityRank;
     this.chapterCount = data.attributes.chapterCount;
     this.volumeCount = data.attributes.volumeCount;
@@ -328,6 +328,7 @@ function addAnime(req, res) {
             } = req.body;
             let SQL = `INSERT INTO  anime (title,image,averageRating,startDate,endDate,gener_old,subtype,status,episodeCount,episodeLength,synopsis,youtubeVideoId) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12);`;
             let safeValues = [title, image, averageRating, startDate, endDate, gener_old, subtype, status, episodeCount, episodeLength, synopsis, youtubeVideoId];
+            console.log(averageRating, 'sadasdasdals,dpassmsmdmdmsd')
             return client.query(SQL, safeValues)
                 .then(() => {
                     res.redirect(`/`);

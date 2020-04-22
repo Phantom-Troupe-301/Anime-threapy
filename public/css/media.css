@@ -1,19 +1,190 @@
-@media (min-width: 768px) and (max-width: 1024px) {
-    body
-    {
-        width: 1263px;
+@media (min-width: 350px) and (max-width: 680px) {
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        font-family: PT Sans, Helvetica, Arial, sans-serif !important;
+        color: #fff;
+        width: 100%;
+    }
+    header {
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
     }
     #header-background {
-        background-size: 100% 100%;
+        background: linear-gradient(#00000091, #00000062), url(../images/red-blue-background.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 35%;
+        background-size: 120%;
     }
-   
-    
-  }
-
-  @media (min-width: 481px) and (max-width: 767px) {
-  
-    
-  }
-    
-  
-  
+    #logo {
+        width: 27%;
+    }
+    #logo img {
+        width: 55%;
+        margin-left: 8%;
+        display: flex;
+        align-self: start;
+        justify-self: start;
+    }
+    #main-navbar {
+        width: 52%;
+        margin-top: 4%;
+        /* margin-right: 5%; */
+        display: inline-block;
+    }
+    #main-navbar ul {
+        list-style-type: none;
+        margin-left: -9%;
+        width: 116%;
+    }
+    #main-navbar ul li {
+        display: inline-block;
+        padding: 0.5%;
+        font-size: 70%;
+    }
+    #main-navbar ul li a {
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+    #main-navbar ul li a:hover {
+        text-shadow: 5px 10px 8px #888888;
+    }
+    #main-navbar ul li {
+        /* font-size: large; */
+        -webkit-animation: glowa 2s ease-in-out infinite alternate;
+        -moz-animation: glowa 2s ease-in-out infinite alternate;
+        animation: glowa 2s ease-in-out infinite alternate;
+    }
+    #anime-search {
+        width: 100%;
+        height: 100%;
+        margin-top: 10%;
+    }
+    .search-header h1 {
+        font-size: 70%;
+        font-family: PT Sans, Helvetica, Arial, sans-serif !important;
+        word-spacing: normal;
+        letter-spacing: 1px;
+        color: #fff;
+        overflow: hidden;
+        text-align: center;
+        text-transform: uppercase;
+        padding-top: 2%;
+    }
+    .search-header h5 {
+        text-align: center;
+        font-size: 75%;
+        padding: 4% 0;
+    }
+    #anime-user-choosing button {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 4%;
+        border: none;
+        font-size: x-small;
+        width: 19%;
+        /* height: 8%; */
+        padding: 3%;
+    }
+    #second-search-btn button {
+        border: none;
+        padding: 3%;
+        width: 17%;
+        border-radius: 9px;
+        cursor: pointer;
+        background-color: #E43F7A;
+        transition: 0.5s ease-in-out;
+        color: #fff;
+    }
+    #catagory-dropdown {
+        display: inline-block;
+        width: 41%;
+        text-align: center;
+        margin: 3% 29%;
+        padding: 0%;
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #CED4DA;
+        border-radius: .25rem;
+        font-size: small;
+    }
+    #search-btn button {
+        border: none;
+        padding: 3%;
+        width: 17%;
+        margin-bottom: 5%;
+        border-radius: 9px;
+        color: #fff;
+        cursor: pointer;
+        background-color: #4B92F4;
+        transition: 0.5s ease-in-out;
+    }
+    #anime-title {
+        display: inline-block;
+        width: 41%;
+        text-align: center;
+        margin: 3% 29%;
+        padding: 0%;
+        font-size: small;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #CED4DA;
+        border-radius: .25rem;
+    }
+    .anime-box {
+        width: 100px;
+        height: 278px;
+    }
+    .anime-img img {
+        width: 60%;
+        height: 117px;
+    }
+    #vcards {
+        position: absolute;
+        top: 16%;
+        left: 40px;
+    }
+    .anime-promo-details {
+        text-align: center;
+        padding-top: 3%;
+        margin: 7% 0%;
+    }
+    .video-promo {
+        background: url(../images/screen2.png);
+        height: 600px;
+        text-align: center;
+        position: relative;
+        background-size: 100%;
+        margin: 0 12%;
+        background-repeat: no-repeat;
+    }
+    .video-promo video {
+        top: 3%;
+        width: 170px;
+        height: 97px;
+        left: 20%;
+        position: absolute;
+    }
+    .devices {
+        position: relative;
+        bottom: 430px;
+        left: 19%;
+    }
+    #promo {
+        background-color: #070c19;
+        height: 600px;
+    }
+}

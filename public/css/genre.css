@@ -23,12 +23,14 @@
 }
 .anime-content {
     padding-top: 2%;
+    margin-bottom: 18%;
     width: 90%;
 }
-.anime-content h6
-{
+.anime-content h6 {
     padding-bottom: 1%;
+    font-size: 25px;
 }
+
 .detail-btn
 {
     float:right;
@@ -36,6 +38,7 @@
 .anime-catagory-des {
     padding: 1%;
     text-align: justify;
+    font-size: 19px;
 }
 .anime-catagory-title h6 b
 {
@@ -45,14 +48,14 @@ font-weight: bold;
 {
 font-weight: bold;
 }
-.anime-catagory-des p
-{
-    line-height: 23px;
-}
 
+.anime-catagory-des p {
+    line-height: 24px;
+}
 .btnDetails {
     display: inline-block;
-    width: 100%;
+    width: 13%;
+    float: right;
     border: 1px solid #234a81;
     background-color: #234a81;
     font-weight: 400;
@@ -70,7 +73,7 @@ font-weight: bold;
     transition: 0.5s ease-in;
     box-sizing: border-box;
 }
-#btnDetails:hover
+.BtnDetails:hover
 {
     border: 1px solid #6d233f;
     background-color: #6d233f;
