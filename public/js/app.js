@@ -3,6 +3,39 @@ $(document).ready(function() {
    
     $("#search-by-catagory").hide();
     $("#search-by-title").hide();
+    $("#website-maker1").hide();
+    $("#website-maker2").hide();
+    $("#website-maker3").hide();
+
+
+$("#ammar").on("click",function(){
+    $("#website-maker1").show().animate({
+        height: '150px',
+        width: '100%'
+      },1000);
+          $("#website-maker2 ").hide();
+    $("#website-maker3 ").hide();
+    $(".intro").hide();
+})
+$("#muna").on("click",function(){
+    $("#website-maker2").show().animate({
+        height: '150px',
+        width: '100%'
+      },1000);
+    $("#website-maker1 ").hide();
+    $("#website-maker3 ").hide();
+    $(".intro").hide();
+})
+$("#alaa").on("click",function(){
+    $("#website-maker3").show().animate({
+        height: '150px',
+        width: '100%'
+      },1000);
+    $("#website-maker1 ").hide();
+    $("#website-maker2 ").hide();
+    $(".intro").hide();
+})
+
 
     $("#title-btn").on("click", function() {
         $("#search-by-catagory").hide();

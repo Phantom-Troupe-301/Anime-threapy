@@ -1,6 +1,6 @@
 <%- include('layout/head'); -%>
     <%- include( 'layout/header'); -%>
-        <!-- <%- include('layout/preloader'); -%> -->
+        <%- include('layout/preloader'); -%>
         <style>
             #navbar {
                 width: 93% !important;
@@ -86,7 +86,7 @@
                                                     </div>
                                                     <div class="anime-title">
                                                         <h1>
-                                                            <%= top[i].title%>
+                                                            <%= top[i].title.substring(0,19);%>
                                                         </h1>
                                                     </div>
                                                     <div class="anime-details">
@@ -100,7 +100,7 @@
                                                     <div id="true">
                                                         <form action="/detail" method="POST" id="none">
                                                             <input type="text" name="search" value="<%= top[i].id%>" style="visibility: hidden ">
-                                                            <br><button type="submit" class="more_details">more details</button></form>
+                                                            <button type="submit" class="more_details">more details</button></form>
                                                     </div>
 
                                                 </div>
@@ -115,7 +115,7 @@
                 </section>
                 <section id="promo">
                     <div class="anime-promo-title">
-                        <h1>Anime Thearpy. Everywhere.</h1>
+                        <h1>Anime Therapy. Everywhere.</h1>
                     </div>
                     <div class="anime-promo-details">
                         <p>Suref from the comfort of your living room or on the go with our handy mobile apps.</p>
