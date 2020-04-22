@@ -1,82 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<%- include('layout/head'); -%>
+    <%- include( 'layout/header'); -%>
+    <style>
+        #header-background {
+            height: 400px !important;
+        }
+    </style>
+       <section id="anime-details">
+        <h3>FACTS & INFO</h3>
+        <div class="mains-pargarph">
+            <h1>Anime DETAILS</h1>
+        </div>
+        <div class="background">
     <%genreAnemi.forEach(val=>{%>
-        <form action="/add" method="post">
-            <input type="text" name="title" value="<%=genreAnemi.title%>" style="visibility: hidden ">
-            <input type="text" name="image_url" value="<%=genreAnemi.image_url%>" style="visibility: hidden ">
-            <input type="text" name="synopsis" value="<%=genreAnemi.synopsis%>" style="visibility: hidden ">
-            <input type="text" name="airing_start" value="<%=genreAnemi.airing_start%>" style="visibility: hidden ">
-            <input type="text" name="type" value="<%=genreAnemi.type%>" style="visibility: hidden ">
-            <input type="text" name="source" value="<%=genreAnemi.source%>" style="visibility: hidden ">
-            <input type="text" name="producers" value="<%= genreAnemi.producers%>" style="visibility: hidden ">
-            <input type="text" name="genres" value="<%=genreAnemi.genres%>" style="visibility: hidden ">
-            <input type="text" name="id" value="<%=genreAnemi.id%>" style="visibility: hidden ">
-            <input type="text" name="Jtitle" value="<%=genreAnemi.Jtitle%>" style="visibility: hidden ">
-            <input type="text" name="from" value="<%=genreAnemi.from%>" style="visibility: hidden ">
-            <input type="text" name="duration" value="<%=genreAnemi.duration%>" style="visibility: hidden ">
-            <input type="text" name="studioName" value="<%=genreAnemi.studioName%>" style="visibility: hidden ">
-            <input type="text" name="trail" value="<%= genreAnemi.trail%>" style="visibility: hidden ">
-            <input type="text" name="episodes" value="<%= genreAnemi.episodes%>" style="visibility: hidden ">
-            <input type="text" name="score " value="<%= genreAnemi.score%>" style="visibility: hidden ">
-            <input type="text" name="to" value="<%= genreAnemi.to%>" style="visibility: hidden ">
-
-            <button type="submit"> Add to Fav</button>
-        </form>
-        <h3>
-         Title:   <%=val.title%>
-        </h3>
-        <img src="<%=val.image_url%>" alt="<%=val.title%>">
-        <p> <span><b>description</b></span>
-            <%=val.synopsis%>
-        </p>
-        <h4>Type:
-            <%=val.type%>
-        </h4>
-        <h6>Start-date:
-            <%=val.airing_start%>
-        </h6>
-        <h6>Source
+        <div id="anime-info">
+            <div class="detail-anime-title">
+               
+                <h2>
+                    Title:
+                    <%=val.title%>
+                </h2>
+                <h2>Title in japanes:
+                    <%=val.title_Japan%>
+                </h2>
+            </div>
+      
+            <div id="anime-full-info">
+                <div class="detail-anime-image">
+                    <img src="<%=val.image%>" alt="<%=val.title%>">
+                </div>
+                <div id="anime-first-detail">
+                    <div class="rating">
+                        <h6>
+                            <b>Rating:</b> <%= val.averageRating%>
+                        </h6>
+                    </div>
+                    <h6>
+                        <b> Genres:</b>
+                         <%val.genres.forEach((data,i)=>{%>
+                             <span><%=data.name%>,</span>
+                             <%})%>
+                     </h6>
+ 
+                 
+                    <h6>
+                        <b>Genre old: </b><%= val.gener_old%>
+                    </h6>
+                  
+                    <h6>
+                     <b>Status:</b>   <%= val.status%>
+                    </h6>
+                    <div class="start-date">
+                        <h6><b>Start:</b>
+                            <%var str =val.startDate%>
+                            <%var res= str.substr(0, str.indexOf('T'));%>
+                            <%=res%>
+                        </h6>
+                    
+        
+                        <h6>  <b>End:</b>
+                            <%var str =val.endDate%>
+                            <%var res= str.substr(0, str.indexOf('T'));%>
+                            <%=res%>
+                        </h6>
+                    </div>
+                    <h6>
+                        <b>Episodes duration:</b>  <%= val.episodeLength%>
+                      </h6>
+                      <h6>
+                        <b>Type:</b> <%= val.subtype%>
+                     </h6>
+        <h6>
+            <b>
+                Source:
+            </b>
+                
             <%=val.source%>
         </h6>
-        <h6> Number of episodes:
-            <%=val.episodes%>
-        </h6>
-        <h6>Title in japanes:
-            <%=val.Jtitle%>
-        </h6>
-        <h6> Starting date:
-            <%=val.from%>
-        </h6>
-        <h6> End date:
-            <%=val.to%>
-        </h6>
+  
         <h6>
-            duration:
-            <%=val.duration%>
-        </h6>
-        <h6>
-            Studios` name:
-            <%=val.studioName%>
-        </h6>
-        <h6>
-        
-            <iframe width="420" height="315" src=" <%=val.trail%>">
-            </iframe>
-        </h6>
-        <h6>
-            Genres:
-            <%val.genres.forEach((data,i)=>{%>
-                <span><%=data.name%></span>
+            <b>  Studios` name: </b>   
+            <%val.studioName.forEach((data,i)=>{%>
+                <span><%=data.name%>.</span>
                 <%})%>
+   
         </h6>
+                   
+            <div class="detail-anime-des">
+              <p> <span><b>description</b></span>
+                <%var str =val.synopsis%>
+                <%var res= str.substr(0, str.indexOf('.'));%>
+                <%=res%>.
+                    </p>
+</div>
+</div>
+<div class="anime-detail-video">
+            <iframe width="420" height="315" src=" <%=val.youtubeVideoId%>">
+            </iframe>
+            </div>
+       
         <!-- <a href="/"><button>Details</button></a> -->
-      
+    </div>
+        <div class="background">
+    <form action="/add" id="add" method="post">
+        <input type="text" name="title" value="<%=val.title%>" style="display: none ">
+        <input type="text" name="image" value="<%=val.image%>" style="display: none ">
+        <input type="text" name="averageRating" value="<%=val.averageRating%>" style="display: none ">
+        <input type="text" name="startDate" value="<%=val.startDate%>" style="display: none ">
+        <input type="text" name="endDate" value="<%=val.endDate%>" style="display: none ">
+        <input type="text" name="gener_old" value="<%=val.gener_old%>" style="display: none ">
+        <input type="text" name="subtype" value="<%= val.subtype%>" style="display: none ">
+        <input type="text" name="status" value="<%=val.status%>" style="display: none ">
+        <input type="text" name="episodeCount" value="<%=val.episodeCount%>" style="display: none ">
+        <input type="text" name="episodeLength" value="<%=val.episodeLength%>" style="display: none ">
+        <input type="text" name="synopsis" value="<%=val.synopsis.substring(0,300)%>" style="display:none ">
+        <input type="text" name="youtubeVideoId" value="<%= val.youtubeVideoId%>" style="display: none ">
+        <br>
+        <button type="submit" id="adfav"> Add to Fav</button>
+    </form>
+</div>
         <%})%>
-</body>
-</html>
+</div>
+</div>
+
+<%- include('layout/footer'); -%>

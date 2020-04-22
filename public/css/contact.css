@@ -1,24 +1,24 @@
-
-#contact-us
-{
+#contact-us {
     margin-top: 5%;
 }
-#contact-form
-{
+
+#contact-form {
     margin-top: 10%;
 }
+
 #contact-us h3 {
     font-size: 29px;
-    font-family: PT Sans,Helvetica,Arial,sans-serif !important;
+    font-family: PT Sans, Helvetica, Arial, sans-serif !important;
     word-spacing: normal;
     letter-spacing: 8px;
     color: #fff;
     overflow: hidden;
     text-align: center;
 }
+
 #contact-us h1 {
     font-size: 40px;
-    font-family: PT Sans,Helvetica,Arial,sans-serif !important;
+    font-family: PT Sans, Helvetica, Arial, sans-serif !important;
     word-spacing: normal;
     letter-spacing: 8px;
     color: #fff;
@@ -26,7 +26,7 @@
     text-align: center;
     margin-top: 5%;
 }
-  
+
 #contact-us h3:before,
 #contact-us h3:after {
     background-color: #fff;
@@ -36,19 +36,20 @@
     position: relative;
     vertical-align: middle;
     width: 10%;
-  }
-  
-  #contact-us h3:before {
+}
+
+#contact-us h3:before {
     right: 0.5em;
     margin-left: -50%;
 }
-  
-  #contact-us h3:after {
+
+#contact-us h3:after {
     left: 0.5em;
     margin-right: -50%;
-  }
-  .links {
-    font-family: PT Sans,Helvetica,Arial,sans-serif !important;
+}
+
+.links {
+    font-family: PT Sans, Helvetica, Arial, sans-serif !important;
     text-align: center;
     margin-top: 4.9%;
     background-color: #f3f3f3;
@@ -59,33 +60,53 @@
     padding-top: 20px;
     margin-right: 5%;
 }
-.links a
-{
+
+.links a {
     text-decoration: none;
     color: dimgrey;
     transition: 0.5s ease;
 }
-.links a:hover
-{
-    color:#4b92f4;
+
+.links a:hover {
+    color: #4b92f4;
 }
+
 #contact-form h1 {
     margin-bottom: 20px;
     text-transform: uppercase;
-    font-family: PT Sans,Helvetica,Arial,sans-serif !important;
+    font-family: PT Sans, Helvetica, Arial, sans-serif !important;
     color: #fff;
 }
+
 .border-bottom2 {
     border-top: 2px solid gray;
     width: 19%;
     margin: 0 40%;
 }
+
+#for_background {
+    background: url(../images/boku.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+    margin-top: 10.4%;
+}
+
 #form {
     text-align: center;
     margin-top: 4%;
+    width: 80%;
 }
-.Fname,.Lname,.email,.phone
-{
+
+.Fname,
+.Lname,
+.email,
+.phone {
     display: inline-block;
     width: 30%;
     padding: .375rem .75rem;
@@ -97,32 +118,37 @@
     background-color: #f8f8f8;
     background-clip: padding-box;
     border: 1px solid #ced4da;
-    border-radius: .25rem;    
+    border-radius: .25rem;
 }
+
 .Fname::placeholder {
     color: gray;
     opacity: 1;
-  }
+}
+
 .Lname::placeholder {
     color: gray;
     opacity: 1;
-  }
- .email::placeholder {
+}
+
+.email::placeholder {
     color: gray;
     opacity: 1;
-  }
-  
-.Fname,.Lname,.email,.phone::placeholder {
+}
+
+.Fname,
+.Lname,
+.email,
+.phone::placeholder {
     color: gray;
     opacity: 1;
-  }
+}
+
 .message::placeholder {
     color: gray;
     opacity: 1;
-  }
+}
 
-  
-  
 .message {
     display: inline-block;
     width: 60%;
@@ -136,6 +162,7 @@
     border: 1px solid #ced4da;
     border-radius: .25rem;
 }
+
 .contact-btn {
     margin-top: 3%;
     border: none;
@@ -144,15 +171,14 @@
     cursor: pointer;
     width: 16%;
     border-radius: 25px;
-    background-color: #4b92f4;
+    background-color: #070c19;
     transition: 0.5s ease;
     margin-bottom: 3%;
 }
-.contact-btn:hover
-{
+
+.contact-btn:hover {
     background-color: #bb789b;
 }
-
 
 #website-details {
     margin-top: 6%;
@@ -160,13 +186,13 @@
     display: flex;
     justify-content: center;
 }
-#post
-{
+
+#post {
     margin-bottom: 0px !important;
     display: inline-block !important;
     font-size: 20px !important;
 }
-.links span
-{
+
+.links span {
     padding-left: 5px;
 }

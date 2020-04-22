@@ -10,6 +10,12 @@
         body {
             overflow: scroll;
         }
+        hr {
+    width: 50%;
+    color: white;
+    margin: 0 auto;
+    margin-bottom: 4%;
+}
     </style>
 
     <head>
@@ -35,7 +41,6 @@
                                 <h2>
                                     <%= data.title %>
                                 </h2>
-                                <hr>
                                 <h6>
                                     <%= data.averageRating%>
                                 </h6>
@@ -47,19 +52,17 @@
                         </div>
                         <%}) %>
                 </section>
-                <hr>
 
 
                 <section id="manga">
 
                     <%manga.forEach(data=>{%>
                         <div class="data">
-                            <img src="<%= data.cover_image%>" alt="  <%= data.title %>">
+                            <img src="<%= data.image%>" alt="  <%= data.title %>">
                             <div class="details_content">
                                 <h2>
                                     <%= data.title %>
                                 </h2>
-                                <hr>
                                 <h6>
                                     <%= data.averageRating%>
                                 </h6>

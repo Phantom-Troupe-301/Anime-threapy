@@ -1,52 +1,57 @@
 <%- include('layout/head'); -%>
     <%- include( 'layout/header'); -%>
-    <style>
-        #fav-anime-info {
-    height: 500px !important;
-}
-#header-background {
-  
-    height: 500px;
-}
-    </style>
-                            <div class="search-header">
+        <style>
+            #fav-anime-info {
+                height: 500px !important;
+            }
+            
+            #header-background {
+                height: 500px;
+            }
+        </style>
+        <div class="search-header">
 
-    <h1 style="margin-top:6%">Your Faviourite Anime List</h1>
-    </div>
+            <h1 style="margin-top:6%">Your Faviourite Anime List</h1>
+        </div>
 
-    <div class="fav-anime-section">
-        <% bookResults.forEach(data=>{%>
+        <div class="fav-anime-section">
+            <% bookResults.forEach(data=>{%>
                 <div id="fav-anime-info">
                     <div id="fav-box">
-                  <div id="fav-anime-content">
-                        <div class="fav-anime-image">
-                            <img src="<%= data.image%>" alt="  <%= data.title %>">
-                        </div>
-                        <div id="anime-content-info">
-                        <div id="detail-anime-title">
-
-                            <h6>
-                                <b>Title:</b><%=data.title %>
-                            </h6>
-                        </div>
-    
-                            <div class="average-rate">
-                                <h6>
-                                    <b>Rate:</b><%=data.averageRating%>
-                                </h6>
+                        <div id="fav-anime-content">
+                            <div class="fav-anime-image">
+                                <img src="<%= data.image%>" alt="  <%= data.title %>">
                             </div>
-                            
-                         
+                            <div id="anime-content-info">
+                                <div id="detail-anime-title">
+
+                                    <h6>
+                                        <b>Title:</b>
+                                        <%=data.title %>
+                                    </h6>
+                                </div>
+
+                                <div class="average-rate">
+                                    <h6>
+                                        <b>Rate:</b>
+                                        <%= data.averagerating %>
+                                    </h6>
+                                </div>
+
+
 
 
                                 <h6>
-                                   <b>Catagory:</b> <%= data.gener_old%>
+                                    <b>Catagory:</b>
+                                    <%= data.gener_old%>
                                 </h6>
                                 <h6>
-                                  <b>Type:</b>  <%= data.subtype%>
+                                    <b>Type:</b>
+                                    <%= data.subtype%>
                                 </h6>
                                 <h6>
-                                   <b>Complete:</b> <%= data.status%>
+                                    <b>Complete:</b>
+                                    <%= data.status%>
                                 </h6>
                                 <h6>
                                     <%= data.episodeCount%>
@@ -62,22 +67,21 @@
                                 </div>
 
                             </div>
-                        <form action="/delete/<%=data.id%>?_method=delete" method="post">
-                            <div class="delete-btn">
-                                <button id="delete" type="submit">Delete</button>
-                            </div>
+                            <form action="/delete/<%=data.id%>?_method=delete" method="post">
+                                <div class="delete-btn">
+                                    <button id="delete" type="submit">Delete</button>
+                                </div>
                             </form>
                         </div>
                     </div>
 
-                        <%})%>%>
-                        </div>
-                        
+                    <%})%>%>
+                </div>
 
 
 
 
 
 
-    <%- include('layout/footer'); -%>
 
+                <%- include('layout/footer'); -%>
