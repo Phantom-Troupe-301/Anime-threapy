@@ -1003,6 +1003,46 @@ footer {
 {
     padding-left: 15px;
 }
+#website-maker1 h2
+{
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+#website-maker1 p
+{
+    font-size: 18px;
+    color: #77132f;
+    font-weight: bold;
+}
+#website-maker2 h2
+{
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+#website-maker2 p
+{
+    font-size: 18px;
+    color: #77132f;
+    font-weight: bold;
+}
+#website-maker3 h2
+{
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+#website-maker3 p
+{
+    font-size: 18px;
+    color: #77132f;
+    font-weight: bold;
+}
+.intro p
+{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+
 
 @keyframes intro {
     0% {
