@@ -3,8 +3,8 @@
         <!-- <%- include('layout/preloader'); -%> -->
         <style>
             #navbar {
-    width: 93%  !important;
-}
+                width: 93% !important;
+            }
         </style>
 
         <body>
@@ -82,7 +82,7 @@
                                             <div class="vcard">
                                                 <div class="anime-box">
                                                     <div class="anime-img">
-                                                        <img src="<%= top[i].image_url%>" alt="death-note">
+                                                        <img src="<%= top[i].image%>" alt="death-note">
                                                     </div>
                                                     <div class="anime-title">
                                                         <h1>
@@ -91,15 +91,21 @@
                                                     </div>
                                                     <div class="anime-details">
                                                         <p>
-                                                            | <span class="rate"> score: <%= top[i].score%> </span> |
+                                                            | <span class="rate"> score: <%= top[i].averageRating%> </span> |
                                                             <br>
                                                             <br>
-                                                            <span><%= top[i].episodesOrVolumes%> episodes</span>
+                                                            <span><%= top[i].episodeCount%> episodes</span>
                                                         </p>
                                                     </div>
-                                          
+                                                    <div id="true">
+                                                        <form action="/detail" method="POST" id="none">
+                                                            <input type="text" name="search" value="<%= top[i].id%>" style="visibility: hidden ">
+                                                            <br><button type="submit" class="more_details">more details</button></form>
+                                                    </div>
+
                                                 </div>
                                             </div>
+
                                             <%} %>
                                     </div>
                                 </div>
@@ -119,18 +125,25 @@
                         <img src="images/logo.png" alt="anime-threapy">
                         <video id="promo" width="620" height="352" autoplay="autoplay" loop>
                             <source src="videos/trailler.mp4" type="video/mp4">
-                          </video> 
-                         
+                          </video>
+
                     </div>
-                    <div class="devices">
-                        <img src="images/image-device2.png" alt="device">
-                        <img src="images/IPad_Air.png" alt="device">
-                        <img src="images/image-device1.png" alt="device">
-                        <img src="images/image6.png" alt="device">
-                        <img src="images/xbox.png" alt="device">
+                    <div class="all_devices">
+                        <div class="devices">
+                            <img src="images/image-device2.png" alt="device">
+                            <img src="images/IPad_Air.png" alt="device">
+                            <img src="images/image-device1.png" alt="device">
+                            <img src="images/image6.png" alt="device">
+                            <img src="images/xbox.png" alt="device">
+                        </div>
+                        <div class="anime_charecter">
+                            <img src="images/Naruto-Pain2.png" alt="" class="painvsnaruto">
+                            <img src="images/narutovssasuke.png" id="narotuvs">
+                            <img src="images/narutovspain.png" alt="" class="painvsnaruto">
+                        </div>
                     </div>
-                  
-                    
+                    <!-- <div class="rasengab">
+		      </div> -->
                 </section>
                 <section id="News-letter">
                     <div class="slider">

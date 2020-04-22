@@ -56,12 +56,19 @@ app.get('/', (req, res) => {
 function Top(topRank) {
     this.rank = topRank.rank;
     this.title = topRank.title;
-    this.image_url = topRank.image_url;
-    this.episodesOrVolumes = topRank.episodes || topRank.volumes || 'sitll';
-    this.type = topRank.type;
-    this.score = topRank.score;
+    this.image = topRank.image_url;
+    this.episodeCount = topRank.episodes || topRank.volumes || 'sitll';
+    this.subtype = topRank.type;
+    this.averageRating = topRank.score;
     this.start_date = topRank.start_date;
     this.end_date = topRank.end_date || 'ongoing';
+    this.title_Japan = topRank.ja_jp || 'not available';
+    this.gener_old = topRank.ageRatingGuide || '+ 13';
+    this.status = topRank.status || 'finished';
+    this.episodeLength = topRank.episodeLength || '20 min per ep ';
+    this.youtubeVideoId = topRank.youtubeVideoId || 'not available';
+    this.synopsis = topRank.synopsis || 'not available';
+    this.id = topRank.mal_id;
 }
 app.post('/anime', animeSaver);
 app.post('/genre', byGenre)
@@ -81,8 +88,8 @@ function animeSaver(req, res) {
         mangaSearch.body.data.map((val) => {
             var mangaData = new Manga(val);
             mangaSumarry.push(mangaData);
-            return mangaSumarry;
         });
+        return mangaSumarry;
     });
     //     console.log('knknlnlknlknlnlkn', url)
     superagent.get(url).then((dataOfAnime) => {
@@ -103,7 +110,7 @@ function Anime(data) {
     this.startDate = data.attributes.startDate;
     this.endDate = data.attributes.endDate;
     this.image = data.attributes.posterImage.large;
-    this.gener_old = data.attributes.ageRatingGuide;
+    this.gener_old = data.attributes.ageRatingGuide || '+ 13';
     this.subtype = data.attributes.subtype;
     this.status = data.attributes.status;
     this.episodeCount = data.attributes.episodeCount;
@@ -130,9 +137,9 @@ function Genre2(data) {
     this.endDate = data.aired.to;
     this.episodeLength = data.duration;
     this.studioName = data.studios;
-    console.log(data.studios,"ammar");
+    //     console.log(data.studios,"ammar");
     this.youtubeVideoId = data.trailer_url;
-    this.gener_old = data.rating
+    this.gener_old = data.rating || '+13';
     this.status = data.status;
     this.genres = data.genres;
 }
@@ -140,19 +147,19 @@ function Genre2(data) {
 function Manga(data) {
     this.title = data.attributes.canonicalTitle;
     this.title_Japan = data.attributes.titles.ja_jp;
-    this.averageRating = data.attributes.averageRating;
+    this.averageRating = data.attributes.averageRating || '6.5';
     this.datestartDate = data.attributes.startDate;
     this.endDate = data.attributes.endDate || 'ongoing';
     this.startDate = data.attributes.startDate;
-    this.gener_old = data.attributes.ageRatingGuide;
+    this.gener_old = data.attributes.ageRatingGuide || '+ 13';
     this.subtype = data.attributes.subtype;
     this.status = data.attributes.status || 'ongoing';
-    this.ratingRank = data.attributes.ratingRank;
+    this.ratingRank = data.attributes.ratingRank || '214';
     this.popularityRank = data.attributes.popularityRank;
     this.chapterCount = data.attributes.chapterCount;
     this.volumeCount = data.attributes.volumeCount;
     this.serialization = data.attributes.serialization;
-    this.cover_image = data.attributes.posterImage.large;
+    this.image = data.attributes.posterImage.large;
     this.image_thumbnail = data.attributes.posterImage.small;
     this.synopsis = data.attributes.synopsis;
     this.id = data.id;
@@ -321,6 +328,7 @@ function addAnime(req, res) {
             } = req.body;
             let SQL = `INSERT INTO  anime (title,image,averageRating,startDate,endDate,gener_old,subtype,status,episodeCount,episodeLength,synopsis,youtubeVideoId) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12);`;
             let safeValues = [title, image, averageRating, startDate, endDate, gener_old, subtype, status, episodeCount, episodeLength, synopsis, youtubeVideoId];
+            console.log(averageRating, 'sadasdasdals,dpassmsmdmdmsd')
             return client.query(SQL, safeValues)
                 .then(() => {
                     res.redirect(`/`);
