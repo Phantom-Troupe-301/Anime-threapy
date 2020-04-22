@@ -88,8 +88,8 @@ function animeSaver(req, res) {
         mangaSearch.body.data.map((val) => {
             var mangaData = new Manga(val);
             mangaSumarry.push(mangaData);
-            return mangaSumarry;
         });
+        return mangaSumarry;
     });
     //     console.log('knknlnlknlknlnlkn', url)
     superagent.get(url).then((dataOfAnime) => {
