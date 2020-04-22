@@ -1,3 +1,9 @@
+*
+{
+    margin:0;
+    padding: 0;
+    font-family: sans-serif;
+}
 #AboutUs{
     text-align: center;
     color: #f3f3f3;
@@ -6,99 +12,80 @@
 }
   
 
-h3{
+h3 {
     text-align: center;
     color: #000069;
-    margin-top: 44px;
+    margin-top: 9%;
     font-size: 32px;
+    margin-bottom: 39px;
     font-weight: bold;
 }
 hr{
     width:143px;
     color:white;
 }
-.member {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 268px;
-    height: 339px;
-    background: url(../images/red-blue-background.jpg);
-    border: 1px solid black;
-    color: #f3f3f3;
-    font-weight: bold;
-    font-size: 20px;
-}
-.img-div img {
-    width:150px;
-    height: 150px;
-}
-.member-data{
-    text-align: center;
-    margin-top: 74px;
-}
-#members-box {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 0%;
-    margin-bottom: 4%;
-}
-.member-info{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-top: 4%;
-}
-#team-intro {
-    margin-top: 15%;
-}
-#member-data
+.team-section
 {
-    margin: 5% 11%;
+    overflow: hidden;
+    text-align: center;
+    padding: 60px;
+    color: #000000;
 }
-#bodycard {
-    width: 250px;
-    height: 300px;
-    perspective: 1000px;
+.ps
+{
+    margin-bottom: 40px;
+}
+.ps span
+{
     display: inline-block;
-    margin-left: 6%;
+    margin: 0 30px;
+    width: 160px;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 50%;
 }
-#bodycard #card
+.ps img {
+    width: 100%;
+    filter: grayscale(100%);
+    transition: all 0.4s ;
+    cursor: pointer;
+}
+.ps img:hover
 {
-    position:absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    transform-style: preserve-3d;
+    filter: none;
 }
-#bodycard #card #frontend
+.owner-section
 {
-    width: 100%;
-    height: 320px;
-    position: absolute;
-    top:0;
-    left: 0;
+    width: 600px;
+    margin: auto;
+    font-size: 20px;
+    color: #000000;
+    text-align: justify;
+    height: 0;
+    overflow: hidden;
 }
-#bodycard #card #backcard {
-    background: url(../images/red-blue-background.jpg);
-    width: 100%;
-    height: 340px;
-    position: absolute;
-    top: 0px;
+.name
+{
+    display: block;
+    margin-bottom: 30px;
     text-align: center;
-    left: 0;
-    transform: rotateY(180deg);
+    text-transform: uppercase;
+    font-size: 22px;
 }
-#bodycard:hover #card
+.owner-section:target
 {
-transform: rotateY(180deg);
+    height: auto;
 }
-#backcard img
+.border
 {
-    padding-top: 20%;
+    display: block;
+    margin: auto;
+    width: 160px;
+    height: 3px;
+    background:#3498db;
+    margin-bottom: 40px;
+}
+.intro
+{
+    color: #000000;
 }
