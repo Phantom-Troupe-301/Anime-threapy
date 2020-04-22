@@ -248,7 +248,7 @@ app.post('/', (req, res) => {
     }
     var JSONdata = JSON.stringify(data);
     var options = {
-        url: 'https://us19.api.mailchimp.com/3.0/lists/b79d94076d',
+        url: 'https://us19.api.mailchimp.com/3.0/lists/5baa312099',
         method: 'POST',
         headers: {
             "Authorization": "alaa c2022d468ec18180c4be2692c07ad7e9-us19"
@@ -281,7 +281,7 @@ app.post('/contact', (req, res) => {
     }
     var JSONdata = JSON.stringify(data);
     var options = {
-        url: 'https://us19.api.mailchimp.com/3.0/lists/b79d94076d',
+        url: 'https://us19.api.mailchimp.com/3.0/lists/5baa312099',
         method: 'POST',
         headers: {
             "Authorization": "alaa c2022d468ec18180c4be2692c07ad7e9-us19"
